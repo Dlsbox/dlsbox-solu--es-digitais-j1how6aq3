@@ -31,15 +31,17 @@ export function Button({
       {...otherProps}
     >
       <div
-        className={cn('absolute inset-0 z-0', borderClassName)}
+        className={cn('absolute inset-0 z-0 overflow-hidden', borderClassName)}
         style={{
           borderRadius: borderRadius,
         }}
       >
-        <div
-          className="absolute left-1/2 top-1/2 aspect-square w-[300%] origin-center -translate-x-1/2 -translate-y-1/2 animate-spin bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,transparent_75%,blue_100%)]"
-          style={{ animationDuration: `${duration}ms` }}
-        />
+        <div className="absolute left-1/2 top-1/2 aspect-square w-[300%] -translate-x-1/2 -translate-y-1/2">
+          <div
+            className="h-full w-full animate-spin rounded-full bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,transparent_75%,blue_100%)]"
+            style={{ animationDuration: `${duration}ms` }}
+          />
+        </div>
       </div>
       <div
         className={cn('relative z-10 flex h-full w-full items-center justify-center', className)}

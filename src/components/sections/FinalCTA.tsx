@@ -37,7 +37,7 @@ export function FinalCTA() {
         >
           <MovingBorderButton
             containerClassName="w-full sm:w-auto h-14 hover:scale-[1.02] transition-transform shadow-[0_0_20px_rgba(37,211,102,0.3)]"
-            className="px-8 text-base bg-[#25D366] text-white font-medium gap-2"
+            className="px-8 text-base bg-[#25D366] text-white font-medium gap-2 flex items-center justify-center"
             borderRadius="1.75rem"
             onClick={() => window.open('https://wa.me/5500000000000', '_blank')}
           >

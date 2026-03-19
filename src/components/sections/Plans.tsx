@@ -1,6 +1,6 @@
 import { Reveal } from '@/components/ui/reveal'
 import { BentoCard } from '@/components/ui/bento-card'
-import { Button } from '@/components/ui/button'
+import { Button as MovingBorderButton } from '@/components/ui/moving-border'
 import { cn } from '@/lib/utils'
 import { Terminal, TypingAnimation, AnimatedSpan } from '@/components/ui/terminal'
 
@@ -77,9 +77,14 @@ export function Plans() {
                   </Terminal>
                 </div>
 
-                <Button variant={p.highlight ? 'default' : 'outline'} className="w-full mt-auto">
+                <MovingBorderButton
+                  containerClassName="w-full mt-auto h-11 hover:scale-[1.02] transition-transform shadow-sm"
+                  className="w-full text-white font-medium bg-[#25D366] flex items-center justify-center"
+                  borderRadius="1.75rem"
+                  onClick={() => window.open('https://wa.me/5500000000000', '_blank')}
+                >
                   Solicitar Proposta
-                </Button>
+                </MovingBorderButton>
               </BentoCard>
             </Reveal>
           ))}
