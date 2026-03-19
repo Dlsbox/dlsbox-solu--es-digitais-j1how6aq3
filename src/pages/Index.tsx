@@ -7,6 +7,7 @@ import { Products } from '@/components/sections/Products'
 import { Plans } from '@/components/sections/Plans'
 import { Contact } from '@/components/sections/Contact'
 import { FinalCTA } from '@/components/sections/FinalCTA'
+import { FloatingWhatsApp } from '@/components/FloatingWhatsApp'
 
 export default function Index() {
   return (
@@ -20,6 +21,7 @@ export default function Index() {
       <Plans />
       <Contact />
       <FinalCTA />
+      <FloatingWhatsApp />
     </div>
   )
 }

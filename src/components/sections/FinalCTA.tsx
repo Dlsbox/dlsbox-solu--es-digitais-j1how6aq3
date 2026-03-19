@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { Button } from '@/components/ui/button'
+import { Button as MovingBorderButton } from '@/components/ui/moving-border'
 import { MessageCircle, Mail } from 'lucide-react'
 import { LampContainer } from '@/components/ui/lamp'
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer'
@@ -34,12 +35,14 @@ export function FinalCTA() {
             isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10',
           )}
         >
-          <Button
-            size="lg"
-            className="w-full sm:w-auto px-8 rounded-full h-14 text-base shadow-[0_0_20px_rgba(var(--primary),0.2)] hover:scale-[1.02] transition-transform"
+          <MovingBorderButton
+            containerClassName="w-full sm:w-auto h-14 hover:scale-[1.02] transition-transform shadow-[0_0_20px_rgba(37,211,102,0.3)]"
+            className="px-8 text-base bg-[#25D366] text-white font-medium gap-2"
+            borderRadius="1.75rem"
+            onClick={() => window.open('https://wa.me/5500000000000', '_blank')}
           >
-            <MessageCircle className="w-5 h-5 mr-2" /> Chamar no WhatsApp
-          </Button>
+            <MessageCircle className="w-5 h-5 text-white" /> Chamar no WhatsApp
+          </MovingBorderButton>
           <Button
             size="lg"
             variant="outline"
