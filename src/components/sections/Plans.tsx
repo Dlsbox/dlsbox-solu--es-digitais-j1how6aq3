@@ -3,6 +3,7 @@ import { BentoCard } from '@/components/ui/bento-card'
 import { Button } from '@/components/ui/button'
 import { Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { Terminal, TypingAnimation, AnimatedSpan } from '@/components/ui/terminal'
 
 const plans = [
   {
@@ -10,6 +11,7 @@ const plans = [
     desc: 'Presença digital básica.',
     features: ['Até 5 seções', 'Design Responsivo', 'Botão WhatsApp Flutuante'],
     highlight: false,
+    isTerminal: true,
   },
   {
     name: 'Conversão',
@@ -53,24 +55,48 @@ export function Plans() {
                 )}
                 <h3 className="text-2xl font-display font-bold mb-2 text-foreground">{p.name}</h3>
                 <p className="text-sm text-muted-foreground mb-8">{p.desc}</p>
-                <ul className="space-y-4 mb-10 flex-1">
-                  {p.features.map((f, j) => (
-                    <li key={j} className="flex items-center gap-3 text-sm">
-                      <div
-                        className={cn(
-                          'rounded-full p-1',
-                          p.highlight
-                            ? 'bg-primary/20 text-primary'
-                            : 'bg-muted text-muted-foreground',
-                        )}
-                      >
-                        <Check className="w-3 h-3" />
-                      </div>
-                      <span className="text-foreground/90 font-medium">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button variant={p.highlight ? 'default' : 'outline'} className="w-full">
+
+                {p.isTerminal ? (
+                  <div className="flex-1 mb-10 relative overflow-hidden min-h-[200px]">
+                    <Terminal className="absolute inset-0 h-full w-full">
+                      <TypingAnimation delay={0}>
+                        &gt; dlsbox setup --plan essencial
+                      </TypingAnimation>
+                      <AnimatedSpan delay={1500} className="text-green-500">
+                        ✔ Até 5 seções
+                      </AnimatedSpan>
+                      <AnimatedSpan delay={1800} className="text-green-500">
+                        ✔ Design Responsivo
+                      </AnimatedSpan>
+                      <AnimatedSpan delay={2100} className="text-green-500">
+                        ✔ Botão WhatsApp Flutuante
+                      </AnimatedSpan>
+                      <TypingAnimation delay={2500} className="text-muted-foreground mt-2">
+                        Sucesso! Plano Essencial configurado.
+                      </TypingAnimation>
+                    </Terminal>
+                  </div>
+                ) : (
+                  <ul className="space-y-4 mb-10 flex-1">
+                    {p.features.map((f, j) => (
+                      <li key={j} className="flex items-center gap-3 text-sm">
+                        <div
+                          className={cn(
+                            'rounded-full p-1',
+                            p.highlight
+                              ? 'bg-primary/20 text-primary'
+                              : 'bg-muted text-muted-foreground',
+                          )}
+                        >
+                          <Check className="w-3 h-3" />
+                        </div>
+                        <span className="text-foreground/90 font-medium">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                <Button variant={p.highlight ? 'default' : 'outline'} className="w-full mt-auto">
                   Solicitar Proposta
                 </Button>
               </BentoCard>
