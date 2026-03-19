@@ -1,7 +1,8 @@
 import { Reveal } from '@/components/ui/reveal'
 import { BentoCard } from '@/components/ui/bento-card'
 import { ArrowUpRight, LineChart, Type } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Button as MovingBorderButton } from '@/components/ui/moving-border'
+import { Badge } from '@/components/ui/badge'
 
 export function Products() {
   return (
@@ -15,51 +16,61 @@ export function Products() {
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Reveal delay={100}>
+          <Reveal delay={100} className="h-full">
             <BentoCard className="bg-background group h-full flex flex-col">
               <div className="flex justify-between items-start mb-10">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
                   <LineChart className="w-6 h-6" />
                 </div>
-                <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full border border-primary/20">
+                <Badge
+                  variant="outline"
+                  className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 px-3 py-1 text-xs font-semibold"
+                >
                   Em breve
-                </span>
+                </Badge>
               </div>
               <h3 className="text-2xl font-display font-bold mb-3">Tracker</h3>
               <p className="text-muted-foreground mb-8 text-base leading-relaxed flex-1">
                 Dashboard financeiro e métricas avançadas criadas especificamente para
                 infoprodutores e negócios digitais que precisam de precisão.
               </p>
-              <Button
-                variant="outline"
-                className="w-fit gap-2 group-hover:border-primary group-hover:text-primary transition-colors"
+              <MovingBorderButton
+                containerClassName="w-full sm:w-fit h-11 hover:scale-[1.02] transition-transform shadow-sm mt-auto"
+                className="px-6 text-white font-medium bg-[#25D366] flex items-center justify-center gap-2"
+                borderRadius="1.75rem"
+                onClick={() => window.open('https://tracker.dlsbox.com', '_blank')}
               >
                 Acessar Tracker <ArrowUpRight className="w-4 h-4" />
-              </Button>
+              </MovingBorderButton>
             </BentoCard>
           </Reveal>
 
-          <Reveal delay={200}>
+          <Reveal delay={200} className="h-full">
             <BentoCard className="bg-background group h-full flex flex-col">
               <div className="flex justify-between items-start mb-10">
                 <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary border border-secondary/20">
                   <Type className="w-6 h-6" />
                 </div>
-                <span className="px-3 py-1 bg-secondary/10 text-secondary text-xs font-semibold rounded-full border border-secondary/20">
+                <Badge
+                  variant="outline"
+                  className="bg-secondary/10 text-secondary border-secondary/20 hover:bg-secondary/20 px-3 py-1 text-xs font-semibold"
+                >
                   Beta
-                </span>
+                </Badge>
               </div>
               <h3 className="text-2xl font-display font-bold mb-3">Logos</h3>
               <p className="text-muted-foreground mb-8 text-base leading-relaxed flex-1">
                 Ferramenta inteligente focada em estruturação de conteúdo e copy para suas páginas,
                 gerando narrativas que convertem.
               </p>
-              <Button
-                variant="outline"
-                className="w-fit gap-2 group-hover:border-secondary group-hover:text-secondary transition-colors"
+              <MovingBorderButton
+                containerClassName="w-full sm:w-fit h-11 hover:scale-[1.02] transition-transform shadow-sm mt-auto"
+                className="px-6 text-white font-medium bg-[#25D366] flex items-center justify-center gap-2"
+                borderRadius="1.75rem"
+                onClick={() => window.open('https://logos.dlsbox.com', '_blank')}
               >
                 Acessar Logos <ArrowUpRight className="w-4 h-4" />
-              </Button>
+              </MovingBorderButton>
             </BentoCard>
           </Reveal>
         </div>
