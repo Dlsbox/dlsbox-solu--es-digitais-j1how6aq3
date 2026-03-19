@@ -6,7 +6,10 @@ export function Logo({ className }: { className?: string }) {
       viewBox="0 0 340 80"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn('w-auto h-full', className)}
+      className={cn(
+        'w-auto h-full transition-all duration-300 hover:scale-105 hover:brightness-110',
+        className,
+      )}
     >
       {/* Background - explicitly requested as #0E0E12 */}
       <rect width="340" height="80" rx="12" fill="#0E0E12" />
@@ -38,7 +41,7 @@ export function Logo({ className }: { className?: string }) {
         fontFamily="Outfit, sans-serif"
         fontWeight="400"
         fontSize="11"
-        fill="rgba(240,235,225,0.28)"
+        fill="rgba(240,235,225,0.8)"
         letterSpacing="3.5"
       >
         SOLUÇÕES DIGITAIS
