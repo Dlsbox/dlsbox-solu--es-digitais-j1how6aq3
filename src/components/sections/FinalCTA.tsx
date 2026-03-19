@@ -23,7 +23,7 @@ export function FinalCTA() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 size="lg"
-                className="w-full sm:w-auto rounded-full px-8 h-14 group text-base shadow-[0_0_20px_rgba(198,241,53,0.3)] hover:shadow-[0_0_30px_rgba(198,241,53,0.5)] hover:scale-105 transition-all"
+                className="w-full sm:w-auto rounded-full px-8 h-14 group text-base shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] hover:scale-105 transition-all"
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Falar no WhatsApp

@@ -29,7 +29,7 @@ function Step({
         className={cn(
           'relative z-10 flex w-12 h-12 shrink-0 items-center justify-center rounded-full border-2 transition-colors',
           active
-            ? 'bg-primary border-primary text-primary-foreground shadow-[0_0_15px_rgba(198,241,53,0.3)]'
+            ? 'bg-primary border-primary text-primary-foreground shadow-[0_0_15px_rgba(59,130,246,0.3)]'
             : 'bg-card border-border text-muted-foreground',
         )}
       >
@@ -70,7 +70,7 @@ export function Evolution() {
               Acompanhamos o seu negócio desde o primeiro passo no digital até a criação de
               ecossistemas complexos. Você não precisa trocar de agência quando crescer.
             </p>
-            <div className="aspect-square w-full max-w-md rounded-full bg-gradient-to-tr from-primary/20 via-blue-500/10 to-transparent blur-[100px] absolute -z-10 opacity-60 pointer-events-none" />
+            <div className="aspect-square w-full max-w-md rounded-full bg-gradient-to-tr from-primary/20 via-brown-500/10 to-transparent blur-[100px] absolute -z-10 opacity-60 pointer-events-none" />
           </Reveal>
 
           <Reveal delay={200}>

@@ -20,7 +20,7 @@ export function Marquee() {
       <div className="marquee-content flex items-center">
         {extendedItems.map((item, i) => (
           <div key={i} className="flex items-center mx-6">
-            <div className="w-2 h-2 rounded-full bg-primary mr-4 shadow-[0_0_10px_#C6F135]" />
+            <div className="w-2 h-2 rounded-full bg-primary mr-4 shadow-[0_0_10px_#3B82F6]" />
             <span className="font-display font-medium text-lg tracking-wide text-primary">
               {item}
             </span>

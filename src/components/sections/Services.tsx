@@ -48,8 +48,8 @@ export function Services() {
           <Reveal className="md:col-span-5 h-full" delay={200}>
             <GlowCard className="h-full flex flex-col justify-between group">
               <div>
-                <div className="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors">
-                  <MonitorSmartphone className="w-7 h-7 text-blue-500" />
+                <div className="w-14 h-14 rounded-xl bg-brown-500/10 flex items-center justify-center mb-6 border border-brown-500/20 group-hover:bg-brown-500/20 transition-colors">
+                  <MonitorSmartphone className="w-7 h-7 text-brown-500" />
                 </div>
                 <h3 className="text-2xl font-display font-bold mb-3">Sites para negócios</h3>
                 <p className="text-muted-foreground text-lg leading-relaxed">
@@ -63,8 +63,8 @@ export function Services() {
           <Reveal className="md:col-span-12 h-full" delay={300}>
             <GlowCard className="h-full flex flex-col md:flex-row items-center gap-8 group">
               <div className="flex-1">
-                <div className="w-14 h-14 rounded-xl bg-purple-500/10 flex items-center justify-center mb-6 border border-purple-500/20 group-hover:bg-purple-500/20 transition-colors">
-                  <Braces className="w-7 h-7 text-purple-400" />
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/20 group-hover:bg-primary/20 transition-colors">
+                  <Braces className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="text-2xl font-display font-bold mb-3">
                   Sistemas Personalizados & SaaS
@@ -77,9 +77,10 @@ export function Services() {
                   Conhecer tecnologias usadas
                 </button>
               </div>
-              <div className="w-full md:w-1/3 aspect-video md:aspect-square bg-gradient-to-br from-card to-secondary rounded-xl border border-border/50 overflow-hidden relative">
+              <div className="w-full md:w-1/3 aspect-video md:aspect-square bg-gradient-to-br from-card to-background rounded-xl border border-border/50 overflow-hidden relative">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-purple-500/20 blur-[50px] rounded-full" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-primary/20 blur-[50px] rounded-full" />
+                <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-brown-500/20 blur-[40px] rounded-full" />
               </div>
             </GlowCard>
           </Reveal>

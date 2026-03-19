@@ -48,7 +48,7 @@ export function Differentials() {
           {features.map((f, i) => (
             <Reveal key={i} delay={i * 100}>
               <div className="p-8 rounded-[var(--r)] bg-secondary/30 border border-border hover:border-primary/50 transition-colors group h-full cursor-default">
-                <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center mb-6 text-muted-foreground group-hover:text-primary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(198,241,53,0.3)] transition-all border border-border">
+                <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center mb-6 text-muted-foreground group-hover:text-primary group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all border border-border">
                   <f.icon className="w-5 h-5" />
                 </div>
                 <h4 className="text-xl font-display font-semibold mb-3 text-foreground">

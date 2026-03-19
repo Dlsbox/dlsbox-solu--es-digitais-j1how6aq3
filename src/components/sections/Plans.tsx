@@ -73,7 +73,7 @@ export function Plans() {
                 className={cn(
                   'relative flex flex-col h-full rounded-[var(--r2)] p-8 transition-transform duration-300 hover:-translate-y-2',
                   p.highlight
-                    ? 'bg-card border-primary/50 shadow-[0_0_30px_rgba(198,241,53,0.1)]'
+                    ? 'bg-gradient-to-b from-primary/10 to-card border-primary/50 shadow-[0_0_30px_rgba(59,130,246,0.15)]'
                     : 'bg-card/30 border-border hover:border-border/80',
                 )}
               >
@@ -107,7 +107,7 @@ export function Plans() {
                   className={cn(
                     'w-full h-12 text-base font-medium',
                     p.highlight
-                      ? 'shadow-[0_0_15px_rgba(198,241,53,0.2)] hover:shadow-[0_0_20px_rgba(198,241,53,0.4)] hover:scale-[1.02] transition-all'
+                      ? 'shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:scale-[1.02] transition-all'
                       : 'bg-transparent hover:bg-white/5',
                   )}
                 >

@@ -57,7 +57,7 @@ export function Hero() {
         }}
       />
       <div
-        className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-blue-500/20 rounded-full blur-[120px] mix-blend-screen opacity-50 transition-transform duration-100 ease-out pointer-events-none"
+        className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-brown-500/20 rounded-full blur-[120px] mix-blend-screen opacity-50 transition-transform duration-100 ease-out pointer-events-none"
         style={{
           transform: `translate(${(position.x - (typeof window !== 'undefined' ? window.innerWidth : 1000) / 2) * -0.05}px, ${(position.y - (typeof window !== 'undefined' ? window.innerHeight : 800) / 2) * -0.05}px)`,
         }}
@@ -81,7 +81,7 @@ export function Hero() {
             Criamos sites, sistemas e{' '}
             <span className="text-stroke-transparent relative inline-block">
               estrutura
-              <span className="absolute inset-0 bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent opacity-30 blur-sm">
+              <span className="absolute inset-0 bg-gradient-to-r from-primary to-brown-500 bg-clip-text text-transparent opacity-50 blur-sm">
                 estrutura
               </span>
             </span>
@@ -102,7 +102,7 @@ export function Hero() {
           <Button
             size="lg"
             onClick={handleScrollToCta}
-            className="w-full sm:w-auto rounded-full px-8 text-base h-14 group shadow-[0_0_20px_rgba(198,241,53,0.3)] hover:shadow-[0_0_30px_rgba(198,241,53,0.5)] hover:scale-105 transition-all"
+            className="w-full sm:w-auto rounded-full px-8 text-base h-14 group shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] hover:scale-105 transition-all"
           >
             Solicitar orçamento
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

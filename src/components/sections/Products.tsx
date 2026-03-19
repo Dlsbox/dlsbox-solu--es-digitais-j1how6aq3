@@ -14,9 +14,9 @@ export function Products() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Reveal delay={100}>
-            <div className="group relative overflow-hidden rounded-[var(--r2)] border border-blue-500/20 bg-gradient-to-b from-blue-950/40 to-background p-8 md:p-10 aspect-square md:aspect-auto md:h-[400px] flex flex-col justify-between cursor-pointer">
+            <div className="group relative overflow-hidden rounded-[var(--r2)] border border-primary/20 bg-gradient-to-b from-primary/10 to-background p-8 md:p-10 aspect-square md:aspect-auto md:h-[400px] flex flex-col justify-between cursor-pointer">
               <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0">
-                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
                   <ArrowUpRight className="w-6 h-6" />
                 </div>
               </div>
@@ -24,7 +24,7 @@ export function Products() {
               <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none group-hover:scale-105 transition-transform duration-500">
                 <svg
                   viewBox="0 0 200 200"
-                  className="w-full h-full text-blue-500 max-w-[80%]"
+                  className="w-full h-full text-primary max-w-[80%]"
                   strokeWidth="1"
                   stroke="currentColor"
                   fill="none"
@@ -37,11 +37,11 @@ export function Products() {
               </div>
 
               <div className="relative z-10 mt-auto">
-                <div className="inline-block px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/20 mb-4">
+                <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full border border-primary/20 mb-4">
                   Em breve
                 </div>
                 <h3 className="text-3xl font-display font-bold text-foreground mb-2">Tracker</h3>
-                <p className="text-blue-200/60 max-w-sm text-lg">
+                <p className="text-primary/80 max-w-sm text-lg">
                   Visualização financeira e métricas avançadas para negócios digitais.
                 </p>
               </div>
@@ -49,9 +49,9 @@ export function Products() {
           </Reveal>
 
           <Reveal delay={200}>
-            <div className="group relative overflow-hidden rounded-[var(--r2)] border border-primary/20 bg-gradient-to-b from-[#3a4710]/40 to-background p-8 md:p-10 aspect-square md:aspect-auto md:h-[400px] flex flex-col justify-between cursor-pointer">
+            <div className="group relative overflow-hidden rounded-[var(--r2)] border border-brown-500/20 bg-gradient-to-b from-brown-900/40 to-background p-8 md:p-10 aspect-square md:aspect-auto md:h-[400px] flex flex-col justify-between cursor-pointer">
               <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0">
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                <div className="w-12 h-12 rounded-full bg-brown-500/20 flex items-center justify-center text-brown-500">
                   <ArrowUpRight className="w-6 h-6" />
                 </div>
               </div>
@@ -59,7 +59,7 @@ export function Products() {
               <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none group-hover:scale-105 transition-transform duration-500">
                 <svg
                   viewBox="0 0 200 200"
-                  className="w-full h-full text-primary max-w-[80%]"
+                  className="w-full h-full text-brown-500 max-w-[80%]"
                   strokeWidth="1.5"
                   stroke="currentColor"
                   fill="none"
@@ -80,11 +80,11 @@ export function Products() {
               </div>
 
               <div className="relative z-10 mt-auto">
-                <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full border border-primary/20 mb-4">
+                <div className="inline-block px-3 py-1 bg-brown-500/10 text-brown-500 text-xs font-semibold rounded-full border border-brown-500/20 mb-4">
                   Beta
                 </div>
                 <h3 className="text-3xl font-display font-bold text-foreground mb-2">Logos</h3>
-                <p className="text-primary/60 max-w-sm text-lg">
+                <p className="text-brown-500/80 max-w-sm text-lg">
                   Estruturação de conteúdo e copy inteligente para suas páginas.
                 </p>
               </div>

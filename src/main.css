@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 230 46% 4%;
-    --foreground: 228 33% 95%;
+    --background: 222 47% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 228 30% 7%;
-    --card-foreground: 228 33% 95%;
+    --card: 222 47% 10%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 228 30% 7%;
-    --popover-foreground: 228 33% 95%;
+    --popover: 222 47% 10%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 74 88% 58%;
-    --primary-foreground: 230 46% 4%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 228 38% 11%;
-    --secondary-foreground: 228 33% 95%;
+    --secondary: 25 75% 45%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 228 38% 11%;
-    --muted-foreground: 223 11% 40%;
+    --muted: 222 47% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 74 88% 58%;
-    --accent-foreground: 230 46% 4%;
+    --accent: 25 75% 45%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 228 38% 11%;
-    --input: 228 38% 11%;
-    --ring: 74 88% 58%;
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
+    --ring: 217 91% 60%;
 
     --radius: 0.875rem;
     --r: 0.875rem;
@@ -46,7 +46,7 @@
 
 @layer utilities {
   .text-stroke-transparent {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
     color: transparent;
   }
 
