@@ -8,41 +8,36 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
+    const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const scrollTo = (id: string) => {
-    const el = document.getElementById(id)
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' })
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled ? 'glass-nav py-3' : 'bg-transparent py-5',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent',
+        scrolled ? 'bg-background/90 backdrop-blur-md border-border py-4' : 'bg-transparent py-6',
       )}
     >
       <div className="container mx-auto px-4 md:px-10 flex items-center justify-between">
         <div
-          className="flex items-center gap-2 cursor-pointer"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="flex items-center gap-3 cursor-pointer"
+          onClick={() => window.scrollTo(0, 0)}
         >
-          <div className="w-8 h-8 rounded bg-primary flex items-center justify-center font-display font-bold text-primary-foreground text-lg transition-colors duration-300">
+          <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center font-display font-bold text-primary-foreground text-lg">
             D
           </div>
-          <span className="font-display font-semibold text-lg tracking-tight hidden sm:block transition-colors duration-300">
+          <span className="font-display font-bold text-xl tracking-tight hidden sm:block">
             DLSBox
           </span>
         </div>
 
-        <nav className="hidden md:flex items-center gap-1 bg-secondary/10 dark:bg-secondary/50 backdrop-blur-md rounded-full px-2 py-1 border border-border/50 transition-colors duration-300">
+        <nav className="hidden md:flex items-center gap-1 bg-muted/50 rounded-full px-2 py-1.5 border border-border/50">
           {['Soluções', 'Evolução', 'Produtos', 'Planos'].map((item) => (
             <button
               key={item}
@@ -54,7 +49,7 @@ export function Navbar() {
                     .replace(/[\u0300-\u036f]/g, ''),
                 )
               }
-              className="px-4 py-2 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+              className="px-4 py-1.5 rounded-full text-sm font-semibold text-muted-foreground hover:text-foreground hover:bg-background transition-colors"
             >
               {item}
             </button>
@@ -64,11 +59,10 @@ export function Navbar() {
         <div className="flex items-center gap-2 md:gap-4">
           <ThemeToggle />
           <Button
-            className="hidden sm:flex rounded-full px-6 group transition-colors duration-300"
+            className="hidden sm:flex rounded-full px-6 shadow-sm"
             onClick={() => scrollTo('cta')}
           >
-            Orçamento
-            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            Orçamento <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="w-5 h-5" />
