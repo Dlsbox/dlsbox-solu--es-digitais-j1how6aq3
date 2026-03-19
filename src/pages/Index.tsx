@@ -5,6 +5,7 @@ import { Evolution } from '@/components/sections/Evolution'
 import { Differentials } from '@/components/sections/Differentials'
 import { Products } from '@/components/sections/Products'
 import { Plans } from '@/components/sections/Plans'
+import { Contact } from '@/components/sections/Contact'
 import { FinalCTA } from '@/components/sections/FinalCTA'
 
 export default function Index() {
@@ -17,6 +18,7 @@ export default function Index() {
       <Differentials />
       <Products />
       <Plans />
+      <Contact />
       <FinalCTA />
     </div>
   )
