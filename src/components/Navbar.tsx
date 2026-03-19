@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Menu } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { ThemeToggle } from './ThemeToggle'
+import { Logo } from './Logo'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -25,17 +27,13 @@ export function Navbar() {
       )}
     >
       <div className="container mx-auto px-4 md:px-10 flex items-center justify-between">
-        <div
-          className="flex items-center gap-3 cursor-pointer"
+        <Link
+          to="/"
+          className="flex items-center cursor-pointer transition-transform hover:scale-105 duration-300"
           onClick={() => window.scrollTo(0, 0)}
         >
-          <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center font-display font-bold text-primary-foreground text-lg">
-            D
-          </div>
-          <span className="font-display font-bold text-xl tracking-tight hidden sm:block">
-            DLSBox
-          </span>
-        </div>
+          <Logo className="h-10 sm:h-12 w-auto" />
+        </Link>
 
         <nav className="hidden md:flex items-center gap-1 bg-muted/50 rounded-full px-2 py-1.5 border border-border/50">
           {['Soluções', 'Evolução', 'Produtos', 'Planos'].map((item) => (

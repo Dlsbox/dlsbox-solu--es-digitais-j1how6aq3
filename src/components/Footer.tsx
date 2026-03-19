@@ -1,19 +1,19 @@
 import { ArrowUpRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Logo } from './Logo'
 
 export function Footer() {
   return (
     <footer className="border-t border-border bg-card pt-16 pb-8 px-4 md:px-10 mt-10">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
         <div className="md:col-span-2">
-          <div
-            className="flex items-center gap-3 mb-6 cursor-pointer"
+          <Link
+            to="/"
+            className="inline-flex items-center mb-6 cursor-pointer transition-transform hover:scale-105 duration-300"
             onClick={() => window.scrollTo(0, 0)}
           >
-            <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center font-display font-bold text-primary-foreground text-lg">
-              D
-            </div>
-            <span className="font-display font-bold text-xl tracking-tight">DLSBox</span>
-          </div>
+            <Logo className="h-10 sm:h-12 w-auto" />
+          </Link>
           <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
             Estruturas digitais inteligentes e modulares, projetadas especificamente para escalar
             negócios.
