@@ -40,7 +40,7 @@ export function GlowCard({ children, className, ...props }: GlowCardProps) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        'relative overflow-hidden rounded-[var(--r2)] border border-border/50 bg-card/40 p-8 transition-colors hover:border-border',
+        'relative overflow-hidden rounded-[var(--r2)] border border-border/50 bg-card/70 dark:bg-card/40 p-8 shadow-sm transition-colors duration-300 hover:border-border hover:shadow-md dark:shadow-none dark:hover:shadow-none',
         className,
       )}
       {...props}
@@ -49,7 +49,7 @@ export function GlowCard({ children, className, ...props }: GlowCardProps) {
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
         style={{
           opacity,
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(59,130,246,0.08), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, var(--glow-color), transparent 40%)`,
         }}
       />
       <div className="relative z-10 h-full">{children}</div>

@@ -6,7 +6,7 @@ import { NoiseOverlay } from './NoiseOverlay'
 
 export default function Layout() {
   return (
-    <div className="relative min-h-screen bg-background text-foreground flex flex-col overflow-x-hidden">
+    <div className="relative min-h-screen bg-background text-foreground flex flex-col overflow-x-hidden transition-colors duration-300">
       <CustomCursor />
       <NoiseOverlay />
       <Navbar />
