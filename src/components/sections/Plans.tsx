@@ -79,7 +79,7 @@ export function Plans() {
 
                 <MovingBorderButton
                   containerClassName="w-full mt-auto h-11 hover:scale-[1.02] transition-transform shadow-sm"
-                  className="w-full text-white font-medium bg-[#25D366] flex items-center justify-center"
+                  className="w-full text-white font-medium bg-blue-600 flex items-center justify-center"
                   borderRadius="1.75rem"
                   onClick={() => window.open('https://wa.me/5500000000000', '_blank')}
                 >
