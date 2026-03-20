@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Logo } from './Logo'
 
@@ -14,10 +14,17 @@ export function Footer() {
           >
             <Logo className="h-10 sm:h-12 w-auto" />
           </Link>
-          <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
+          <p className="text-muted-foreground text-sm max-w-sm leading-relaxed mb-6">
             Estruturas digitais inteligentes e modulares, projetadas especificamente para escalar
             negócios.
           </p>
+          <a
+            href="mailto:suporte@dlsbox.com"
+            className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+          >
+            <Mail className="w-4 h-4" />
+            suporte@dlsbox.com
+          </a>
         </div>
         <div>
           <h4 className="font-display font-bold mb-5 text-sm uppercase tracking-wider text-foreground">

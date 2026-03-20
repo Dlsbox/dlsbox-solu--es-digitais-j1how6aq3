@@ -44,11 +44,14 @@ export function FinalCTA() {
             <MessageCircle className="w-5 h-5 text-white" /> Chamar no WhatsApp
           </MovingBorderButton>
           <Button
+            asChild
             size="lg"
             variant="outline"
             className="w-full sm:w-auto px-8 rounded-full h-14 bg-background/50 backdrop-blur-md text-base hover:bg-background/80 hover:scale-[1.02] transition-transform border-border/50"
           >
-            <Mail className="w-5 h-5 mr-2" /> Enviar E-mail
+            <a href="mailto:suporte@dlsbox.com">
+              <Mail className="w-5 h-5 mr-2" /> suporte@dlsbox.com
+            </a>
           </Button>
         </div>
       </LampContainer>

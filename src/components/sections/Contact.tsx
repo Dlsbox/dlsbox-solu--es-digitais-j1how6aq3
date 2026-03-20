@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { Send } from 'lucide-react'
+import { Send, Mail } from 'lucide-react'
 
 export function Contact() {
   return (
@@ -19,9 +19,18 @@ export function Contact() {
         <div className="max-w-4xl mx-auto">
           <Reveal className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Inicie seu Projeto</h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground text-lg mb-6">
               Conte-nos sobre a sua necessidade e apresentaremos a melhor estrutura.
             </p>
+            <div className="flex justify-center">
+              <a
+                href="mailto:suporte@dlsbox.com"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors font-medium text-sm"
+              >
+                <Mail className="w-4 h-4" />
+                suporte@dlsbox.com
+              </a>
+            </div>
           </Reveal>
 
           <Reveal delay={100}>
