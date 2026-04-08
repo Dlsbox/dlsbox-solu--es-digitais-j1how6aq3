@@ -3,6 +3,7 @@ import { ScrollFadeCard } from '@/components/ui/scroll-fade-card'
 import { Button as MovingBorderButton } from '@/components/ui/moving-border'
 import { cn } from '@/lib/utils'
 import { Terminal, TypingAnimation, AnimatedSpan } from '@/components/ui/terminal'
+import { TypingHeading } from '@/components/ui/typing-heading'
 
 const plans = [
   {
@@ -37,7 +38,12 @@ export function Plans() {
     <section id="planos" className="py-24 scroll-mt-20">
       <div className="container mx-auto px-4 md:px-10">
         <Reveal className="mb-12 text-center md:text-left">
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Escopos e Planos</h2>
+          <TypingHeading
+            as="h2"
+            className="text-3xl md:text-5xl font-display font-bold mb-4"
+            text="Escopos e Planos"
+            delay={200}
+          />
           <p className="text-muted-foreground text-lg">
             Formatos estruturados ideais para cada momento do negócio.
           </p>

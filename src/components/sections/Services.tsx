@@ -1,6 +1,7 @@
 import { Reveal } from '@/components/ui/reveal'
 import { ScrollFadeCard } from '@/components/ui/scroll-fade-card'
 import { LayoutTemplate, MonitorSmartphone, Braces, Rocket } from 'lucide-react'
+import { TypingHeading } from '@/components/ui/typing-heading'
 
 export function Services() {
   return (
@@ -8,9 +9,12 @@ export function Services() {
       <div className="container mx-auto px-4 md:px-10">
         <Reveal>
           <div className="flex flex-col items-start mb-12">
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-              Nossas <span className="text-primary">Soluções</span>
-            </h2>
+            <TypingHeading
+              as="h2"
+              className="text-3xl md:text-5xl font-display font-bold mb-4"
+              segments={[{ text: 'Nossas ' }, { text: 'Soluções', className: 'text-primary' }]}
+              delay={200}
+            />
             <p className="text-muted-foreground text-lg max-w-xl">
               Estruturas sob medida em formato modular para cada estágio da sua empresa.
             </p>
@@ -27,9 +31,12 @@ export function Services() {
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
                 <LayoutTemplate className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-display font-bold mb-3">
-                Landing Pages de Alta Conversão
-              </h3>
+              <TypingHeading
+                as="h3"
+                className="text-2xl md:text-3xl font-display font-bold mb-3"
+                text="Landing Pages de Alta Conversão"
+                delay={300}
+              />
               <p className="text-muted-foreground text-lg mb-8 max-w-md">
                 Páginas ultra-rápidas otimizadas para tráfego pago. Estrutura persuasiva projetada
                 para transformar cliques em clientes.
@@ -54,7 +61,12 @@ export function Services() {
                 {' '}
                 <MonitorSmartphone className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-display font-bold mb-2">Sites Institucionais</h3>
+              <TypingHeading
+                as="h3"
+                className="text-xl font-display font-bold mb-2"
+                text="Sites Institucionais"
+                delay={400}
+              />
               <p className="text-muted-foreground text-sm">
                 Vitrine digital profissional que transmite autoridade e atrai clientes qualificados
                 de forma orgânica.
@@ -67,7 +79,12 @@ export function Services() {
               <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4 text-foreground">
                 <Rocket className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-display font-bold mb-2">E-commerce</h3>
+              <TypingHeading
+                as="h3"
+                className="text-xl font-display font-bold mb-2"
+                text="E-commerce"
+                delay={500}
+              />
               <p className="text-muted-foreground text-sm">
                 Lojas virtuais escaláveis com checkout otimizado, preparadas para vender 24 horas
                 por dia sem fricção.
@@ -81,9 +98,12 @@ export function Services() {
                 <Braces className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-2xl font-display font-bold mb-2">
-                  Sistemas & Plataformas SaaS
-                </h3>
+                <TypingHeading
+                  as="h3"
+                  className="text-2xl font-display font-bold mb-2"
+                  text="Sistemas & Plataformas SaaS"
+                  delay={600}
+                />
                 <p className="text-muted-foreground">
                   Desenvolvimento sob medida de dashboards, áreas de membros e CRMs internos para
                   você focar apenas em crescer a operação.

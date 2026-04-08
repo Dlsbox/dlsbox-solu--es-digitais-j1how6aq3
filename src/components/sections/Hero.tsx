@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight, LayoutGrid } from 'lucide-react'
 import { Reveal } from '@/components/ui/reveal'
 import { Tilt } from '@/components/ui/tilt'
+import { TypingHeading } from '@/components/ui/typing-heading'
 
 export function Hero() {
   const handleScrollToCta = () => {
@@ -20,10 +21,17 @@ export function Hero() {
       </Reveal>
 
       <Reveal delay={100} className="w-full flex justify-center">
-        <h1 className="font-bold max-w-4xl leading-[1.05] mb-8 tracking-tight text-foreground text-[clamp(42px,10vw,72px)] sm:text-[clamp(48px,8vw,100px)]">
-          Sites e Sistemas <br className="hidden sm:block" />
-          feitos para <span className="text-[#2f5cff]">converter.</span>
-        </h1>
+        <TypingHeading
+          as="h1"
+          className="font-bold max-w-4xl leading-[1.05] mb-8 tracking-tight text-foreground text-[clamp(42px,10vw,72px)] sm:text-[clamp(48px,8vw,100px)]"
+          segments={[
+            { text: 'Sites e Sistemas ' },
+            { element: <br className="hidden sm:block" /> },
+            { text: 'feitos para ' },
+            { text: 'converter.', className: 'text-[#2f5cff]' },
+          ]}
+          delay={300}
+        />
       </Reveal>
 
       <Reveal delay={200} className="w-full flex justify-center">

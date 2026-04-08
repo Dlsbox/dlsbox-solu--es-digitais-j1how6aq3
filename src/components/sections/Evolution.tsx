@@ -1,5 +1,6 @@
 import { Reveal } from '@/components/ui/reveal'
 import { BentoCard } from '@/components/ui/bento-card'
+import { TypingHeading } from '@/components/ui/typing-heading'
 
 export function Evolution() {
   const steps = [
@@ -13,7 +14,12 @@ export function Evolution() {
     <section id="evolucao" className="py-24 bg-card/50 border-y border-border/50 scroll-mt-20">
       <div className="container mx-auto px-4 md:px-10">
         <Reveal className="mb-12">
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">A escada da Evolução</h2>
+          <TypingHeading
+            as="h2"
+            className="text-3xl md:text-5xl font-display font-bold mb-4"
+            text="A escada da Evolução"
+            delay={200}
+          />
           <p className="text-muted-foreground text-lg max-w-2xl">
             Acompanhamos seu negócio desde o primeiro cliente até a criação de um ecossistema
             digital complexo.

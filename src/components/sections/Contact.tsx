@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Send, Mail } from 'lucide-react'
+import { TypingHeading } from '@/components/ui/typing-heading'
 
 export function Contact() {
   return (
@@ -18,7 +19,12 @@ export function Contact() {
       <div className="container mx-auto px-4 md:px-10">
         <div className="max-w-4xl mx-auto">
           <Reveal className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Inicie seu Projeto</h2>
+            <TypingHeading
+              as="h2"
+              className="text-3xl md:text-5xl font-display font-bold mb-4"
+              text="Inicie seu Projeto"
+              delay={200}
+            />
             <p className="text-muted-foreground text-lg mb-6">
               Conte-nos sobre a sua necessidade e apresentaremos a melhor estrutura.
             </p>

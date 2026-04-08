@@ -2,6 +2,7 @@ import { Reveal } from '@/components/ui/reveal'
 import { ScrollFadeCard } from '@/components/ui/scroll-fade-card'
 import { Zap, ShieldCheck, Target, Users, Code2, BarChart3 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { TypingHeading } from '@/components/ui/typing-heading'
 
 const features = [
   {
@@ -48,7 +49,12 @@ export function Differentials() {
     <section id="diferenciais" className="py-24 scroll-mt-20">
       <div className="container mx-auto px-4 md:px-10">
         <Reveal className="mb-12">
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Por que a DLSBox?</h2>
+          <TypingHeading
+            as="h2"
+            className="text-3xl md:text-5xl font-display font-bold mb-4"
+            text="Por que a DLSBox?"
+            delay={200}
+          />
           <p className="text-muted-foreground text-lg">Nossos compromissos com a sua estrutura.</p>
         </Reveal>
 
