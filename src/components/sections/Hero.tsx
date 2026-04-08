@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { ArrowRight, LayoutGrid } from 'lucide-react'
 import { Reveal } from '@/components/ui/reveal'
+import { Tilt } from '@/components/ui/tilt'
 
 export function Hero() {
   const handleScrollToCta = () => {
@@ -33,16 +34,24 @@ export function Hero() {
       </Reveal>
 
       <Reveal delay={300} className="w-full flex justify-center px-4 md:px-0">
-        <Button
-          onClick={handleScrollToCta}
-          className="btn-primary-3d group relative h-[64px] w-full sm:w-auto px-10 rounded-full bg-[#2f5cff] hover:bg-[#254acc] text-white text-lg font-semibold overflow-hidden transition-all duration-300 hover:-translate-y-[3px] border border-[#2f5cff] hover:border-[#4f75ff]"
+        <Tilt
+          maxRotation={15}
+          scale={1.02}
+          glareEnable
+          glareMaxOpacity={0.2}
+          className="cta-primary w-full sm:w-auto rounded-full"
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-          <span className="relative z-10 flex items-center gap-2">
-            Solicitar orçamento
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </span>
-        </Button>
+          <Button
+            onClick={handleScrollToCta}
+            className="btn-primary-3d group relative h-[64px] w-full sm:w-auto px-10 rounded-[inherit] bg-[#2f5cff] hover:bg-[#254acc] text-white text-lg font-semibold overflow-hidden transition-all duration-300 hover:-translate-y-[3px] border border-[#2f5cff] hover:border-[#4f75ff]"
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <span className="relative z-10 flex items-center gap-2">
+              Solicitar orçamento
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </span>
+          </Button>
+        </Tilt>
       </Reveal>
     </section>
   )
