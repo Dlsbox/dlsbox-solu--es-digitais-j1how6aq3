@@ -6,72 +6,72 @@
 
 @layer base {
   :root {
-    /* Integrated Logo Color Palette: Off-white #F0EBE1 & Blues & Browns */
-    --background: 40 20% 98%;
-    --foreground: 240 12% 6%;
+    --background: 0 0% 100%;
+    --foreground: 220 14% 4%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 12% 6%;
+    --card-foreground: 220 14% 4%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 12% 6%;
+    --popover-foreground: 220 14% 4%;
 
-    --primary: 227 75% 52%; /* Blue #2B52E0 */
-    --primary-foreground: 40 33% 91%; /* Off-white #F0EBE1 */
+    --primary: 227 100% 59%; /* #2f5cff */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 26 59% 23%; /* Brown #5C3518 */
-    --secondary-foreground: 40 33% 91%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 14% 4%;
 
-    --muted: 40 15% 92%;
-    --muted-foreground: 240 5% 40%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 40 15% 92%;
-    --accent-foreground: 240 12% 6%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 14% 4%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 40 33% 91%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 40 15% 88%;
-    --input: 40 15% 88%;
-    --ring: 227 75% 52%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 227 100% 59%;
 
     --radius: 1rem;
-    --r: 1rem;
-    --r2: 1.5rem;
   }
 
   .dark {
-    --background: 240 12% 6%; /* Logo Dark Background #0E0E12 */
-    --foreground: 40 33% 91%; /* Off-white #F0EBE1 */
+    --background: 224 8% 7%; /* #111214 */
+    --foreground: 0 0% 100%;
 
-    --card: 240 10% 9%;
-    --card-foreground: 40 33% 91%;
+    --card: 224 8% 10%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 240 12% 6%;
-    --popover-foreground: 40 33% 91%;
+    --popover: 224 8% 7%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 227 75% 52%; /* Blue #2B52E0 */
-    --primary-foreground: 40 33% 91%;
+    --primary: 227 100% 59%; /* #2f5cff */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 26 59% 23%; /* Brown #5C3518 */
-    --secondary-foreground: 40 33% 91%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 10% 12%;
-    --muted-foreground: 40 15% 70%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 240 10% 12%;
-    --accent-foreground: 40 33% 91%;
+    --accent: 215 28% 17%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 40 33% 91%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 240 10% 15%;
-    --input: 240 10% 15%;
-    --ring: 227 75% 52%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 227 100% 59%;
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-primary selection:text-primary-foreground transition-colors duration-300;
+    @apply font-sans antialiased selection:bg-primary selection:text-primary-foreground;
+    background: linear-gradient(135deg, #0d0f12 0%, #181a1f 100%);
+    min-height: 100vh;
+    color: hsl(var(--foreground));
   }
 }
 
@@ -98,5 +98,16 @@
   .reveal-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .btn-primary-3d {
+    box-shadow:
+      0 12px 24px rgba(47, 92, 255, 0.3),
+      inset 0 2px 4px rgba(255, 255, 255, 0.4);
+  }
+  .btn-primary-3d:hover {
+    box-shadow:
+      0 20px 40px rgba(47, 92, 255, 0.5),
+      inset 0 2px 4px rgba(255, 255, 255, 0.5);
   }
 }

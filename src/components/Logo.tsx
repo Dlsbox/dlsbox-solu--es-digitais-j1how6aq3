@@ -1,56 +1,44 @@
 import { cn } from '@/lib/utils'
-import { Meteors } from './Meteors'
 
 export function Logo({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'relative overflow-hidden flex items-center justify-center bg-[#0E0E12] rounded-xl transition-all duration-300 hover:scale-105 hover:brightness-110',
+        'flex items-center gap-3 bg-[#060811] pl-3 pr-5 py-2.5 rounded-2xl shadow-lg border border-white/10 select-none',
         className,
       )}
     >
-      <Meteors number={30} />
-
-      {/* SVG Container on top */}
-      <svg
-        viewBox="0 0 340 80"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-auto h-full relative z-10 block"
-      >
-        {/* Geometric Box Shapes using Logo Palette */}
-        <g transform="translate(20, 12)">
-          <path d="M24 28 L0 14 L0 42 L24 56 Z" fill="#1940C8" />
-          <path d="M24 28 L48 14 L48 42 L24 56 Z" fill="#2B52E0" />
-          <path d="M24 0 L48 14 L24 28 L0 14 Z" fill="#F0EBE1" />
-          <path d="M24 7 L36 14 L24 21 L12 14 Z" fill="#5C3518" />
-        </g>
-
-        {/* Main Text */}
-        <text
-          x="84"
-          y="48"
-          fontFamily="Outfit, sans-serif"
-          fontWeight="800"
-          fontSize="46"
-          fill="#F0EBE1"
+      {/* Isometric Cube */}
+      <div className="relative w-8 h-8 flex-shrink-0 group perspective-1000 ml-1">
+        <div
+          className="absolute inset-0 transition-transform duration-700 ease-out group-hover:rotate-y-[15deg] group-hover:-translate-y-0.5"
+          style={{ transformStyle: 'preserve-3d', transform: 'rotateX(-35.264deg) rotateY(45deg)' }}
         >
-          DLSBox
-        </text>
+          {/* Top Face */}
+          <div
+            className="absolute inset-0 bg-[#e2e8f0] border-[0.5px] border-black/5"
+            style={{ transform: 'rotateX(90deg) translateZ(16px)' }}
+          />
+          {/* Front Face */}
+          <div
+            className="absolute inset-0 bg-gradient-to-br from-[#2f5cff] to-[#1a3bbd] border-[0.5px] border-black/20"
+            style={{ transform: 'translateZ(16px)' }}
+          />
+          {/* Right Face */}
+          <div
+            className="absolute inset-0 bg-[#0f2a96] border-[0.5px] border-black/40"
+            style={{ transform: 'rotateY(90deg) translateZ(16px)' }}
+          />
+        </div>
+      </div>
 
-        {/* Subtitle Text */}
-        <text
-          x="88"
-          y="64"
-          fontFamily="Outfit, sans-serif"
-          fontWeight="400"
-          fontSize="11"
-          fill="rgba(240,235,225,0.8)"
-          letterSpacing="3.5"
-        >
-          SOLUÇÕES DIGITAIS
-        </text>
-      </svg>
+      {/* Text Container */}
+      <div className="flex flex-col justify-center">
+        <span className="text-white font-bold text-sm leading-tight tracking-wide">DLSBox</span>
+        <span className="text-white/60 text-[9px] uppercase tracking-widest leading-tight mt-[1px]">
+          Soluções Digitais
+        </span>
+      </div>
     </div>
   )
 }
