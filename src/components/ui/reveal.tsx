@@ -13,7 +13,11 @@ export function Reveal({ children, className, delay = 0, ...props }: RevealProps
   return (
     <div
       ref={ref}
-      className={cn('reveal-hidden', isIntersecting && 'reveal-visible', className)}
+      className={cn(
+        'opacity-0 translate-y-6 blur-[4px] transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]',
+        isIntersecting && 'opacity-100 translate-y-0 blur-none',
+        className,
+      )}
       style={{ transitionDelay: `${delay}ms` }}
       {...props}
     >

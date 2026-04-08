@@ -11,7 +11,7 @@ import { FloatingWhatsApp } from '@/components/FloatingWhatsApp'
 
 export default function Index() {
   return (
-    <div className="w-full">
+    <div className="w-full relative z-10 flex flex-col rounded-[2.5rem] overflow-hidden bg-background shadow-[0_30px_100px_rgba(0,0,0,0.1)] dark:shadow-[0_30px_100px_rgba(0,0,0,0.5)] border border-foreground/[0.03]">
       <Hero />
       <Marquee />
       <Services />

@@ -1,93 +1,66 @@
 import { Reveal } from '@/components/ui/reveal'
-import { BentoCard } from '@/components/ui/bento-card'
-import { ArrowUpRight, LineChart, Type } from 'lucide-react'
-import { Button as MovingBorderButton } from '@/components/ui/moving-border'
-import { Badge } from '@/components/ui/badge'
-import { TypingHeading } from '@/components/ui/typing-heading'
+import { ArrowUpRight } from 'lucide-react'
 
 export function Products() {
   return (
-    <section id="produtos" className="py-24 bg-card/50 border-y border-border/50 scroll-mt-20">
-      <div className="container mx-auto px-4 md:px-10">
-        <Reveal className="mb-12">
-          <TypingHeading
-            as="h2"
-            className="text-3xl md:text-5xl font-display font-bold mb-4"
-            text="Nossos Produtos"
-            delay={200}
-          />
-          <p className="text-muted-foreground text-lg">
-            Ferramentas internas desenvolvidas para maximizar seus resultados.
+    <section
+      id="produtos"
+      className="py-32 md:py-48 scroll-mt-20 relative z-10 bg-white/30 dark:bg-black/20 backdrop-blur-2xl border-y border-foreground/[0.04]"
+    >
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
+        <Reveal className="mb-24 text-center">
+          <span className="text-[11px] uppercase tracking-[0.2em] font-medium text-foreground/50 mb-6 block">
+            Laboratório
+          </span>
+          <h2 className="text-5xl md:text-6xl font-display mb-8">Produtos Internos</h2>
+          <p className="text-muted-foreground font-light text-xl max-w-2xl mx-auto">
+            Ferramentas exclusivas desenvolvidas para maximizar a precisão dos seus resultados.
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <Reveal delay={100} className="h-full">
-            <BentoCard className="bg-background group h-full flex flex-col">
-              <div className="flex justify-between items-start mb-10">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
-                  <LineChart className="w-6 h-6" />
-                </div>
-                <Badge
-                  variant="outline"
-                  className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 px-3 py-1 text-xs font-semibold"
-                >
+            <div className="group h-full flex flex-col bg-background/60 backdrop-blur-xl rounded-[2.5rem] p-12 md:p-16 border border-foreground/5 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.03)] transition-all duration-700 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] hover:-translate-y-3">
+              <div className="flex justify-between items-start mb-20">
+                <h3 className="text-4xl font-display text-foreground">Tracker</h3>
+                <span className="px-4 py-1.5 rounded-full bg-foreground/5 text-[10px] uppercase tracking-[0.2em] font-medium text-foreground/60 border border-foreground/10">
                   Em breve
-                </Badge>
+                </span>
               </div>
-              <TypingHeading
-                as="h3"
-                className="text-2xl font-display font-bold mb-3"
-                text="Tracker"
-                delay={300}
-              />
-              <p className="text-muted-foreground mb-8 text-base leading-relaxed flex-1">
-                Dashboard financeiro e métricas avançadas criadas especificamente para
-                infoprodutores e negócios digitais que precisam de precisão.
+              <p className="text-muted-foreground font-light mb-16 text-xl leading-relaxed flex-1">
+                Dashboard financeiro e métricas avançadas desenhadas com rigor analítico para
+                negócios que exigem alta precisão e controle.
               </p>
-              <MovingBorderButton
-                containerClassName="w-full sm:w-fit h-11 hover:scale-[1.02] transition-transform shadow-sm mt-auto"
-                className="px-6 text-white font-medium bg-[#25D366] flex items-center justify-center gap-2"
-                borderRadius="1.75rem"
+              <button
                 onClick={() => window.open('https://tracker.dlsbox.com', '_blank')}
+                className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-medium text-foreground group-hover:text-primary transition-colors"
               >
-                Acessar Tracker <ArrowUpRight className="w-4 h-4" />
-              </MovingBorderButton>
-            </BentoCard>
+                Acessar Plataforma{' '}
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </button>
+            </div>
           </Reveal>
 
           <Reveal delay={200} className="h-full">
-            <BentoCard className="bg-background group h-full flex flex-col">
-              <div className="flex justify-between items-start mb-10">
-                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary border border-secondary/20">
-                  <Type className="w-6 h-6" />
-                </div>
-                <Badge
-                  variant="outline"
-                  className="bg-secondary/10 text-secondary border-secondary/20 hover:bg-secondary/20 px-3 py-1 text-xs font-semibold"
-                >
+            <div className="group h-full flex flex-col bg-background/60 backdrop-blur-xl rounded-[2.5rem] p-12 md:p-16 border border-foreground/5 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.03)] transition-all duration-700 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] hover:-translate-y-3">
+              <div className="flex justify-between items-start mb-20">
+                <h3 className="text-4xl font-display text-foreground">Logos</h3>
+                <span className="px-4 py-1.5 rounded-full bg-foreground/5 text-[10px] uppercase tracking-[0.2em] font-medium text-foreground/60 border border-foreground/10">
                   Beta
-                </Badge>
+                </span>
               </div>
-              <TypingHeading
-                as="h3"
-                className="text-2xl font-display font-bold mb-3"
-                text="Logos"
-                delay={400}
-              />
-              <p className="text-muted-foreground mb-8 text-base leading-relaxed flex-1">
-                Ferramenta inteligente focada em estruturação de conteúdo e copy para suas páginas,
-                gerando narrativas que convertem.
+              <p className="text-muted-foreground font-light mb-16 text-xl leading-relaxed flex-1">
+                Inteligência estrutural para concepção de copy e narrativas, esculpindo textos que
+                convertem através de frameworks comprovados.
               </p>
-              <MovingBorderButton
-                containerClassName="w-full sm:w-fit h-11 hover:scale-[1.02] transition-transform shadow-sm mt-auto"
-                className="px-6 text-white font-medium bg-[#25D366] flex items-center justify-center gap-2"
-                borderRadius="1.75rem"
+              <button
                 onClick={() => window.open('https://logos.dlsbox.com', '_blank')}
+                className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-medium text-foreground group-hover:text-primary transition-colors"
               >
-                Acessar Logos <ArrowUpRight className="w-4 h-4" />
-              </MovingBorderButton>
-            </BentoCard>
+                Acessar Plataforma{' '}
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </button>
+            </div>
           </Reveal>
         </div>
       </div>

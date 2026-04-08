@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,25 +6,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 14% 4%;
+    --background: 0 0% 98%; /* Ice white / off-white */
+    --foreground: 220 20% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 14% 4%;
+    --card-foreground: 220 20% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 14% 4%;
+    --popover-foreground: 220 20% 10%;
 
-    --primary: 227 100% 59%; /* #2f5cff */
+    --primary: 227 100% 59%; /* DLSBox blue accent */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 14% 96%;
     --secondary-foreground: 220 14% 4%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 220 10% 92%;
+    --muted-foreground: 215 16% 40%;
 
-    --accent: 220 14% 96%;
+    --accent: 220 14% 94%;
     --accent-foreground: 220 14% 4%;
 
     --destructive: 0 84.2% 60.2%;
@@ -38,38 +38,38 @@
   }
 
   .dark {
-    --background: 224 8% 7%; /* #111214 */
-    --foreground: 0 0% 100%;
+    --background: 240 5% 4%; /* Very dark gray */
+    --foreground: 0 0% 98%;
 
-    --card: 224 8% 10%;
-    --card-foreground: 0 0% 100%;
+    --card: 240 4% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 224 8% 7%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 240 4% 8%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 227 100% 59%; /* #2f5cff */
+    --primary: 227 100% 59%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 28% 17%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 240 4% 12%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 215 28% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 240 4% 12%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 215 28% 17%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 240 4% 12%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 28% 17%;
-    --input: 215 28% 17%;
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
     --ring: 227 100% 59%;
   }
 
   body {
-    @apply font-sans antialiased selection:bg-primary selection:text-primary-foreground;
-    background: linear-gradient(135deg, #0d0f12 0%, #181a1f 100%);
+    @apply font-sans antialiased selection:bg-primary/20 selection:text-primary;
+    background-color: transparent;
     min-height: 100vh;
     color: hsl(var(--foreground));
   }
@@ -77,7 +77,7 @@
 
 @layer utilities {
   .marquee-content {
-    animation: scroll 30s linear infinite;
+    animation: scroll 45s linear infinite;
   }
 
   @keyframes scroll {
@@ -87,27 +87,5 @@
     100% {
       transform: translateX(-50%);
     }
-  }
-
-  .reveal-hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  .reveal-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .btn-primary-3d {
-    box-shadow:
-      0 12px 24px rgba(47, 92, 255, 0.3),
-      inset 0 2px 4px rgba(255, 255, 255, 0.4);
-  }
-  .btn-primary-3d:hover {
-    box-shadow:
-      0 20px 40px rgba(47, 92, 255, 0.5),
-      inset 0 2px 4px rgba(255, 255, 255, 0.5);
   }
 }

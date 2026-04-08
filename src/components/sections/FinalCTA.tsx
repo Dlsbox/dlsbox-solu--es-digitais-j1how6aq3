@@ -1,60 +1,39 @@
-import { useRef } from 'react'
-import { Button } from '@/components/ui/button'
-import { Button as MovingBorderButton } from '@/components/ui/moving-border'
-import { MessageCircle, Mail } from 'lucide-react'
-import { LampContainer } from '@/components/ui/lamp'
-import { useIntersectionObserver } from '@/hooks/use-intersection-observer'
-import { cn } from '@/lib/utils'
+import { Reveal } from '@/components/ui/reveal'
+import { ArrowRight } from 'lucide-react'
 
 export function FinalCTA() {
-  const ref = useRef<HTMLHeadingElement>(null)
-  const isIntersecting = useIntersectionObserver(ref, { threshold: 0.1, triggerOnce: true })
-
   return (
-    <section id="cta" className="relative w-full scroll-mt-20 overflow-hidden bg-background">
-      <LampContainer>
-        <h2
-          ref={ref}
-          className={cn(
-            'mt-8 bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl',
-            'transition-all ease-in-out',
-          )}
-          style={{
-            transitionDuration: '800ms',
-            transitionDelay: '300ms',
-            opacity: isIntersecting ? 1 : 0.5,
-            transform: isIntersecting ? 'translateY(0)' : 'translateY(100px)',
-          }}
-        >
-          Pronto para começar?
-        </h2>
+    <section
+      id="cta"
+      className="relative w-full py-48 md:py-64 overflow-hidden bg-foreground text-background z-20"
+    >
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
+        }}
+      ></div>
 
-        <div
-          className={cn(
-            'flex flex-col sm:flex-row justify-center items-center gap-4 mt-10 transition-all duration-700 delay-500',
-            isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10',
-          )}
-        >
-          <MovingBorderButton
-            containerClassName="w-full sm:w-auto h-14 hover:scale-[1.02] transition-transform shadow-[0_0_20px_rgba(37,211,102,0.3)]"
-            className="px-8 text-base bg-[#25D366] text-white font-medium gap-2 flex items-center justify-center"
-            borderRadius="1.75rem"
+      <div className="container mx-auto px-4 flex flex-col items-center justify-center text-center relative z-10">
+        <Reveal>
+          <h2 className="font-display italic text-6xl md:text-8xl lg:text-9xl mb-16 opacity-95 tracking-tight font-light">
+            Pronto para edificar?
+          </h2>
+        </Reveal>
+
+        <Reveal delay={200}>
+          <button
             onClick={() => window.open('https://wa.me/5500000000000', '_blank')}
+            className="group relative h-[70px] px-14 rounded-full bg-background text-foreground text-sm tracking-[0.2em] uppercase font-medium overflow-hidden transition-all duration-700 hover:scale-[1.03] shadow-[0_20px_60px_rgba(0,0,0,0.5)] dark:shadow-[0_20px_60px_rgba(255,255,255,0.1)] hover:-translate-y-1"
           >
-            <MessageCircle className="w-5 h-5 text-white" /> Chamar no WhatsApp
-          </MovingBorderButton>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="w-full sm:w-auto px-8 rounded-full h-14 bg-background/50 backdrop-blur-md text-base hover:bg-background/80 hover:scale-[1.02] transition-transform border-border/50"
-          >
-            <a href="mailto:suporte@dlsbox.com">
-              <Mail className="w-5 h-5 mr-2" /> suporte@dlsbox.com
-            </a>
-          </Button>
-        </div>
-      </LampContainer>
+            <span className="relative z-10 flex items-center gap-4">
+              Iniciar o diálogo
+              <ArrowRight className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2" />
+            </span>
+          </button>
+        </Reveal>
+      </div>
     </section>
   )
 }
