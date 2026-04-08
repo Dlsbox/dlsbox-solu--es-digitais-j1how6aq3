@@ -1,67 +1,69 @@
 import { Reveal } from '@/components/ui/reveal'
+import { ArrowRight } from 'lucide-react'
 
 export function Contact() {
   return (
-    <section
-      id="contato"
-      className="py-32 md:py-48 scroll-mt-20 relative z-10 border-t border-foreground/[0.04] bg-background/50 backdrop-blur-2xl"
-    >
-      <div className="w-full max-w-5xl mx-auto px-4 md:px-8">
-        <Reveal className="text-center mb-20">
-          <span className="text-[11px] uppercase tracking-[0.2em] font-medium text-foreground/50 mb-6 block">
+    <section id="contato" className="py-32 md:py-48 scroll-mt-20 relative z-10">
+      <div className="w-full max-w-4xl mx-auto px-4 md:px-8">
+        <Reveal className="mb-24 md:mb-32">
+          <span className="text-[10px] uppercase tracking-[0.25em] font-medium text-brown-600/70 dark:text-brown-400/70 mb-8 block">
             Contato
           </span>
-          <h2 className="text-5xl md:text-6xl font-display mb-8">Inicie seu Projeto</h2>
-          <p className="text-muted-foreground font-light text-xl mb-10 max-w-2xl mx-auto">
-            Detalhe a sua necessidade e desenharemos a melhor estrutura.
-          </p>
-          <a
-            href="mailto:suporte@dlsbox.com"
-            className="inline-block text-sm uppercase tracking-[0.2em] font-medium text-foreground hover:text-foreground/70 transition-colors border-b border-foreground/20 pb-2 hover:border-foreground/70"
-          >
-            suporte@dlsbox.com
-          </a>
+          <h2 className="text-5xl md:text-7xl font-display mb-8 tracking-tight">
+            Inicie seu Projeto
+          </h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <p className="text-muted-foreground font-light text-xl max-w-lg">
+              Detalhe a sua necessidade. Desenharemos a arquitetura exata para o seu próximo passo.
+            </p>
+            <a
+              href="mailto:suporte@dlsbox.com"
+              className="inline-block text-sm uppercase tracking-[0.2em] font-medium text-foreground hover:text-brown-600 dark:hover:text-brown-400 transition-colors border-b border-foreground/20 pb-2 hover:border-brown-600/50"
+            >
+              suporte@dlsbox.com
+            </a>
+          </div>
         </Reveal>
 
-        <Reveal delay={150}>
-          <form
-            className="bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10 rounded-[2.5rem] p-10 md:p-16 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.06)]"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 mb-12">
-              <div className="space-y-4">
-                <label className="text-[11px] uppercase tracking-[0.2em] font-medium text-foreground/60">
+        <Reveal delay={200}>
+          <form className="w-full group" onSubmit={(e) => e.preventDefault()}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16 mb-16">
+              <div className="space-y-6">
+                <label className="text-[10px] uppercase tracking-[0.25em] font-medium text-foreground/50">
                   Nome Completo
                 </label>
                 <input
                   type="text"
-                  className="w-full bg-transparent border-b border-foreground/20 py-4 focus:outline-none focus:border-foreground transition-colors text-foreground font-light text-lg placeholder:text-muted-foreground/40"
+                  className="w-full bg-transparent border-b border-foreground/20 py-4 focus:outline-none focus:border-foreground transition-colors text-foreground font-display text-2xl placeholder:text-muted-foreground/30 placeholder:font-sans placeholder:text-lg"
                   placeholder="Como devemos chamá-lo?"
                 />
               </div>
-              <div className="space-y-4">
-                <label className="text-[11px] uppercase tracking-[0.2em] font-medium text-foreground/60">
-                  E-mail
+              <div className="space-y-6">
+                <label className="text-[10px] uppercase tracking-[0.25em] font-medium text-foreground/50">
+                  E-mail Profissional
                 </label>
                 <input
                   type="email"
-                  className="w-full bg-transparent border-b border-foreground/20 py-4 focus:outline-none focus:border-foreground transition-colors text-foreground font-light text-lg placeholder:text-muted-foreground/40"
+                  className="w-full bg-transparent border-b border-foreground/20 py-4 focus:outline-none focus:border-foreground transition-colors text-foreground font-display text-2xl placeholder:text-muted-foreground/30 placeholder:font-sans placeholder:text-lg"
                   placeholder="seu@email.com"
                 />
               </div>
-              <div className="space-y-4 md:col-span-2">
-                <label className="text-[11px] uppercase tracking-[0.2em] font-medium text-foreground/60">
-                  Sua Necessidade
+              <div className="space-y-6 md:col-span-2">
+                <label className="text-[10px] uppercase tracking-[0.25em] font-medium text-foreground/50">
+                  Escopo da Necessidade
                 </label>
                 <textarea
-                  className="w-full bg-transparent border-b border-foreground/20 py-4 focus:outline-none focus:border-foreground transition-colors text-foreground font-light text-lg placeholder:text-muted-foreground/40 min-h-[120px] resize-none"
-                  placeholder="Descreva brevemente o escopo do projeto..."
+                  className="w-full bg-transparent border-b border-foreground/20 py-4 focus:outline-none focus:border-foreground transition-colors text-foreground font-light text-xl placeholder:text-muted-foreground/30 min-h-[150px] resize-none leading-relaxed"
+                  placeholder="Descreva o cenário atual e o que você busca construir..."
                 />
               </div>
             </div>
-            <div className="flex justify-end pt-8">
-              <button className="h-[60px] w-full sm:w-auto px-12 rounded-full bg-foreground text-background text-xs tracking-[0.2em] uppercase font-medium overflow-hidden transition-all duration-500 hover:bg-foreground/90 hover:scale-[1.02] shadow-xl hover:-translate-y-1">
-                Enviar Solicitação
+            <div className="flex justify-start">
+              <button className="group relative h-[64px] w-full sm:w-auto px-16 rounded-none bg-foreground text-background text-[10px] tracking-[0.25em] uppercase font-medium overflow-hidden transition-all duration-700 hover:bg-brown-800 dark:hover:bg-brown-200">
+                <span className="relative z-10 flex items-center justify-center gap-6">
+                  Enviar Solicitação
+                  <ArrowRight className="w-4 h-4 transition-transform duration-700 ease-out group-hover:translate-x-2" />
+                </span>
               </button>
             </div>
           </form>

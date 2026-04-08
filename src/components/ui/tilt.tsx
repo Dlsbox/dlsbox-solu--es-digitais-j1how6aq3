@@ -13,7 +13,7 @@ interface TiltProps extends React.HTMLAttributes<HTMLDivElement> {
 export function Tilt({
   children,
   className,
-  maxRotation = 15,
+  maxRotation = 5,
   scale = 1,
   glareEnable = true,
   glareMaxOpacity = 0.2,
