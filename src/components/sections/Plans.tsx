@@ -1,5 +1,5 @@
 import { Reveal } from '@/components/ui/reveal'
-import { BentoCard } from '@/components/ui/bento-card'
+import { ScrollFadeCard } from '@/components/ui/scroll-fade-card'
 import { Button as MovingBorderButton } from '@/components/ui/moving-border'
 import { cn } from '@/lib/utils'
 import { Terminal, TypingAnimation, AnimatedSpan } from '@/components/ui/terminal'
@@ -46,11 +46,11 @@ export function Plans() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {plans.map((p, i) => (
             <Reveal key={i} delay={i * 100} className="h-full">
-              <BentoCard
-                className={cn(
-                  'h-full flex flex-col',
-                  p.highlight && 'border-primary/50 bg-primary/5 shadow-sm',
-                )}
+              <ScrollFadeCard
+                className="h-full flex flex-col"
+                defaultBgClass={p.highlight ? 'bg-primary/5' : 'bg-card'}
+                defaultBorderClass={p.highlight ? 'border-primary/50' : 'border-border'}
+                hasShadow={p.highlight}
               >
                 {p.badge && (
                   <span className="absolute top-4 right-4 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
@@ -85,7 +85,7 @@ export function Plans() {
                 >
                   Solicitar Proposta
                 </MovingBorderButton>
-              </BentoCard>
+              </ScrollFadeCard>
             </Reveal>
           ))}
         </div>

@@ -1,5 +1,5 @@
 import { Reveal } from '@/components/ui/reveal'
-import { BentoCard } from '@/components/ui/bento-card'
+import { ScrollFadeCard } from '@/components/ui/scroll-fade-card'
 import { Zap, ShieldCheck, Target, Users, Code2, BarChart3 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -55,11 +55,10 @@ export function Differentials() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(180px,auto)]">
           {features.map((f, i) => (
             <Reveal key={i} delay={i * 100} className={f.span}>
-              <BentoCard
-                className={cn(
-                  'h-full flex flex-col',
-                  f.isHighlight && 'bg-primary/5 border-primary/20',
-                )}
+              <ScrollFadeCard
+                className="h-full flex flex-col"
+                defaultBgClass={f.isHighlight ? 'bg-primary/5' : 'bg-card'}
+                defaultBorderClass={f.isHighlight ? 'border-primary/20' : 'border-border'}
               >
                 <f.icon
                   className={cn(
@@ -83,7 +82,7 @@ export function Differentials() {
                 >
                   {f.desc}
                 </p>
-              </BentoCard>
+              </ScrollFadeCard>
             </Reveal>
           ))}
         </div>

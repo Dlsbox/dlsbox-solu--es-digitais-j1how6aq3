@@ -1,5 +1,5 @@
 import { Reveal } from '@/components/ui/reveal'
-import { BentoCard } from '@/components/ui/bento-card'
+import { ScrollFadeCard } from '@/components/ui/scroll-fade-card'
 import { LayoutTemplate, MonitorSmartphone, Braces, Rocket } from 'lucide-react'
 
 export function Services() {
@@ -19,7 +19,11 @@ export function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[minmax(250px,auto)]">
           <Reveal delay={100} className="md:col-span-2 md:row-span-2 h-full">
-            <BentoCard className="bg-primary/5 border-primary/10 h-full">
+            <ScrollFadeCard
+              className="h-full"
+              defaultBgClass="bg-primary/5"
+              defaultBorderClass="border-primary/10"
+            >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
                 <LayoutTemplate className="w-6 h-6" />
               </div>
@@ -41,12 +45,13 @@ export function Services() {
                   Vendas
                 </span>
               </div>
-            </BentoCard>
+            </ScrollFadeCard>
           </Reveal>
 
           <Reveal delay={200} className="md:col-span-1 md:row-span-1 h-full">
-            <BentoCard className="h-full">
+            <ScrollFadeCard className="h-full">
               <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 text-secondary">
+                {' '}
                 <MonitorSmartphone className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-display font-bold mb-2">Sites Institucionais</h3>
@@ -54,11 +59,11 @@ export function Services() {
                 Vitrine digital profissional que transmite autoridade e atrai clientes qualificados
                 de forma orgânica.
               </p>
-            </BentoCard>
+            </ScrollFadeCard>
           </Reveal>
 
           <Reveal delay={300} className="md:col-span-1 md:row-span-1 h-full">
-            <BentoCard className="h-full">
+            <ScrollFadeCard className="h-full">
               <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4 text-foreground">
                 <Rocket className="w-5 h-5" />
               </div>
@@ -67,11 +72,11 @@ export function Services() {
                 Lojas virtuais escaláveis com checkout otimizado, preparadas para vender 24 horas
                 por dia sem fricção.
               </p>
-            </BentoCard>
+            </ScrollFadeCard>
           </Reveal>
 
           <Reveal delay={400} className="md:col-span-3 md:row-span-1">
-            <BentoCard className="flex flex-col md:flex-row items-start md:items-center gap-6">
+            <ScrollFadeCard className="flex flex-col md:flex-row items-start md:items-center gap-6">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 text-primary">
                 <Braces className="w-6 h-6" />
               </div>
@@ -84,7 +89,7 @@ export function Services() {
                   você focar apenas em crescer a operação.
                 </p>
               </div>
-            </BentoCard>
+            </ScrollFadeCard>
           </Reveal>
         </div>
       </div>
