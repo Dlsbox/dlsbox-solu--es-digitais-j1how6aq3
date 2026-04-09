@@ -1,55 +1,15 @@
-import { useEffect, useState } from 'react'
 import { ArrowUpRight, TrendingDown, TrendingUp, Wallet } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
-import { Skeleton } from '@/components/ui/skeleton'
-import { getTrackerMetrics } from '@/services/metrics'
-
-interface Metrics {
-  balance: number
-  incomes: number
-  expenses: number
-  essential_percentage: number
-  non_essential_percentage: number
-}
 
 export function TrackerProduct() {
-  const [metrics, setMetrics] = useState<Metrics | null>(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const fetchMetrics = async () => {
-      try {
-        const data = await getTrackerMetrics()
-        if (data) {
-          setMetrics(data as unknown as Metrics)
-        } else {
-          // Fallback if no rows yet
-          setMetrics({
-            balance: 18000,
-            incomes: 24500,
-            expenses: 6500,
-            essential_percentage: 65,
-            non_essential_percentage: 30,
-          })
-        }
-      } catch (error) {
-        console.error('Error fetching metrics:', error)
-        // Fallback on error to keep UI functional
-        setMetrics({
-          balance: 18000,
-          incomes: 24500,
-          expenses: 6500,
-          essential_percentage: 65,
-          non_essential_percentage: 30,
-        })
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchMetrics()
-  }, [])
+  const metrics = {
+    balance: 18000,
+    incomes: 24500,
+    expenses: 6500,
+    essential_percentage: 65,
+    non_essential_percentage: 30,
+  }
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('pt-BR', {
@@ -116,13 +76,9 @@ export function TrackerProduct() {
                 <span className="text-xs uppercase tracking-[0.2em] font-medium text-brown-600/80 dark:text-brown-400/80 block mb-3">
                   Total Balance
                 </span>
-                {loading ? (
-                  <Skeleton className="h-14 w-64 bg-foreground/10" />
-                ) : (
-                  <div className="text-4xl sm:text-6xl font-sans font-light tracking-tighter text-foreground">
-                    {formatCurrency(metrics?.balance || 0)}
-                  </div>
-                )}
+                <div className="text-4xl sm:text-6xl font-sans font-light tracking-tighter text-foreground">
+                  {formatCurrency(metrics.balance)}
+                </div>
               </div>
 
               <div className="flex items-center gap-4 sm:gap-8 py-5 sm:py-6 border-y border-border/60">
@@ -134,13 +90,9 @@ export function TrackerProduct() {
                     <span className="block text-[10px] sm:text-[11px] uppercase tracking-wider text-muted-foreground mb-1">
                       Incomes
                     </span>
-                    {loading ? (
-                      <Skeleton className="h-5 w-24 bg-foreground/10" />
-                    ) : (
-                      <span className="block text-xs sm:text-sm font-medium text-foreground">
-                        + {formatCurrency(metrics?.incomes || 0)}
-                      </span>
-                    )}
+                    <span className="block text-xs sm:text-sm font-medium text-foreground">
+                      + {formatCurrency(metrics.incomes)}
+                    </span>
                   </div>
                 </div>
                 <div className="w-px h-10 bg-border/60" />
@@ -152,13 +104,9 @@ export function TrackerProduct() {
                     <span className="block text-[10px] sm:text-[11px] uppercase tracking-wider text-muted-foreground mb-1">
                       Expenses
                     </span>
-                    {loading ? (
-                      <Skeleton className="h-5 w-24 bg-foreground/10" />
-                    ) : (
-                      <span className="block text-xs sm:text-sm font-medium text-foreground">
-                        - {formatCurrency(metrics?.expenses || 0)}
-                      </span>
-                    )}
+                    <span className="block text-xs sm:text-sm font-medium text-foreground">
+                      - {formatCurrency(metrics.expenses)}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -167,43 +115,27 @@ export function TrackerProduct() {
                 <div className="space-y-3">
                   <div className="flex justify-between text-xs sm:text-sm font-sans">
                     <span className="font-medium text-foreground">Essential</span>
-                    {loading ? (
-                      <Skeleton className="h-4 w-8 bg-foreground/10" />
-                    ) : (
-                      <span className="text-muted-foreground font-medium">
-                        {metrics?.essential_percentage}%
-                      </span>
-                    )}
+                    <span className="text-muted-foreground font-medium">
+                      {metrics.essential_percentage}%
+                    </span>
                   </div>
-                  {loading ? (
-                    <Skeleton className="h-1.5 sm:h-2 w-full bg-foreground/10" />
-                  ) : (
-                    <Progress
-                      value={metrics?.essential_percentage || 0}
-                      className="h-1.5 sm:h-2 bg-secondary [&>div]:bg-primary"
-                    />
-                  )}
+                  <Progress
+                    value={metrics.essential_percentage}
+                    className="h-1.5 sm:h-2 bg-secondary [&>div]:bg-primary"
+                  />
                 </div>
 
                 <div className="space-y-3">
                   <div className="flex justify-between text-xs sm:text-sm font-sans">
                     <span className="font-medium text-foreground">Non-Essential</span>
-                    {loading ? (
-                      <Skeleton className="h-4 w-8 bg-foreground/10" />
-                    ) : (
-                      <span className="text-muted-foreground font-medium">
-                        {metrics?.non_essential_percentage}%
-                      </span>
-                    )}
+                    <span className="text-muted-foreground font-medium">
+                      {metrics.non_essential_percentage}%
+                    </span>
                   </div>
-                  {loading ? (
-                    <Skeleton className="h-1.5 sm:h-2 w-full bg-foreground/10" />
-                  ) : (
-                    <Progress
-                      value={metrics?.non_essential_percentage || 0}
-                      className="h-1.5 sm:h-2 bg-secondary [&>div]:bg-brown-600"
-                    />
-                  )}
+                  <Progress
+                    value={metrics.non_essential_percentage}
+                    className="h-1.5 sm:h-2 bg-secondary [&>div]:bg-brown-600"
+                  />
                 </div>
               </div>
             </div>
