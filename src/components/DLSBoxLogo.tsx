@@ -89,7 +89,7 @@ export default function DLSBoxLogo({
         <polygon
           points="85,20 155,58 100,92 30,56"
           fill="url(#topFace)"
-          stroke="#D9D9D9"
+          stroke="#E7E7E7"
           stroke-width="1.5"
           stroke-linejoin="round"
         />
@@ -98,7 +98,7 @@ export default function DLSBoxLogo({
         <polygon
           points="30,56 100,92 100,150 30,115"
           fill="url(#blueFace)"
-          stroke="#2A6AA3"
+          stroke="#123D66"
           stroke-width="1.5"
           stroke-linejoin="round"
         />
@@ -107,7 +107,7 @@ export default function DLSBoxLogo({
         <polygon
           points="155,58 100,92 100,150 155,115"
           fill="url(#brownFace)"
-          stroke="#9A744F"
+          stroke="#5F4128"
           stroke-width="1.5"
           stroke-linejoin="round"
         />
