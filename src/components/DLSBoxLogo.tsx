@@ -1,28 +1,31 @@
 import { cn } from '@/lib/utils'
 
 type DLSBoxLogoProps = {
-  width?: number
+  width?: number | string
   showSubtitle?: boolean
   className?: string
 }
 
-export default function DLSBoxLogo({
-  width = 520,
-  showSubtitle = true,
-  className,
-}: DLSBoxLogoProps) {
+export default function DLSBoxLogo({ width, showSubtitle = true, className }: DLSBoxLogoProps) {
+  const defaultWidth = 520
   const height = showSubtitle ? 180 : 140
+  const isDefault = width === undefined
 
   return (
     <svg
-      width={width}
-      height={(width / 520) * height}
+      width={width || '100%'}
+      height={isDefault ? 'auto' : (Number(width) / defaultWidth) * height}
       viewBox="0 0 520 180"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
       aria-label="Logo DLSBox Soluções Digitais"
-      className={cn('transition-transform duration-500 hover:scale-[1.02]', className)}
+      className={cn(
+        'transition-transform duration-700 hover:scale-[1.02]',
+        'animate-in fade-in slide-in-from-top-4 duration-1000 ease-out',
+        isDefault && 'w-full max-w-[300px] sm:max-w-[380px] md:max-w-[520px]',
+        className,
+      )}
     >
       <defs>
         <linearGradient
