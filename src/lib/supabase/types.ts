@@ -33,39 +33,6 @@ export type Database = {
         }
         Relationships: []
       }
-      tracker_metrics: {
-        Row: {
-          balance: number
-          created_at: string
-          essential_percentage: number
-          expenses: number
-          id: string
-          incomes: number
-          non_essential_percentage: number
-          updated_at: string
-        }
-        Insert: {
-          balance?: number
-          created_at?: string
-          essential_percentage?: number
-          expenses?: number
-          id?: string
-          incomes?: number
-          non_essential_percentage?: number
-          updated_at?: string
-        }
-        Update: {
-          balance?: number
-          created_at?: string
-          essential_percentage?: number
-          expenses?: number
-          id?: string
-          incomes?: number
-          non_essential_percentage?: number
-          updated_at?: string
-        }
-        Relationships: []
-      }
     }
     Views: {
       [_ in never]: never
@@ -219,31 +186,14 @@ export const Constants = {
 //   email: text (not null)
 //   scope: text (not null)
 //   created_at: timestamp with time zone (not null, default: now())
-// Table: tracker_metrics
-//   id: uuid (not null, default: gen_random_uuid())
-//   balance: numeric (not null, default: 0)
-//   incomes: numeric (not null, default: 0)
-//   expenses: numeric (not null, default: 0)
-//   essential_percentage: integer (not null, default: 0)
-//   non_essential_percentage: integer (not null, default: 0)
-//   created_at: timestamp with time zone (not null, default: now())
-//   updated_at: timestamp with time zone (not null, default: now())
 
 // --- CONSTRAINTS ---
 // Table: leads
 //   PRIMARY KEY leads_pkey: PRIMARY KEY (id)
-// Table: tracker_metrics
-//   PRIMARY KEY tracker_metrics_pkey: PRIMARY KEY (id)
 
 // --- ROW LEVEL SECURITY POLICIES ---
 // Table: leads
 //   Policy "Enable insert for anyone" (INSERT, PERMISSIVE) roles={public}
 //     WITH CHECK: true
 //   Policy "Enable read for authenticated users only" (SELECT, PERMISSIVE) roles={authenticated}
-//     USING: true
-// Table: tracker_metrics
-//   Policy "Enable all for authenticated users" (ALL, PERMISSIVE) roles={authenticated}
-//     USING: true
-//     WITH CHECK: true
-//   Policy "Enable read for anyone" (SELECT, PERMISSIVE) roles={public}
 //     USING: true
