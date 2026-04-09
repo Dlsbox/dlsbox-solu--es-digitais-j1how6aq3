@@ -85,9 +85,12 @@ export default function DLSBoxLogo({
       <rect x="0" y="0" width="520" height="180" rx="24" fill="url(#bgGradient)" />
 
       <g filter="url(#shadow)">
+        {/* Fundo escuro para o recorte (gaps) */}
+        <polygon points="85,20 155,58 155,115 100,150 30,115 30,56" fill="#0B0F14" />
+
         {/* Topo do cubo */}
         <polygon
-          points="85,20 155,58 100,92 30,56"
+          points="85,18 155,56 100,90 30,54"
           fill="url(#topFace)"
           stroke="#E7E7E7"
           stroke-width="1.5"
@@ -96,7 +99,7 @@ export default function DLSBoxLogo({
 
         {/* Face azul */}
         <polygon
-          points="30,56 100,92 100,150 30,115"
+          points="28,57 98,93 98,151 28,116"
           fill="url(#blueFace)"
           stroke="#123D66"
           stroke-width="1.5"
@@ -105,22 +108,11 @@ export default function DLSBoxLogo({
 
         {/* Face marrom */}
         <polygon
-          points="155,58 100,92 100,150 155,115"
+          points="157,59 102,93 102,151 157,116"
           fill="url(#brownFace)"
           stroke="#5F4128"
           stroke-width="1.5"
           stroke-linejoin="round"
-        />
-
-        {/* Linha central de profundidade */}
-        <line
-          x1="100"
-          y1="92"
-          x2="100"
-          y2="150"
-          stroke="#0B0F14"
-          stroke-width="2"
-          stroke-linecap="round"
         />
       </g>
 
