@@ -7,8 +7,8 @@ export function Hero() {
   }
 
   return (
-    <section className="relative pt-16 pb-40 md:pt-28 md:pb-56 flex flex-col items-center justify-center text-center z-10 w-full max-w-5xl mx-auto px-4">
-      <Reveal delay={100} className="w-full flex justify-center mb-12">
+    <section className="relative pt-8 pb-40 md:pt-12 md:pb-56 flex flex-col items-center justify-center text-center z-10 w-full max-w-5xl mx-auto px-4">
+      <Reveal delay={100} className="w-full flex justify-center mb-10">
         <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-none border-b border-foreground/10">
           <span className="w-1.5 h-1.5 rounded-full bg-brown-600 dark:bg-brown-400" />
           <span className="text-[10px] uppercase tracking-[0.25em] font-medium text-foreground/70">
