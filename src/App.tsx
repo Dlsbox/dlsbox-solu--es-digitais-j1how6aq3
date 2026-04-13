@@ -8,7 +8,7 @@ import Layout from './components/Layout'
 import { ThemeProvider } from './components/ThemeProvider'
 
 const App = () => (
-  <ThemeProvider defaultTheme="system" storageKey="dlsbox-theme" attribute="class">
+  <ThemeProvider defaultTheme="dark" storageKey="dlsbox-theme" attribute="class">
     <BrowserRouter future={{ v7_startTransition: false, v7_relativeSplatPath: false }}>
       <TooltipProvider>
         <Toaster />
