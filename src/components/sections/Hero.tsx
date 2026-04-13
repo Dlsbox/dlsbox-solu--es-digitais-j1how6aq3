@@ -1,48 +1,48 @@
 import { useState, useEffect, useRef } from 'react'
-import { FileText, BookOpen, Headphones, GraduationCap, X } from 'lucide-react'
+import { Target, Settings, Shield, ShoppingCart, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const hotspots = [
   {
-    id: 'texto',
-    title: 'Texto',
-    shortDesc: 'Leitura Dinâmica',
+    id: 'conversao',
+    title: 'Conversão',
+    shortDesc: 'Landing Pages',
     fullDesc:
-      'Acesse análises textuais estruturadas com uma interface de leitura premium, livre de distrações e focada na retenção.',
-    icon: FileText,
+      'Páginas de alta performance desenhadas para conversão máxima em campanhas de tráfego pago.',
+    icon: Target,
     position: 'top-[12%] left-[8%] md:top-[20%] md:left-[15%]',
     align: 'left',
     delay: 100,
   },
   {
-    id: 'versiculos',
-    title: 'Versículos',
-    shortDesc: 'Estudo Profundo',
+    id: 'sistemas',
+    title: 'Sistemas',
+    shortDesc: 'SaaS & Dashboards',
     fullDesc:
-      'Navegue por conteúdos organizados de forma inteligente, com referências cruzadas e comentários focados no seu crescimento.',
-    icon: BookOpen,
+      'Infraestrutura robusta e escalável para automatizar, gerenciar e otimizar as operações da sua empresa.',
+    icon: Settings,
     position: 'top-[18%] right-[8%] md:top-[25%] md:right-[15%]',
     align: 'right',
     delay: 300,
   },
   {
-    id: 'audio',
-    title: 'Áudio',
-    shortDesc: 'Experiência Sonora',
+    id: 'autoridade',
+    title: 'Autoridade',
+    shortDesc: 'Sites Institucionais',
     fullDesc:
-      'Ouça conteúdos com qualidade de estúdio. Uma imersão sonora projetada para acompanhar você em qualquer momento.',
-    icon: Headphones,
+      'Presença digital atemporal e sofisticada que transmite confiança, valor e excelência aos seus clientes.',
+    icon: Shield,
     position: 'bottom-[25%] left-[10%] md:bottom-[30%] md:left-[20%]',
     align: 'left',
     delay: 500,
   },
   {
-    id: 'aula',
-    title: 'Uso na Aula',
-    shortDesc: 'Aplicação Prática',
+    id: 'ecommerce',
+    title: 'E-commerce',
+    shortDesc: 'Lojas Virtuais',
     fullDesc:
-      'Ferramentas exclusivas para o dia a dia. Transforme a experiência com materiais de apoio interativos e de alto impacto.',
-    icon: GraduationCap,
+      'Plataformas de vendas inteligentes com foco em experiência do usuário e jornadas de compra sem fricção.',
+    icon: ShoppingCart,
     position: 'bottom-[15%] right-[8%] md:bottom-[20%] md:right-[18%]',
     align: 'right',
     delay: 700,
@@ -169,7 +169,7 @@ export function Hero() {
                       </p>
 
                       <button className="group/btn flex items-center gap-3 text-xs font-medium text-white uppercase tracking-widest transition-colors hover:text-brown-300">
-                        <span>Acessar conteúdo</span>
+                        <span>Descobrir solução</span>
                         <span className="w-8 h-[1px] bg-brown-500/60 transition-all duration-300 group-hover/btn:w-12 group-hover/btn:bg-brown-400" />
                       </button>
                     </div>
@@ -200,13 +200,13 @@ export function Hero() {
           </div>
 
           <h1 className="font-display max-w-3xl leading-[1.1] mb-6 text-white text-[clamp(42px,8vw,96px)] tracking-tight text-balance">
-            Conhecimento <br />
-            <span className="italic font-light text-brown-400">Interativo.</span>
+            Estratégias Digitais <br />
+            <span className="italic font-light text-brown-400">de Alta Performance.</span>
           </h1>
 
           <p className="text-base md:text-lg text-blue-100/70 max-w-xl mx-auto font-light leading-relaxed text-balance">
-            Navegue por uma interface inteligente. Clique nos pontos de destaque ao redor para
-            explorar nossa metodologia e soluções integradas.
+            Navegue por nossa arquitetura digital. Clique nos pontos de destaque ao redor para
+            explorar nossas soluções focadas no crescimento do seu negócio.
           </p>
         </div>
       </div>
