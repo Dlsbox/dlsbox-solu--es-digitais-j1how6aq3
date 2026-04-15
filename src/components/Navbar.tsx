@@ -36,7 +36,7 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-1 bg-muted/50 rounded-full px-2 py-1.5 border border-border/50">
-          {['Soluções', 'Evolução', 'Produtos', 'Planos'].map((item) => (
+          {['Serviços', 'Projetos', 'Contato'].map((item) => (
             <button
               key={item}
               onClick={() =>
@@ -58,7 +58,7 @@ export function Navbar() {
           <ThemeToggle />
           <Button
             className="hidden sm:flex rounded-full px-6 shadow-sm"
-            onClick={() => scrollTo('cta')}
+            onClick={() => scrollTo('contato')}
           >
             Orçamento <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
