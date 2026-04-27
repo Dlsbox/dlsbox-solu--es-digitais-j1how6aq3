@@ -1,27 +1,23 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import IndexPage from './pages/Index'
+import NotFound from './pages/NotFound'
 import { Toaster } from '@/components/ui/toaster'
 import { Toaster as Sonner } from '@/components/ui/sonner'
-import { TooltipProvider } from '@/components/ui/tooltip'
-import Index from './pages/Index'
-import NotFound from './pages/NotFound'
-import Layout from './components/Layout'
-import { ThemeProvider } from './components/ThemeProvider'
 
-const App = () => (
-  <ThemeProvider defaultTheme="dark" storageKey="dlsbox-theme" attribute="class">
-    <BrowserRouter future={{ v7_startTransition: false, v7_relativeSplatPath: false }}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Index />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </TooltipProvider>
-    </BrowserRouter>
-  </ThemeProvider>
-)
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <IndexPage />,
+    errorElement: <NotFound />,
+  },
+])
 
-export default App
+export default function App() {
+  return (
+    <>
+      <RouterProvider router={router} />
+      <Toaster />
+      <Sonner />
+    </>
+  )
+}
