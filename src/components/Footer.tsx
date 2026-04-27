@@ -11,8 +11,8 @@ export function Footer() {
               <span className="font-bold text-lg tracking-tight">DLSBox</span>
             </a>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-              Software house focada em desenvolvimento de sistemas digitais para empresas e
-              comércios. Porto Alegre, Brasil.
+              Desenvolvimento de SaaS, apps e plataformas com visão de produto. Porto Alegre,
+              Brasil.
             </p>
           </div>
 
@@ -31,18 +31,26 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#projetos"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Portfólio
-                </a>
-              </li>
-              <li>
-                <a
                   href="#servicos"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Serviços
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#areas"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Áreas
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#projetos"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Portfólio
                 </a>
               </li>
               <li>

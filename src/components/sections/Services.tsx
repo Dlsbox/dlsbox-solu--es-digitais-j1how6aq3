@@ -3,31 +3,45 @@ import { ArrowRight } from 'lucide-react'
 const services = [
   {
     id: '01',
-    title: 'Comércio Local',
+    title: 'SaaS sob medida',
     description:
-      'Loja, restaurante, clínica, oficina — sistemas simples que resolvem problemas reais do dia a dia, desde controle de estoque a agendamentos.',
-    tags: ['Gestão', 'Atendimento', 'Operação'],
+      'Plataformas digitais com login, planos, pagamentos, dashboards e área do usuário, pensadas para validar e escalar negócios online.',
+    tags: ['SaaS', 'Validação', 'Escala'],
   },
   {
     id: '02',
-    title: 'Empresas',
+    title: 'Aplicativos web e mobile',
     description:
-      'Plataformas internas, automações e sistemas de gestão para equipes e processos corporativos. Foco em eliminar trabalho manual.',
-    tags: ['Automação', 'Sistemas Internos', 'Escala'],
+      'Experiências responsivas e modernas para usuários acessarem serviços, conteúdos e ferramentas em qualquer dispositivo.',
+    tags: ['Web', 'Mobile', 'UX/UI'],
   },
   {
     id: '03',
-    title: 'Startups & Projetos',
+    title: 'Dashboards e sistemas',
     description:
-      'Produtos digitais do zero — aplicativos, SaaS e MVPs desenvolvidos com cuidado. Engenharia pronta para crescer junto com o negócio.',
-    tags: ['SaaS', 'MVPs', 'Aplicações Web'],
+      'Painéis para organizar dados, acompanhar resultados, automatizar processos e transformar informação em decisão.',
+    tags: ['Sistemas Internos', 'Dados', 'Gestão'],
   },
   {
     id: '04',
-    title: 'Organizações',
+    title: 'Automação e IA',
     description:
-      'Igrejas, ONGs e comunidades que precisam de ferramentas digitais acessíveis e organizadas para o seu contexto e membros.',
-    tags: ['Comunidades', 'Gestão Social', 'Portais'],
+      'Recursos inteligentes para leitura, análise, geração de conteúdo, relatórios, atendimento e produtividade.',
+    tags: ['Inteligência Artificial', 'Automação', 'Produtividade'],
+  },
+  {
+    id: '05',
+    title: 'Pagamentos e assinaturas',
+    description:
+      'Integração com checkout, planos recorrentes, controle de acesso, webhooks e relatórios financeiros.',
+    tags: ['Assinaturas', 'Checkout', 'Financeiro'],
+  },
+  {
+    id: '06',
+    title: 'Operação e evolução',
+    description:
+      'Manutenção, melhorias, monitoramento e ajustes para que o produto continue estável depois do lançamento.',
+    tags: ['Manutenção', 'Estabilidade', 'Evolução'],
   },
 ]
 
@@ -38,15 +52,16 @@ export function Services() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
           <div className="lg:col-span-4">
             <span className="text-xs font-medium tracking-widest uppercase text-muted-foreground">
-              Para quem desenvolvemos
+              O que construímos
             </span>
           </div>
           <div className="lg:col-span-8">
             <h2 className="text-4xl md:text-6xl font-medium tracking-tight mb-6">
-              Do comércio local <br />à grande empresa.
+              Soluções digitais <br />
+              feitas para sair do papel.
             </h2>
             <p className="text-xl text-muted-foreground">
-              O que importa é ter um problema real que um sistema digital ajuda a resolver.
+              SaaS, apps e plataformas com visão de produto, preparados para operar e crescer.
             </p>
           </div>
         </div>

@@ -14,11 +14,10 @@ export function Products() {
           <div className="lg:col-span-8 flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div>
               <h2 className="text-4xl md:text-6xl font-medium tracking-tight mb-6">
-                O que já construímos
+                Produtos em Operação
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl">
-                Dois produtos desenvolvidos e operados pela DLSBox — disponíveis hoje, com usuários
-                reais.
+                Soluções SaaS criadas, validadas e operadas inteiramente pela equipe DLSBox.
               </p>
             </div>
             <a

@@ -10,46 +10,41 @@ export function Intro() {
           </div>
           <div className="lg:col-span-8 space-y-12">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium leading-[1.15] tracking-tight text-balance">
-              Nascemos de uma dor real.
+              Tecnologia com operação, não apenas código.
             </h2>
             <div className="text-lg md:text-xl text-muted-foreground leading-relaxed space-y-6 max-w-3xl">
               <p>
-                Em <strong className="text-foreground font-medium">2022</strong>, a DLSBox Ltd
-                surgiu no Reino Unido como uma empresa de vendas online. Operávamos no dia a dia de
-                um negócio real — com pedidos, fornecedores, margens e obrigações fiscais para
-                gerenciar.
+                Na <strong className="text-foreground font-medium">DLSBox Ltd</strong>, a tecnologia
+                não começa no código. Começa no problema que precisa ser resolvido.
               </p>
               <p>
-                Com o tempo, percebemos que{' '}
+                Criamos SaaS, aplicativos, dashboards e plataformas digitais com foco em validação,
+                receita, operação e crescimento. Unimos estratégia de produto, design,
+                desenvolvimento, automação e infraestrutura para transformar ideias em{' '}
                 <em className="text-brown-600 dark:text-brown-400 not-italic font-medium">
-                  as ferramentas disponíveis no mercado não resolviam o nosso problema.
-                </em>{' '}
-                Eram genéricas, caras ou fragmentadas demais. A resposta foi direta: desenvolvemos
-                as nossas próprias.
+                  soluções digitais reais.
+                </em>
               </p>
               <p>
-                Calculadora de lucro, análise de produtos em tempo real, gestão completa da
-                operação, integração com o{' '}
-                <strong className="text-foreground font-medium">HMRC</strong> — o órgão fiscal
-                britânico. Construímos tudo internamente porque precisávamos que funcionasse de
-                verdade.
+                Desenvolvemos experiências modernas, seguras e escaláveis — desde MVPs rápidos até
+                plataformas mais completas com autenticação, pagamentos, banco de dados, relatórios,
+                inteligência artificial e manutenção contínua.
               </p>
               <p>
-                Hoje, com essa experiência acumulada, abrimos a porta para desenvolver soluções
-                digitais para outros negócios.{' '}
-                <strong className="text-foreground font-medium">
-                  Sabemos como é estar do outro lado — e isso muda tudo.
-                </strong>
+                Ajudamos a tirar soluções digitais do papel com um processo completo: definição do
+                produto, prototipagem, desenvolvimento, lançamento, análise de dados e evolução
+                contínua.{' '}
+                <strong className="text-foreground font-medium">Da ideia à operação.</strong>
               </p>
             </div>
 
             <div className="p-8 md:p-10 bg-muted/30 border border-border rounded-2xl relative mt-8">
               <p className="text-xl md:text-2xl font-medium italic text-balance relative z-10">
-                "Quando construímos para você, estamos usando o mesmo cuidado de quem já dependeu do
-                próprio software para tocar um negócio."
+                "O objetivo não é apenas lançar uma tela bonita, mas construir uma solução útil,
+                sustentável e preparada para crescer."
               </p>
               <span className="block mt-6 text-sm font-medium tracking-widest uppercase text-muted-foreground">
-                — Equipe DLSBox Ltd, desde 2022
+                — Visão de Produto, DLSBox
               </span>
             </div>
           </div>

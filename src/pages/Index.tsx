@@ -1,6 +1,7 @@
 import { Hero } from '@/components/sections/Hero'
 import { Intro } from '@/components/sections/Intro'
 import { Services } from '@/components/sections/Services'
+import { Areas } from '@/components/sections/Areas'
 import { Products } from '@/components/sections/Products'
 import { Contact } from '@/components/sections/Contact'
 import { Header } from '@/components/Header'
@@ -14,6 +15,7 @@ export default function IndexPage() {
         <Hero />
         <Intro />
         <Services />
+        <Areas />
         <Products />
         <Contact />
       </main>
