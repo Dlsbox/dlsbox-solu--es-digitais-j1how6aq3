@@ -2,13 +2,14 @@ import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
 const categories = [
-  { id: 'todas', label: 'Todas' },
+  { id: 'todas', label: 'Todos' },
   { id: 'educacao', label: 'Educação' },
   { id: 'financas', label: 'Finanças' },
   { id: 'ecommerce', label: 'E-commerce' },
   { id: 'comunidades', label: 'Comunidades' },
   { id: 'produtividade', label: 'Produtividade' },
   { id: 'ia', label: 'IA aplicada' },
+  { id: 'operacoes', label: 'Operações' },
 ]
 
 const areas = [
@@ -41,6 +42,11 @@ const areas = [
     id: 'ia',
     title: 'IA aplicada',
     description: 'Ferramentas que usam inteligência artificial para análise, automação e suporte.',
+  },
+  {
+    id: 'operacoes',
+    title: 'Operações',
+    description: 'Sistemas de gestão interna, controle de processos, logística e monitoramento.',
   },
 ]
 

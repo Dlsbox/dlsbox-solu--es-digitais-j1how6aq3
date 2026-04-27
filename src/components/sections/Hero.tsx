@@ -10,7 +10,7 @@ export function Hero() {
             <br />
             <span className="text-muted-foreground">de negócio.</span>
           </h1>
-          <div className="max-w-sm text-sm md:text-base text-muted-foreground leading-relaxed md:pb-4">
+          <div className="max-w-md text-base md:text-lg text-muted-foreground leading-relaxed md:pb-4">
             A DLSBox Ltd transforma ideias, conteúdos e processos em produtos digitais operáveis —
             com tecnologia, design, pagamentos, dados e evolução contínua.
           </div>

@@ -3,21 +3,13 @@ import { ArrowUpRight } from 'lucide-react'
 export function LogosProduct() {
   return (
     <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center group">
-      <div className="flex-1 w-full aspect-[4/3] bg-card rounded-none border border-border shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] relative overflow-hidden group-hover:border-foreground/20 transition-all duration-1000">
-        <div className="absolute top-0 left-0 right-0 h-12 border-b border-border flex items-center gap-2 px-6 bg-muted/30">
-          <div className="w-2.5 h-2.5 rounded-full bg-foreground/10" />
-          <div className="w-2.5 h-2.5 rounded-full bg-foreground/10" />
-          <div className="w-2.5 h-2.5 rounded-full bg-foreground/10" />
-        </div>
-        <div className="absolute top-24 left-12 right-12 bottom-12 border border-border/50 bg-muted/10 p-8 flex flex-col gap-6">
-          <div className="h-4 bg-foreground/10 w-3/4 transition-all duration-1000 group-hover:w-full" />
-          <div className="h-4 bg-foreground/5 w-full" />
-          <div className="h-4 bg-foreground/5 w-5/6" />
-          <div className="h-4 bg-foreground/5 w-4/6" />
-          <div className="mt-auto flex justify-end">
-            <div className="h-10 w-32 bg-foreground/5 transition-colors duration-1000 group-hover:bg-brown-600/10" />
-          </div>
-        </div>
+      <div className="flex-1 w-full aspect-[4/3] bg-muted/20 rounded-xl border border-border shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] relative overflow-hidden group-hover:border-foreground/20 transition-all duration-1000">
+        <img
+          src="https://img.usecurling.com/p/800/600?q=app%20interface%20dashboard&color=blue"
+          alt="DLSLogos Interface"
+          className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-lighten opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-60" />
       </div>
 
       <div className="flex-1 space-y-10">
@@ -25,16 +17,13 @@ export function LogosProduct() {
           <h3 className="text-4xl md:text-5xl font-display text-foreground tracking-tight">
             DLSLogos
           </h3>
-          <span className="px-3 py-1 bg-blue-600/10 text-[10px] uppercase tracking-[0.2em] font-medium text-blue-700 dark:text-blue-400 border border-blue-600/20">
+          <span className="px-3 py-1 bg-blue-600/10 text-[10px] uppercase tracking-[0.2em] font-medium text-blue-700 dark:text-blue-400 border border-blue-600/20 rounded-full">
             Produto Live
           </span>
         </div>
-        <p className="text-foreground font-medium text-lg">
-          Detector de Versículos Bíblicos + Áudio
-        </p>
         <p className="text-muted-foreground font-light text-xl leading-relaxed">
-          Detecta referências bíblicas em textos, PDFs ou imagens, expande os versículos, organiza o
-          conteúdo e gera áudio. Para quem vive a Palavra de Deus.
+          Uma solução inteligente que transforma documentos em audiobooks profissionais, realizando
+          a detecção e inserção automática de referências bíblicas para um estudo mais rico.
         </p>
         <button
           onClick={() => window.open('https://logos.dlsbox.com', '_blank')}

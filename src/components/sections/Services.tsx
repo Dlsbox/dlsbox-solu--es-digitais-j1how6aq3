@@ -17,14 +17,14 @@ const services = [
   },
   {
     id: '03',
-    title: 'Dashboards e sistemas',
+    title: 'Dashboards e sistemas internos',
     description:
       'Painéis para organizar dados, acompanhar resultados, automatizar processos e transformar informação em decisão.',
     tags: ['Sistemas Internos', 'Dados', 'Gestão'],
   },
   {
     id: '04',
-    title: 'Automação e IA',
+    title: 'Automação e inteligência artificial',
     description:
       'Recursos inteligentes para leitura, análise, geração de conteúdo, relatórios, atendimento e produtividade.',
     tags: ['Inteligência Artificial', 'Automação', 'Produtividade'],
@@ -38,7 +38,7 @@ const services = [
   },
   {
     id: '06',
-    title: 'Operação e evolução',
+    title: 'Operação e evolução contínua',
     description:
       'Manutenção, melhorias, monitoramento e ajustes para que o produto continue estável depois do lançamento.',
     tags: ['Manutenção', 'Estabilidade', 'Evolução'],
