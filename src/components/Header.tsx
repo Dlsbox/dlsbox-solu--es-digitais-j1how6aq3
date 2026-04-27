@@ -17,7 +17,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] border-b',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out border-b',
         isScrolled
           ? 'bg-background/80 backdrop-blur-md border-border py-4'
           : 'bg-transparent border-transparent py-6',
@@ -55,7 +55,7 @@ export function Header() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          'fixed inset-0 bg-background z-40 flex flex-col justify-center px-6 transition-all duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] md:hidden',
+          'fixed inset-0 bg-background z-40 flex flex-col justify-center px-6 transition-all duration-500 ease-out md:hidden',
           isMobileMenuOpen
             ? 'opacity-100 pointer-events-auto'
             : 'opacity-0 pointer-events-none -translate-y-4',
