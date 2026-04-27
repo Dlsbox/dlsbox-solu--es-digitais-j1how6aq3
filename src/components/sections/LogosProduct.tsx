@@ -3,9 +3,9 @@ import { ArrowUpRight } from 'lucide-react'
 export function LogosProduct() {
   return (
     <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center group">
-      <div className="flex-1 w-full rounded-xl border border-border shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] relative overflow-hidden group-hover:border-foreground/20 transition-all duration-1000 bg-white">
+      <div className="flex-1 w-full rounded-2xl border border-border shadow-lg relative overflow-hidden group-hover:border-foreground/20 transition-all duration-1000 bg-white">
         <img
-          src="https://storage.googleapis.com/skip-gcp-us-central1-upload-images/8a68b4ef-5e58-410a-bcc6-3507204f1345.jpg"
+          src="https://files.goskip.app/api/v1/files/download/23971481-9f93-41c1-9f61-ba1b29a2ee6f/c38d7807-6101-4be6-a626-444c20573e8e.webp"
           alt="DLSLogos Antes e Depois"
           className="w-full h-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-1000"
         />
