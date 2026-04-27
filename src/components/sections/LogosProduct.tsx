@@ -3,13 +3,12 @@ import { ArrowUpRight } from 'lucide-react'
 export function LogosProduct() {
   return (
     <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center group">
-      <div className="flex-1 w-full aspect-[4/3] bg-muted/20 rounded-xl border border-border shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] relative overflow-hidden group-hover:border-foreground/20 transition-all duration-1000">
+      <div className="flex-1 w-full rounded-xl border border-border shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] relative overflow-hidden group-hover:border-foreground/20 transition-all duration-1000 bg-white">
         <img
-          src="https://img.usecurling.com/p/800/600?q=app%20interface%20dashboard&color=blue"
-          alt="DLSLogos Interface"
-          className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-lighten opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
+          src="https://storage.googleapis.com/skip-gcp-us-central1-upload-images/8a68b4ef-5e58-410a-bcc6-3507204f1345.jpg"
+          alt="DLSLogos Antes e Depois"
+          className="w-full h-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-1000"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-60" />
       </div>
 
       <div className="flex-1 space-y-10">
