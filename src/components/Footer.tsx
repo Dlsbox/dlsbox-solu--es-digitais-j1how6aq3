@@ -8,7 +8,8 @@ export function Footer() {
           <div>
             <h3 className="text-2xl font-medium mb-6">DLSBox Soluções Digitais</h3>
             <p className="text-muted-foreground max-w-sm">
-              Criando estruturas digitais e experiências premium para marcas ambiciosas.
+              Software house focada em desenvolvimento de sistemas digitais para empresas e
+              comércios. Porto Alegre, Brasil.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8 md:text-right">
@@ -34,10 +35,10 @@ export function Footer() {
                 Contato
               </span>
               <a
-                href="mailto:suporte@dlsbox.com"
+                href="mailto:contato@dlsbox.com"
                 className="hover:text-muted-foreground transition-colors"
               >
-                suporte@dlsbox.com
+                contato@dlsbox.com
               </a>
             </div>
           </div>

@@ -23,22 +23,25 @@ export function LogosProduct() {
       <div className="flex-1 space-y-10">
         <div className="flex items-center gap-6">
           <h3 className="text-4xl md:text-5xl font-display text-foreground tracking-tight">
-            Logos
+            DLSLogos
           </h3>
-          <span className="px-3 py-1 bg-brown-600/10 text-[10px] uppercase tracking-[0.2em] font-medium text-brown-700 dark:text-brown-400 border border-brown-600/20">
-            Beta
+          <span className="px-3 py-1 bg-blue-600/10 text-[10px] uppercase tracking-[0.2em] font-medium text-blue-700 dark:text-blue-400 border border-blue-600/20">
+            Produto Live
           </span>
         </div>
+        <p className="text-foreground font-medium text-lg">
+          Detector de Versículos Bíblicos + Áudio
+        </p>
         <p className="text-muted-foreground font-light text-xl leading-relaxed">
-          Inteligência estrutural para concepção de copy e narrativas, esculpindo textos que
-          convertem através de frameworks comprovados e modelagem de linguagem de alta persuasão.
+          Detecta referências bíblicas em textos, PDFs ou imagens, expande os versículos, organiza o
+          conteúdo e gera áudio. Para quem vive a Palavra de Deus.
         </p>
         <button
           onClick={() => window.open('https://logos.dlsbox.com', '_blank')}
-          className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-medium text-foreground group-hover:text-brown-600 dark:group-hover:text-brown-400 transition-colors duration-700"
+          className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-medium text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-700"
         >
-          <span className="border-b border-foreground/20 group-hover:border-brown-600/50 pb-1">
-            Acessar Plataforma
+          <span className="border-b border-foreground/20 group-hover:border-blue-600/50 pb-1">
+            Acessar DLSLogos
           </span>
           <ArrowUpRight className="w-4 h-4 transition-transform duration-700 group-hover:translate-x-1 group-hover:-translate-y-1" />
         </button>

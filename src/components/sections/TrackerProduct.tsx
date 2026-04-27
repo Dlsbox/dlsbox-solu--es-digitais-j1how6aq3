@@ -23,23 +23,25 @@ export function TrackerProduct() {
       <div className="flex-1 space-y-10 order-2 lg:order-1">
         <div className="flex items-center gap-6">
           <h3 className="text-4xl md:text-5xl font-display text-foreground tracking-tight">
-            Tracker
+            DLSTracker
           </h3>
           <span className="px-3 py-1 bg-brown-600/10 text-[10px] uppercase tracking-[0.2em] font-medium text-brown-700 dark:text-brown-400 border border-brown-600/20">
-            Em breve
+            Produto Live
           </span>
         </div>
+        <p className="text-foreground font-medium text-lg">
+          Controle financeiro claro. Sem planilhas. Sem ruído.
+        </p>
         <p className="text-muted-foreground font-light text-xl leading-relaxed">
-          Dashboard financeiro e métricas avançadas desenhadas com rigor analítico. Uma interface
-          minimalista para negócios que exigem alta precisão, controle absoluto e decisões guiadas
-          por dados puros.
+          Dashboard financeiro pessoal com visão mensal, renda, despesas, saldo e metas. Importação
+          manual ou por extrato bancário. Planos Free e Pro.
         </p>
         <button
           onClick={() => window.open('https://tracker.dlsbox.com', '_blank')}
           className="inline-flex items-center gap-4 text-xs uppercase tracking-[0.2em] font-medium text-foreground group-hover:text-brown-600 dark:group-hover:text-brown-400 transition-colors duration-700"
         >
           <span className="border-b border-foreground/20 group-hover:border-brown-600/50 pb-1">
-            Acessar Plataforma
+            Acessar DLSTracker
           </span>
           <ArrowUpRight className="w-4 h-4 transition-transform duration-700 group-hover:translate-x-1 group-hover:-translate-y-1" />
         </button>

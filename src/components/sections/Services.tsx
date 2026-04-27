@@ -3,31 +3,31 @@ import { ArrowRight } from 'lucide-react'
 const services = [
   {
     id: '01',
-    title: 'Conversão',
+    title: 'Comércio Local',
     description:
-      'Landing pages de alta performance, projetadas meticulosamente para tráfego pago. Estrutura persuasiva e velocidade extrema para transformar atenção em resultados palpáveis.',
-    tags: ['Landing Pages', 'Copywriting', 'Otimização'],
+      'Loja, restaurante, clínica, oficina — sistemas simples que resolvem problemas reais do dia a dia, desde controle de estoque a agendamentos.',
+    tags: ['Gestão', 'Atendimento', 'Operação'],
   },
   {
     id: '02',
-    title: 'Sistemas',
+    title: 'Empresas',
     description:
-      'Infraestrutura robusta e plataformas SaaS sob medida. Desenvolvemos soluções escaláveis para automatizar, gerenciar e otimizar as operações do seu negócio.',
-    tags: ['SaaS', 'Dashboards', 'Web Apps'],
+      'Plataformas internas, automações e sistemas de gestão para equipes e processos corporativos. Foco em eliminar trabalho manual.',
+    tags: ['Automação', 'Sistemas Internos', 'Escala'],
   },
   {
     id: '03',
-    title: 'Autoridade',
+    title: 'Startups & Projetos',
     description:
-      'Sites institucionais que transmitem confiança e excelência. Uma vitrine digital atemporal, com design premium e arquitetura da informação voltada para clientes qualificados.',
-    tags: ['Institucional', 'Branding', 'SEO'],
+      'Produtos digitais do zero — aplicativos, SaaS e MVPs desenvolvidos com cuidado. Engenharia pronta para crescer junto com o negócio.',
+    tags: ['SaaS', 'MVPs', 'Aplicações Web'],
   },
   {
     id: '04',
-    title: 'E-commerce',
+    title: 'Organizações',
     description:
-      'Lojas virtuais elegantes com foco absoluto em conversão. Jornadas de compra sem fricção, checkout otimizado e integração perfeita com seus sistemas de gestão.',
-    tags: ['Lojas Virtuais', 'Shopify', 'Custom'],
+      'Igrejas, ONGs e comunidades que precisam de ferramentas digitais acessíveis e organizadas para o seu contexto e membros.',
+    tags: ['Comunidades', 'Gestão Social', 'Portais'],
   },
 ]
 
@@ -38,11 +38,16 @@ export function Services() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
           <div className="lg:col-span-4">
             <span className="text-xs font-medium tracking-widest uppercase text-muted-foreground">
-              Nossa Expertise
+              Para quem desenvolvemos
             </span>
           </div>
           <div className="lg:col-span-8">
-            <h2 className="text-4xl md:text-6xl font-medium tracking-tight">Módulos Estruturais</h2>
+            <h2 className="text-4xl md:text-6xl font-medium tracking-tight mb-6">
+              Do comércio local <br />à grande empresa.
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              O que importa é ter um problema real que um sistema digital ajuda a resolver.
+            </p>
           </div>
         </div>
 

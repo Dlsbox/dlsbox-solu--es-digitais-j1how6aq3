@@ -50,19 +50,31 @@ export function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           <div>
             <h2 className="text-[10vw] lg:text-[6vw] leading-[0.9] tracking-tighter font-medium uppercase mb-8">
-              Vamos
+              Tem um
               <br />
-              <span className="text-background/50">Conversar</span>
+              <span className="text-background/50">projeto?</span>
             </h2>
-            <p className="text-background/70 text-lg max-w-md mb-12">
-              Pronto para elevar sua infraestrutura digital? Descreva o escopo do seu projeto e
-              desenharemos a arquitetura exata para o seu próximo passo.
-            </p>
+            <div className="space-y-6 mb-12">
+              <p className="text-background/70 text-lg max-w-md">
+                Conte o que você precisa. A conversa é gratuita e sem compromisso.
+              </p>
+              <ul className="text-background/50 text-sm space-y-2 font-medium tracking-wide">
+                <li className="flex items-center gap-2">
+                  <ArrowRight className="w-4 h-4" /> Sem formulário longo
+                </li>
+                <li className="flex items-center gap-2">
+                  <ArrowRight className="w-4 h-4" /> Conversa direta
+                </li>
+                <li className="flex items-center gap-2">
+                  <ArrowRight className="w-4 h-4" /> Sem compromisso
+                </li>
+              </ul>
+            </div>
             <a
-              href="mailto:suporte@dlsbox.com"
+              href="mailto:contato@dlsbox.com"
               className="text-2xl md:text-4xl font-medium hover:text-background/70 transition-colors"
             >
-              suporte@dlsbox.com
+              contato@dlsbox.com
             </a>
           </div>
 
@@ -95,14 +107,14 @@ export function Contact() {
             </div>
             <div className="space-y-4">
               <label className="text-xs font-medium tracking-widest uppercase text-background/50 block">
-                Escopo do Projeto
+                O que você precisa?
               </label>
               <textarea
                 value={scope}
                 onChange={(e) => setScope(e.target.value)}
                 disabled={isSubmitting}
                 className="w-full bg-transparent border-b border-background/20 py-4 text-xl focus:outline-none focus:border-background transition-colors placeholder:text-background/20 min-h-[120px] resize-none disabled:opacity-50"
-                placeholder="Fale um pouco sobre o que você busca construir..."
+                placeholder="Um breve resumo do seu problema ou ideia..."
               />
             </div>
             <button
