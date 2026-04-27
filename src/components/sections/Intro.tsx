@@ -1,6 +1,6 @@
 export function Intro() {
   return (
-    <section className="py-24 md:py-48 px-6 md:px-12 border-t border-border">
+    <section id="sobre" className="py-24 md:py-48 px-6 md:px-12 border-t border-border">
       <div className="max-w-[1600px] mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">

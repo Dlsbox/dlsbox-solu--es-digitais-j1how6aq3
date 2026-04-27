@@ -1,56 +1,108 @@
-import { ArrowUpRight } from 'lucide-react'
-
 export function Footer() {
   return (
-    <footer className="bg-background border-t border-border pt-24 pb-12 px-6 md:px-12 overflow-hidden">
+    <footer className="bg-muted/10 border-t border-border pt-16 pb-8 px-6 md:px-12">
       <div className="max-w-[1600px] mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
-          <div>
-            <h3 className="text-2xl font-medium mb-6">DLSBox Soluções Digitais</h3>
-            <p className="text-muted-foreground max-w-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+          <div className="lg:col-span-2">
+            <a href="#" className="flex items-center gap-2.5 text-foreground no-underline mb-4">
+              <div className="w-8 h-8 rounded-md bg-gradient-to-br from-blue-600 to-brown-600 flex items-center justify-center font-bold text-xs text-white">
+                DLS
+              </div>
+              <span className="font-bold text-lg tracking-tight">DLSBox</span>
+            </a>
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
               Software house focada em desenvolvimento de sistemas digitais para empresas e
               comércios. Porto Alegre, Brasil.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-8 md:text-right">
-            <div className="flex flex-col gap-4">
-              <span className="text-sm font-medium text-muted-foreground uppercase tracking-widest">
-                Social
-              </span>
-              <a
-                href="#"
-                className="inline-flex items-center md:justify-end gap-1 hover:text-muted-foreground transition-colors"
-              >
-                Instagram <ArrowUpRight className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center md:justify-end gap-1 hover:text-muted-foreground transition-colors"
-              >
-                LinkedIn <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </div>
-            <div className="flex flex-col gap-4">
-              <span className="text-sm font-medium text-muted-foreground uppercase tracking-widest">
-                Contato
-              </span>
-              <a
-                href="mailto:contato@dlsbox.com"
-                className="hover:text-muted-foreground transition-colors"
-              >
-                contato@dlsbox.com
-              </a>
-            </div>
+
+          <div>
+            <h5 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
+              Empresa
+            </h5>
+            <ul className="flex flex-col gap-2">
+              <li>
+                <a
+                  href="#sobre"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Sobre
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#projetos"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Portfólio
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#servicos"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Serviços
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contato"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Contato
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
+              Produtos
+            </h5>
+            <ul className="flex flex-col gap-2">
+              <li>
+                <a
+                  href="https://logos.dlsbox.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  DLSLogos
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://tracker.dlsbox.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  DLSTracker
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div className="w-full flex items-center justify-center border-t border-border/50 pt-12">
-          <h1 className="text-[13vw] leading-none font-bold tracking-tighter text-foreground/5 select-none">
-            DLSBOX
-          </h1>
-        </div>
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mt-12 text-xs text-muted-foreground uppercase tracking-widest">
-          <p>© {new Date().getFullYear()} DLSBox.</p>
-          <p>All rights reserved.</p>
+
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <p className="text-xs text-muted-foreground">
+            © {new Date().getFullYear()} DLSBox LTD. Todos os direitos reservados.
+          </p>
+          <div className="flex gap-6">
+            <a
+              href="#"
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Privacidade
+            </a>
+            <a
+              href="#"
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Termos de uso
+            </a>
+          </div>
         </div>
       </div>
     </footer>
