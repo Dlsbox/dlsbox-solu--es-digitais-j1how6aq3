@@ -44,7 +44,7 @@ export function ScrollReveal({
     <div
       ref={ref}
       className={cn(
-        'transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]',
+        'transition-all [transition-duration:1200ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]',
         isVisible
           ? 'opacity-100 translate-y-0 translate-x-0 scale-100'
           : `opacity-0 ${directionClasses[direction]} scale-95`,
