@@ -23,8 +23,22 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['Menlo', 'monospace'],
+        display: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
+        brown: {
+          50: '#fdf8f6',
+          100: '#f2e8e5',
+          200: '#eaddd7',
+          300: '#e0cec7',
+          400: '#d2bab0',
+          500: '#a18072',
+          600: '#977669',
+          700: '#846358',
+          800: '#715046',
+          900: '#5f3d34',
+          950: '#432b24',
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
