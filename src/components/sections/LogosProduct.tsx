@@ -2,8 +2,8 @@ import { ArrowUpRight, Mic, Bird, ArrowRight } from 'lucide-react'
 
 export function LogosProduct() {
   return (
-    <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center group">
-      <div className="flex-1 w-full rounded-2xl border border-border shadow-lg relative overflow-hidden group-hover:border-foreground/20 transition-all duration-1000 bg-[#fbfbfa] p-6 md:p-8 flex flex-col items-center transform group-hover:scale-[1.02]">
+    <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center group bg-white/40 backdrop-blur-2xl border border-white/20 p-8 md:p-12 rounded-[3.5rem] shadow-xl hover:shadow-2xl transition-all duration-700">
+      <div className="flex-1 w-full rounded-[2.5rem] border border-border/50 shadow-md relative overflow-hidden group-hover:border-foreground/20 transition-all duration-1000 bg-[#fbfbfa] p-6 md:p-8 flex flex-col items-center transform group-hover:scale-[1.02]">
         {/* Header da Imagem */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-2">

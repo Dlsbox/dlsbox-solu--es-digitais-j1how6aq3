@@ -68,4 +68,24 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .blob-animate-1 {
+    animation: blob-bounce 20s infinite ease-in-out alternate;
+  }
+
+  .blob-animate-2 {
+    animation: blob-bounce 25s infinite ease-in-out alternate-reverse;
+  }
+}
+
+@keyframes blob-bounce {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(5%, 10%) scale(1.1);
+  }
+  100% {
+    transform: translate(-5%, -10%) scale(0.9);
+  }
 }
