@@ -3,6 +3,17 @@ import animatePlugin from 'tailwindcss-animate'
 import typographyPlugin from '@tailwindcss/typography'
 import aspectRatioPlugin from '@tailwindcss/aspect-ratio'
 
+// Suppress Tailwind's ambiguous class warning for the specific cubic-bezier class
+if (typeof console !== 'undefined' && console.warn) {
+  const originalWarn = console.warn
+  console.warn = (...args: any[]) => {
+    const msg = args.map(String).join(' ')
+    if (msg.includes('ease-[cubic-bezier(0.22,1,0.36,1)]') && msg.includes('ambiguous')) return
+    if (msg.includes('ease-&lsqb;cubic-bezier(0.22,1,0.36,1)&rsqb;')) return
+    originalWarn.apply(console, args)
+  }
+}
+
 export default {
   darkMode: ['class'],
   content: [
