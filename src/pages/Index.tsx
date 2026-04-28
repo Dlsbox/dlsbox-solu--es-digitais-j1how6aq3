@@ -1,8 +1,9 @@
 import { Hero } from '@/components/sections/Hero'
-import { Intro } from '@/components/sections/Intro'
-import { Services } from '@/components/sections/Services'
-import { Areas } from '@/components/sections/Areas'
-import { Products } from '@/components/sections/Products'
+import { Problem } from '@/components/sections/Problem'
+import { Solution } from '@/components/sections/Solution'
+import { ProductCarousel } from '@/components/sections/ProductCarousel'
+import { Testimonials } from '@/components/sections/Testimonials'
+import { Pricing } from '@/components/sections/Pricing'
 import { Contact } from '@/components/sections/Contact'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -14,6 +15,7 @@ export default function IndexPage() {
       <div className="fixed inset-0 z-0 pointer-events-none bg-background">
         <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] rounded-full bg-blue-500/10 blur-[120px] blob-animate-1" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-purple-500/10 blur-[120px] blob-animate-2" />
+        <div className="absolute top-[40%] right-[10%] w-[50vw] h-[50vw] rounded-full bg-blue-600/5 blur-[120px] blob-animate-1" />
         <div className="absolute inset-0 bg-background/50 backdrop-blur-[80px]" />
       </div>
 
@@ -21,10 +23,11 @@ export default function IndexPage() {
         <Header />
         <main className="flex-1 w-full">
           <Hero />
-          <Intro />
-          <Services />
-          <Areas />
-          <Products />
+          <Problem />
+          <Solution />
+          <ProductCarousel />
+          <Testimonials />
+          <Pricing />
           <Contact />
         </main>
         <Footer />

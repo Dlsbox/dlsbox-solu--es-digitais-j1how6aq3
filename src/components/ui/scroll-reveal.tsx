@@ -1,11 +1,13 @@
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 
-interface ScrollRevealProps {
+interface ScrollRevealProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
-  className?: string
   delay?: number
   direction?: 'up' | 'down' | 'left' | 'right' | 'none'
+  distance?: string
+  duration?: number
+  once?: boolean
 }
 
 export function ScrollReveal({
@@ -13,44 +15,68 @@ export function ScrollReveal({
   className,
   delay = 0,
   direction = 'up',
+  distance = '50px',
+  duration = 700,
+  once = true,
+  ...props
 }: ScrollRevealProps) {
-  const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
-          observer.unobserve(entry.target)
+          if (once && ref.current) {
+            observer.unobserve(ref.current)
+          }
+        } else if (!once) {
+          setIsVisible(false)
         }
       },
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' },
     )
 
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
 
-  const directionClasses = {
-    up: 'translate-y-16',
-    down: '-translate-y-16',
-    left: 'translate-x-16',
-    right: '-translate-x-16',
-    none: '',
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current)
+      }
+    }
+  }, [once])
+
+  const getTransform = () => {
+    if (isVisible || direction === 'none') return 'translate(0, 0)'
+    switch (direction) {
+      case 'up':
+        return `translateY(${distance})`
+      case 'down':
+        return `translateY(-${distance})`
+      case 'left':
+        return `translateX(${distance})`
+      case 'right':
+        return `translateX(-${distance})`
+      default:
+        return 'translate(0, 0)'
+    }
   }
 
   return (
     <div
       ref={ref}
-      className={cn(
-        'transition-all [transition-duration:1200ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]',
-        isVisible
-          ? 'opacity-100 translate-y-0 translate-x-0 scale-100'
-          : `opacity-0 ${directionClasses[direction]} scale-95`,
-        className,
-      )}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={cn('transition-all', className)}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: getTransform(),
+        transitionDuration: `${duration}ms`,
+        transitionDelay: `${delay}ms`,
+        transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+      }}
+      {...props}
     >
       {children}
     </div>

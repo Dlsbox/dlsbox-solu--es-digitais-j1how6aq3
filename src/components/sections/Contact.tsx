@@ -50,14 +50,15 @@ export function Contact() {
       <div className="max-w-[1600px] mx-auto w-full pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           <div>
-            <h2 className="text-[12vw] lg:text-[7.5vw] leading-[0.85] tracking-tighter font-semibold uppercase mb-8 text-background mix-blend-difference">
-              Tem um
+            <h2 className="text-[10vw] lg:text-[6vw] leading-[0.85] tracking-tighter font-semibold uppercase mb-8 text-background mix-blend-difference">
+              Pronto para
               <br />
-              <span className="text-background/50 italic font-light">projeto?</span>
+              <span className="text-background/50 italic font-light">escalar?</span>
             </h2>
             <div className="space-y-6 mb-12 backdrop-blur-xl bg-white/5 border border-white/10 p-8 md:p-10 rounded-[2.5rem]">
               <p className="text-background/80 text-xl max-w-md font-light">
-                Conte o que você precisa. A conversa é gratuita e sem compromisso.
+                Preencha o formulário abaixo. Nossa equipe técnica avaliará seu desafio e retornará
+                com uma proposta de alto impacto.
               </p>
               <ul className="text-background/60 text-sm space-y-4 font-medium tracking-wide mt-6">
                 <li className="flex items-center gap-4">

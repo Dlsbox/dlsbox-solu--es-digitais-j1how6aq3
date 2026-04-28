@@ -15,10 +15,10 @@ export function Header() {
   }, [])
 
   const navLinks = [
-    { href: '#sobre', label: 'Sobre' },
-    { href: '#servicos', label: 'Serviços' },
-    { href: '#areas', label: 'Áreas' },
-    { href: '#projetos', label: 'Portfólio' },
+    { href: '#problema', label: 'Visão' },
+    { href: '#solucao', label: 'Solução' },
+    { href: '#produto', label: 'Produto' },
+    { href: '#pricing', label: 'Planos' },
     { href: '#contato', label: 'Contato' },
   ]
 
