@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { ArrowRight, Loader2 } from 'lucide-react'
+import { ArrowRight, Loader2, Mail, Clock } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 import { createLead } from '@/services/leads'
+import { ScrollReveal } from '@/components/ui/scroll-reveal'
 
 export function Contact() {
   const [name, setName] = useState('')
@@ -16,14 +17,13 @@ export function Contact() {
     if (!name || !email || !scope) {
       toast({
         title: 'Campos obrigatórios',
-        description: 'Por favor, preencha todos os campos antes de enviar.',
+        description: 'Por favor, preencha todos os campos.',
         variant: 'destructive',
       })
       return
     }
 
     setIsSubmitting(true)
-
     try {
       await createLead({ name, email, scope })
       toast({
@@ -36,7 +36,7 @@ export function Contact() {
     } catch (error) {
       toast({
         title: 'Erro ao enviar',
-        description: 'Ocorreu um problema ao enviar sua solicitação. Tente novamente.',
+        description: 'Ocorreu um problema. Tente novamente.',
         variant: 'destructive',
       })
     } finally {
@@ -45,111 +45,115 @@ export function Contact() {
   }
 
   return (
-    <section id="contato" className="py-32 md:py-48 px-6 md:px-12 relative z-10 overflow-hidden">
-      <div className="absolute inset-0 bg-foreground text-background -z-10 rounded-t-[4rem] md:rounded-t-[6rem]" />
-      <div className="max-w-[1600px] mx-auto w-full pt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+    <section
+      id="contato"
+      className="py-24 md:py-32 relative overflow-hidden bg-brand-deepBlue text-white"
+    >
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-blue/20 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-copper/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
+
+      <div className="container max-w-[1200px] mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div>
-            <h2 className="text-[10vw] lg:text-[6vw] leading-[0.85] tracking-tighter font-semibold uppercase mb-8 text-background mix-blend-difference">
-              Pronto para
-              <br />
-              <span className="text-background/50 italic font-light">escalar?</span>
-            </h2>
-            <div className="space-y-6 mb-12 backdrop-blur-xl bg-white/5 border border-white/10 p-8 md:p-10 rounded-[2.5rem]">
-              <p className="text-background/80 text-xl max-w-md font-light">
-                Preencha o formulário abaixo. Nossa equipe técnica avaliará seu desafio e retornará
-                com uma proposta de alto impacto.
+            <ScrollReveal>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+                Pronto para <span className="text-brand-copper">escalar</span> seu produto?
+              </h2>
+              <p className="text-lg md:text-xl text-white/70 font-light mb-12 max-w-md leading-relaxed">
+                Fale com nossos especialistas e receba uma proposta personalizada para tirar sua
+                ideia do papel com estratégia, design e tecnologia.
               </p>
-              <ul className="text-background/60 text-sm space-y-4 font-medium tracking-wide mt-6">
-                <li className="flex items-center gap-4">
-                  <div className="p-2 bg-white/10 rounded-full">
-                    <ArrowRight className="w-4 h-4 text-background/80" />
-                  </div>{' '}
-                  Sem formulário longo
-                </li>
-                <li className="flex items-center gap-4">
-                  <div className="p-2 bg-white/10 rounded-full">
-                    <ArrowRight className="w-4 h-4 text-background/80" />
-                  </div>{' '}
-                  Conversa direta
-                </li>
-                <li className="flex items-center gap-4">
-                  <div className="p-2 bg-white/10 rounded-full">
-                    <ArrowRight className="w-4 h-4 text-background/80" />
-                  </div>{' '}
-                  Sem compromisso
-                </li>
-              </ul>
-            </div>
-            <a
-              href="mailto:contato@dlsbox.com"
-              className="text-3xl md:text-5xl font-medium hover:text-background/70 transition-colors inline-block pb-2 border-b-2 border-background/20 hover:border-background"
-            >
-              contato@dlsbox.com
-            </a>
+
+              <div className="space-y-6">
+                <div className="flex items-center gap-4 text-white/80">
+                  <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 backdrop-blur-sm">
+                    <Clock className="w-5 h-5 text-brand-copper" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white">Resposta Rápida</h4>
+                    <p className="text-sm font-light text-white/60">Em até 24 horas úteis</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 text-white/80">
+                  <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 backdrop-blur-sm">
+                    <Mail className="w-5 h-5 text-brand-blue" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white">Contato Direto</h4>
+                    <p className="text-sm font-light text-white/60">contato@dlsbox.com</p>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
 
-          <form
-            onSubmit={handleSubmit}
-            className="space-y-8 bg-white/5 backdrop-blur-2xl border border-white/10 p-8 md:p-14 rounded-[3rem] shadow-2xl"
-          >
-            <div className="space-y-4">
-              <label className="text-xs font-medium tracking-widest uppercase text-background/50 block ml-2">
-                Nome
-              </label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                disabled={isSubmitting}
-                className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 text-xl text-background focus:outline-none focus:border-background/50 transition-colors placeholder:text-background/20 disabled:opacity-50"
-                placeholder="Seu nome ou empresa"
-              />
-            </div>
-            <div className="space-y-4">
-              <label className="text-xs font-medium tracking-widest uppercase text-background/50 block ml-2">
-                E-mail
-              </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={isSubmitting}
-                className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 text-xl text-background focus:outline-none focus:border-background/50 transition-colors placeholder:text-background/20 disabled:opacity-50"
-                placeholder="seu@email.com"
-              />
-            </div>
-            <div className="space-y-4">
-              <label className="text-xs font-medium tracking-widest uppercase text-background/50 block ml-2">
-                O que você precisa?
-              </label>
-              <textarea
-                value={scope}
-                onChange={(e) => setScope(e.target.value)}
-                disabled={isSubmitting}
-                className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 text-xl text-background focus:outline-none focus:border-background/50 transition-colors placeholder:text-background/20 min-h-[160px] resize-none disabled:opacity-50"
-                placeholder="Um breve resumo do seu problema ou ideia..."
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full group flex items-center justify-between text-sm font-medium tracking-widest uppercase bg-background text-foreground hover:bg-background/90 transition-colors disabled:opacity-50 px-8 py-6 rounded-2xl"
+          <ScrollReveal direction="left" delay={200}>
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-gray-100"
             >
-              {isSubmitting ? (
-                <span className="flex items-center gap-3 mx-auto">
-                  Enviando <Loader2 className="w-5 h-5 animate-spin" />
-                </span>
-              ) : (
-                <>
-                  <span>Enviar Mensagem</span>
-                  <div className="w-10 h-10 rounded-full bg-foreground/10 flex items-center justify-center transition-colors">
-                    <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
-                  </div>
-                </>
-              )}
-            </button>
-          </form>
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-blue to-brand-copper" />
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold tracking-[0.1em] uppercase text-brand-gray ml-1">
+                    Nome completo
+                  </label>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    disabled={isSubmitting}
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all disabled:opacity-50"
+                    placeholder="Como devemos chamar você?"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold tracking-[0.1em] uppercase text-brand-gray ml-1">
+                    E-mail corporativo
+                  </label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={isSubmitting}
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all disabled:opacity-50"
+                    placeholder="seu@email.com"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold tracking-[0.1em] uppercase text-brand-gray ml-1">
+                    Como podemos ajudar?
+                  </label>
+                  <textarea
+                    value={scope}
+                    onChange={(e) => setScope(e.target.value)}
+                    disabled={isSubmitting}
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-all min-h-[120px] resize-none disabled:opacity-50"
+                    placeholder="Um breve resumo do seu projeto..."
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full group flex items-center justify-center gap-3 bg-brand-blue text-white font-bold text-lg hover:bg-brand-deepBlue transition-colors disabled:opacity-50 px-8 py-5 rounded-xl shadow-lg shadow-brand-blue/20 mt-2"
+                >
+                  {isSubmitting ? (
+                    <>
+                      Enviando <Loader2 className="w-5 h-5 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      Enviar Mensagem{' '}
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
+                </button>
+                <p className="text-center text-xs text-brand-gray font-medium mt-6">
+                  Resposta em até 24h • Atendimento consultivo • Sem compromisso
+                </p>
+              </div>
+            </form>
+          </ScrollReveal>
         </div>
       </div>
     </section>

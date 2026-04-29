@@ -1,19 +1,23 @@
-import { useEffect, useRef, useState, ReactNode } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 
 interface ScrollRevealProps {
-  children: ReactNode
+  children: React.ReactNode
   className?: string
-  delay?: number
   direction?: 'up' | 'down' | 'left' | 'right' | 'none'
+  delay?: number
+  duration?: number
+  distance?: number
   threshold?: number
 }
 
 export function ScrollReveal({
   children,
   className,
-  delay = 0,
   direction = 'up',
+  delay = 0,
+  duration = 700,
+  distance = 40,
   threshold = 0.1,
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false)
@@ -27,10 +31,7 @@ export function ScrollReveal({
           observer.disconnect()
         }
       },
-      {
-        threshold,
-        rootMargin: '50px',
-      },
+      { threshold, rootMargin: '0px 0px -50px 0px' },
     )
 
     if (ref.current) {
@@ -40,33 +41,31 @@ export function ScrollReveal({
     return () => observer.disconnect()
   }, [threshold])
 
-  const getDirectionClasses = () => {
-    if (direction === 'none') return 'translate-y-0 translate-x-0'
+  const getTransform = () => {
+    if (isVisible || direction === 'none') return 'translate3d(0, 0, 0)'
     switch (direction) {
       case 'up':
-        return 'translate-y-12'
+        return `translate3d(0, ${distance}px, 0)`
       case 'down':
-        return '-translate-y-12'
+        return `translate3d(0, -${distance}px, 0)`
       case 'left':
-        return 'translate-x-12'
+        return `translate3d(${distance}px, 0, 0)`
       case 'right':
-        return '-translate-x-12'
+        return `translate3d(-${distance}px, 0, 0)`
       default:
-        return 'translate-y-12'
+        return 'translate3d(0, 0, 0)'
     }
   }
 
   return (
     <div
       ref={ref}
-      className={cn(
-        'transition-all duration-1000 ease-out',
-        isVisible
-          ? 'opacity-100 translate-y-0 translate-x-0'
-          : `opacity-0 ${getDirectionClasses()}`,
-        className,
-      )}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={cn('will-change-[opacity,transform]', className)}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: getTransform(),
+        transition: `opacity ${duration}ms cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms, transform ${duration}ms cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms`,
+      }}
     >
       {children}
     </div>

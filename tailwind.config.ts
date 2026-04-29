@@ -3,17 +3,6 @@ import animatePlugin from 'tailwindcss-animate'
 import typographyPlugin from '@tailwindcss/typography'
 import aspectRatioPlugin from '@tailwindcss/aspect-ratio'
 
-// Suppress Tailwind's ambiguous class warning for the specific cubic-bezier class
-if (typeof console !== 'undefined' && console.warn) {
-  const originalWarn = console.warn
-  console.warn = (...args: any[]) => {
-    const msg = args.map(String).join(' ')
-    if (msg.includes('ease-[cubic-bezier(0.22,1,0.36,1)]') && msg.includes('ambiguous')) return
-    if (msg.includes('ease-&lsqb;cubic-bezier(0.22,1,0.36,1)&rsqb;')) return
-    originalWarn.apply(console, args)
-  }
-}
-
 export default {
   darkMode: ['class'],
   content: [
@@ -27,28 +16,22 @@ export default {
       center: true,
       padding: '2rem',
       screens: {
-        '2xl': '1400px',
+        '2xl': '1200px',
       },
     },
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['Menlo', 'monospace'],
         display: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
-        brown: {
-          50: '#fdf8f6',
-          100: '#f2e8e5',
-          200: '#eaddd7',
-          300: '#e0cec7',
-          400: '#d2bab0',
-          500: '#a18072',
-          600: '#977669',
-          700: '#846358',
-          800: '#715046',
-          900: '#5f3d34',
-          950: '#432b24',
+        brand: {
+          bg: '#F8F7F4',
+          text: '#08111F',
+          blue: '#2563EB',
+          deepBlue: '#0F2A5F',
+          copper: '#9A6A4F',
+          gray: '#667085',
         },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

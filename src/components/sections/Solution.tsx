@@ -1,56 +1,57 @@
 import { ScrollReveal } from '@/components/ui/scroll-reveal'
-import { Code2, Zap, Smartphone, Layers } from 'lucide-react'
+import { Zap, Code2, Smartphone, Layers } from 'lucide-react'
 
 const solutions = [
   {
-    icon: <Zap className="w-8 h-8 text-yellow-500" />,
+    icon: <Zap className="w-6 h-6 text-brand-blue" />,
     title: 'Performance Extrema',
-    desc: 'Arquitetura moderna otimizada para carregar em milissegundos, com SEO técnico impecável.',
+    desc: 'Aplicações rápidas e estáveis com foco em velocidade, escalabilidade e excelente experiência do usuário.',
   },
   {
-    icon: <Code2 className="w-8 h-8 text-blue-500" />,
+    icon: <Code2 className="w-6 h-6 text-brand-copper" />,
     title: 'Código Limpo e Escalável',
-    desc: 'Desenvolvimento modular utilizando as melhores práticas para que seu produto cresça sem refações.',
+    desc: 'Arquitetura moderna, código organizado e preparado para crescer com o seu produto e seu negócio.',
   },
   {
-    icon: <Smartphone className="w-8 h-8 text-purple-500" />,
-    title: 'Mobile-First Nativo',
-    desc: 'Experiência fluida e responsiva garantida em qualquer tela ou dispositivo.',
+    icon: <Smartphone className="w-6 h-6 text-brand-blue" />,
+    title: 'Mobile-First Native',
+    desc: 'Interfaces pensadas para mobile, com experiência fluida, responsiva e natural em qualquer dispositivo.',
   },
   {
-    icon: <Layers className="w-8 h-8 text-green-500" />,
+    icon: <Layers className="w-6 h-6 text-brand-copper" />,
     title: 'Design System Próprio',
-    desc: 'Consistência visual do início ao fim com componentes reutilizáveis e elegantes.',
+    desc: 'Interfaces consistentes, bonitas e funcionais com identidade visual forte e componentes reutilizáveis.',
   },
 ]
 
 export function Solution() {
   return (
-    <section id="solucao" className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[40vw] md:h-[40vw] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
-
-      <div className="max-w-[1400px] mx-auto w-full relative z-10">
+    <section id="solucoes" className="py-24 bg-brand-bg relative">
+      <div className="container max-w-[1200px] mx-auto px-6">
         <ScrollReveal>
           <div className="mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tight uppercase mb-6">
-              A Solução <span className="text-blue-500">DLSBox</span>
+            <span className="text-xs font-bold tracking-[0.2em] text-brand-gray uppercase block mb-4">
+              A Solução
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-brand-text mb-6">
+              Por que empresas escolhem a DLSBox
             </h2>
-            <p className="text-xl text-foreground/70 max-w-2xl">
-              Nossa abordagem une engenharia de software avançada com design premium para criar
-              produtos que dominam o mercado.
+            <p className="text-xl text-brand-gray max-w-2xl">
+              Unimos estratégia, design e tecnologia para transformar ideias em produtos digitais
+              sólidos, bonitos e prontos para crescer.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {solutions.map((item, i) => (
-            <ScrollReveal key={i} delay={i * 150} direction="up">
-              <div className="group p-8 md:p-10 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-2xl hover:bg-white/10 transition-colors duration-500 h-full flex flex-col">
-                <div className="w-16 h-16 rounded-2xl bg-background/50 border border-white/5 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+            <ScrollReveal key={i} delay={i * 100} direction="up" className="h-full">
+              <div className="group glass-card p-8 rounded-[1.5rem] hover:-translate-y-2 transition-all duration-500 h-full flex flex-col bg-white border border-gray-100 shadow-sm">
+                <div className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                   {item.icon}
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">{item.title}</h3>
-                <p className="text-foreground/70 leading-relaxed flex-1">{item.desc}</p>
+                <h3 className="text-xl font-bold text-brand-text mb-3">{item.title}</h3>
+                <p className="text-brand-gray leading-relaxed text-sm flex-1">{item.desc}</p>
               </div>
             </ScrollReveal>
           ))}
