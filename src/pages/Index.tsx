@@ -1,33 +1,38 @@
-import { Header } from '@/components/layout/Header'
 import { Hero } from '@/components/sections/Hero'
-import { Problem } from '@/components/sections/Problem'
-import { Solution } from '@/components/sections/Solution'
-import { Process } from '@/components/sections/Process'
+import { Services } from '@/components/sections/Services'
 import { Products } from '@/components/sections/Products'
-import { ProductCarousel } from '@/components/sections/ProductCarousel'
-import { Testimonials } from '@/components/sections/Testimonials'
-import { Pricing } from '@/components/sections/Pricing'
-import { TechStack } from '@/components/sections/TechStack'
 import { Contact } from '@/components/sections/Contact'
+import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { TechCarousel } from '@/components/TechCarousel'
+import { FinalCTA } from '@/components/FinalCTA'
+import { Process } from '@/components/Process'
+import { GlobalTechBackground } from '@/components/GlobalTechBackground'
+import { useGsapAnimations } from '@/hooks/useGsapAnimations'
 
-export default function IndexPage() {
+function IndexContent() {
+  useGsapAnimations()
+
   return (
-    <div className="min-h-screen bg-brand-bg text-brand-text selection:bg-brand-blue/20">
+    <div className="min-h-screen text-foreground font-sans selection:bg-foreground selection:text-background flex flex-col relative z-10 overflow-hidden">
+      <GlobalTechBackground />
       <Header />
-      <main className="relative z-10 flex-1">
+      <main className="relative z-10 flex-1 w-full">
         <Hero />
-        <Problem />
-        <Solution />
+        <TechCarousel />
+        <Services />
         <Process />
         <Products />
-        <ProductCarousel />
-        <Testimonials />
-        <Pricing />
-        <TechStack />
+        <FinalCTA />
         <Contact />
       </main>
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
   )
+}
+
+export default function IndexPage() {
+  return <IndexContent />
 }

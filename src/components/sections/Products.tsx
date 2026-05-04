@@ -1,116 +1,62 @@
-import { ScrollReveal } from '@/components/ui/scroll-reveal'
-import { ArrowRight, BarChart, Database } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { LogosProduct } from './LogosProduct'
+import { TrackerProduct } from './TrackerProduct'
+
+function ProductPlaceholder({ reverse = false }: { reverse?: boolean }) {
+  return (
+    <div
+      className={`flex flex-col lg:flex-row gap-16 lg:gap-24 items-center opacity-40 ${
+        reverse ? 'lg:flex-row-reverse' : ''
+      }`}
+    >
+      <div className="flex-1 w-full rounded-2xl border border-dashed border-border overflow-hidden bg-slate-50 aspect-video flex items-center justify-center">
+        <span className="text-sm text-muted-foreground font-medium uppercase tracking-widest">
+          Em breve
+        </span>
+      </div>
+      <div className="flex-1 space-y-4">
+        <h3 className="font-display text-3xl md:text-4xl font-medium tracking-tight text-foreground">
+          Em breve
+        </h3>
+        <p className="text-muted-foreground font-light text-lg">
+          Novo produto SaaS em desenvolvimento.
+        </p>
+      </div>
+    </div>
+  )
+}
 
 export function Products() {
   return (
-    <section id="produtos" className="py-24 bg-brand-bg relative">
-      <div className="container max-w-[1200px] mx-auto px-6 space-y-32">
-        <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto">
-            <span className="text-xs font-bold tracking-[0.2em] text-brand-gray uppercase block mb-4">
-              Nossos Produtos
+    <section id="projetos" className="py-24 md:py-32 px-6 md:px-12 border-t border-border">
+      <div className="max-w-[1600px] mx-auto w-full space-y-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-4">
+            <span className="text-xs font-medium tracking-widest uppercase text-muted-foreground">
+              Portfólio
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-brand-text">
-              Soluções que geram resultado.
-            </h2>
           </div>
-        </ScrollReveal>
-
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
-          <div className="flex-1 w-full order-2 lg:order-1 relative">
-            <ScrollReveal direction="right">
-              <div className="absolute inset-0 bg-brand-blue/10 rounded-[2rem] transform -translate-x-4 translate-y-4" />
-              <div className="glass-card rounded-[2rem] p-4 relative z-10 bg-white">
-                <img
-                  src="https://img.usecurling.com/p/800/600?q=dashboard%20analytics&color=blue"
-                  alt="DLS Logos Dashboard"
-                  className="rounded-xl w-full object-cover shadow-sm border border-gray-100 aspect-[4/3] md:aspect-auto"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <div className="flex-1 space-y-6 order-1 lg:order-2">
-            <ScrollReveal direction="left">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-brand-blue/10 rounded-xl text-brand-blue">
-                  <Database className="w-6 h-6" />
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-brand-text">DLS Logos</h3>
-              </div>
-              <p className="text-lg text-brand-gray leading-relaxed mb-6">
-                Plataforma de monitoramento de deals e ativos com inteligência e dados em tempo real
-                para decisões mais seguras e lucrativas.
+          <div className="lg:col-span-8 flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div>
+              <h2 className="text-highlight-soft font-display text-4xl md:text-6xl font-medium tracking-tight mb-6">
+                Produtos em Destaque
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl">
+                Soluções SaaS criadas, validadas e operadas inteiramente pela equipe DLSBox.
               </p>
-              <ul className="space-y-4 mb-8">
-                {[
-                  'Monitoramento inteligente',
-                  'Alertas e oportunidades',
-                  'Análises e relatórios avançados',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-brand-text font-medium">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-blue shrink-0" /> {item}
-                  </li>
-                ))}
-              </ul>
-              <Button
-                className="rounded-full px-8 h-12 bg-brand-text hover:bg-brand-blue text-white"
-                asChild
-              >
-                <a href="https://logos.dlsbox.com" target="_blank" rel="noreferrer">
-                  Acessar o Logos <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
-              </Button>
-            </ScrollReveal>
+            </div>
+            <a
+              href="#contato"
+              className="text-sm font-medium tracking-widest uppercase hover:text-muted-foreground transition-colors border-b border-foreground pb-1 whitespace-nowrap"
+            >
+              Iniciar Projeto
+            </a>
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
-          <div className="flex-1 space-y-6">
-            <ScrollReveal direction="right">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-brand-copper/10 rounded-xl text-brand-copper">
-                  <BarChart className="w-6 h-6" />
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-brand-text">DLS Tracker</h3>
-              </div>
-              <p className="text-lg text-brand-gray leading-relaxed mb-6">
-                Gestão financeira que descomplica. Tenha total controle do seu financeiro pessoal ou
-                empresarial com um painel claro e direto.
-              </p>
-              <ul className="space-y-4 mb-8">
-                {['Receitas e despesas', 'Metas e orçamentos', 'Relatórios e indicadores'].map(
-                  (item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-brand-text font-medium">
-                      <div className="w-1.5 h-1.5 rounded-full bg-brand-copper shrink-0" /> {item}
-                    </li>
-                  ),
-                )}
-              </ul>
-              <Button
-                className="rounded-full px-8 h-12 bg-brand-text hover:bg-brand-copper text-white"
-                asChild
-              >
-                <a href="https://tracker.dlsbox.com" target="_blank" rel="noreferrer">
-                  Acessar o Tracker <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
-              </Button>
-            </ScrollReveal>
-          </div>
-
-          <div className="flex-1 w-full relative">
-            <ScrollReveal direction="left">
-              <div className="absolute inset-0 bg-brand-copper/10 rounded-[2rem] transform translate-x-4 translate-y-4" />
-              <div className="glass-card rounded-[2rem] p-4 relative z-10 bg-white">
-                <img
-                  src="https://img.usecurling.com/p/800/600?q=financial%20app&color=orange"
-                  alt="DLS Tracker Dashboard"
-                  className="rounded-xl w-full object-cover shadow-sm border border-gray-100 aspect-[4/3] md:aspect-auto"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
+        <div className="space-y-32">
+          <LogosProduct />
+          <TrackerProduct />
+          <ProductPlaceholder reverse={true} />
         </div>
       </div>
     </section>

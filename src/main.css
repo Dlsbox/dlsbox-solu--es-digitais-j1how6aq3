@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Sora:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,47 +6,50 @@
 
 @layer base {
   :root {
-    --background: 48 20% 96%;
-    --foreground: 217 59% 8%;
+    /* Background: #F8F7F2 (off-white warm) */
+    --background: 50 31% 96%;
+    /* Foreground: #07111F (deep navy) */
+    --foreground: 215 63% 7%;
     --card: 0 0% 100%;
-    --card-foreground: 217 59% 8%;
+    --card-foreground: 215 63% 7%;
     --popover: 0 0% 100%;
-    --popover-foreground: 217 59% 8%;
-    --primary: 221 83% 53%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 214 32% 91%;
-    --secondary-foreground: 217 59% 8%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 20 31% 65%;
-    --accent-foreground: 0 0% 100%;
+    --popover-foreground: 215 63% 7%;
+    --primary: 215 63% 7%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 14% 93%;
+    --secondary-foreground: 215 63% 7%;
+    --muted: 220 14% 93%;
+    /* Muted text: #667085 */
+    --muted-foreground: 221 13% 46%;
+    --accent: 220 14% 93%;
+    --accent-foreground: 215 63% 7%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
+    --border: 220 13% 89%;
+    --input: 220 13% 89%;
     --ring: 221 83% 53%;
-    --radius: 1rem;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 217 59% 8%;
-    --foreground: 48 20% 96%;
-    --card: 217 50% 12%;
-    --card-foreground: 48 20% 96%;
-    --popover: 217 50% 12%;
-    --popover-foreground: 48 20% 96%;
-    --primary: 221 83% 53%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 217 50% 20%;
-    --secondary-foreground: 48 20% 96%;
-    --muted: 217 50% 20%;
-    --muted-foreground: 215 16% 65%;
-    --accent: 20 31% 65%;
-    --accent-foreground: 0 0% 100%;
+    --background: 215 40% 5%;
+    --foreground: 50 31% 96%;
+    --card: 215 30% 8%;
+    --card-foreground: 50 31% 96%;
+    --popover: 215 30% 8%;
+    --popover-foreground: 50 31% 96%;
+    --primary: 50 31% 96%;
+    --primary-foreground: 215 63% 7%;
+    --secondary: 215 20% 14%;
+    --secondary-foreground: 50 31% 96%;
+    --muted: 215 20% 14%;
+    --muted-foreground: 220 9% 55%;
+    --accent: 215 20% 14%;
+    --accent-foreground: 50 31% 96%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 217 50% 20%;
-    --input: 217 50% 20%;
+    --border: 215 20% 16%;
+    --input: 215 20% 16%;
     --ring: 221 83% 53%;
   }
 }
@@ -56,19 +59,100 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased font-sans;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     cursor: default;
   }
-  html {
-    scroll-behavior: smooth;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'Sora', 'Manrope', 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
   }
+}
+
+/* GSAP will handle initial opacity/transform states */
+.reveal-title,
+.reveal-text,
+.reveal-card {
+  will-change: opacity, transform;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-  .glass-card {
-    @apply bg-white/80 backdrop-blur-xl border border-white shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+
+  .text-highlight {
+    text-shadow:
+      0 0.12em 22px rgba(15, 20, 27, 0.14),
+      0 -2px 0 rgba(255, 255, 255, 0.92);
+  }
+
+  .text-highlight-soft {
+    text-shadow:
+      0 0.10em 18px rgba(15, 20, 27, 0.10),
+      0 -1px 0 rgba(255, 255, 255, 0.85);
+  }
+
+  .text-highlight-blue {
+    text-shadow:
+      0 8px 24px rgba(30, 74, 123, 0.22),
+      0 -1px 0 rgba(255, 255, 255, 0.95);
+  }
+
+  .text-highlight-copper {
+    text-shadow:
+      0 8px 24px rgba(169, 116, 74, 0.22),
+      0 -1px 0 rgba(255, 255, 255, 0.92);
+  }
+}
+
+:root {
+  --view-transition-x: 50%;
+  --view-transition-y: 50%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+    types: circular-wipe;
+  }
+
+  html:active-view-transition-type(circular-wipe)::view-transition-old(root),
+  html:active-view-transition-type(circular-wipe)::view-transition-new(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.9s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    mix-blend-mode: normal;
+  }
+
+  html:active-view-transition-type(circular-wipe)::view-transition-old(root),
+  ::view-transition-old(root) {
+    animation-name: circle-wipe-out;
+  }
+
+  html:active-view-transition-type(circular-wipe)::view-transition-new(root),
+  ::view-transition-new(root) {
+    animation-name: circle-wipe-in;
+  }
+}
+
+@keyframes circle-wipe-out {
+  to {
+    clip-path: circle(0% at var(--view-transition-x, 50%) var(--view-transition-y, 50%));
+  }
+}
+
+@keyframes circle-wipe-in {
+  from {
+    clip-path: circle(0% at var(--view-transition-x, 50%) var(--view-transition-y, 50%));
+  }
+
+  to {
+    clip-path: circle(150% at var(--view-transition-x, 50%) var(--view-transition-y, 50%));
   }
 }

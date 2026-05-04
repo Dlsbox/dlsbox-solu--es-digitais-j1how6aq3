@@ -16,23 +16,16 @@ export default {
       center: true,
       padding: '2rem',
       screens: {
-        '2xl': '1200px',
+        '2xl': '1400px',
       },
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['Menlo', 'monospace'],
+        display: ['Sora', 'Manrope', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
       },
       colors: {
-        brand: {
-          bg: '#F8F7F4',
-          text: '#08111F',
-          blue: '#2563EB',
-          deepBlue: '#0F2A5F',
-          copper: '#9A6A4F',
-          gray: '#667085',
-        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

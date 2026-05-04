@@ -1,36 +1,38 @@
 export function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-100 pt-16 pb-8">
-      <div className="container max-w-[1200px] mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <footer className="border-t border-slate-200/60 pt-14 pb-8 px-6 md:px-12">
+      <div className="max-w-[1200px] mx-auto w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-14">
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded bg-brand-deepBlue flex items-center justify-center font-bold text-xs text-white">
+            <a href="#" className="flex items-center gap-2.5 no-underline mb-4">
+              <div className="w-8 h-8 rounded-lg bg-[#07111F] flex items-center justify-center font-bold text-xs text-white tracking-tight">
                 DLS
               </div>
-              <span className="font-bold text-xl tracking-tight text-brand-text">DLSBox</span>
+              <span className="font-bold text-lg tracking-tight text-slate-900">DLSBox</span>
             </a>
-            <p className="text-sm text-brand-gray leading-relaxed max-w-xs">
-              Soluções digitais para apps, SaaS e produtos escaláveis. Desenvolvido com estratégia,
-              design e tecnologia premium.
+            <p className="text-sm text-slate-500 leading-relaxed max-w-sm">
+              Desenvolvimento de SaaS, apps e plataformas digitais com visão de produto.
+              Porto Alegre, Brasil.
             </p>
           </div>
 
           <div>
-            <h5 className="text-xs font-bold tracking-[0.1em] uppercase text-brand-text mb-6">
-              Empresa
+            <h5 className="text-xs font-semibold tracking-widest uppercase text-slate-400 mb-4">
+              Navegação
             </h5>
-            <ul className="flex flex-col gap-4">
-              {['Soluções', 'Processo', 'Planos', 'Contato'].map((item) => (
-                <li key={item}>
+            <ul className="flex flex-col gap-2.5">
+              {[
+                { href: '#servicos', label: 'Soluções' },
+                { href: '#processo', label: 'Processo' },
+                { href: '#projetos', label: 'Projetos' },
+                { href: '#contato', label: 'Contato' },
+              ].map((link) => (
+                <li key={link.href}>
                   <a
-                    href={`#${item
-                      .toLowerCase()
-                      .normalize('NFD')
-                      .replace(/[\u0300-\u036f]/g, '')}`}
-                    className="text-sm text-brand-gray hover:text-brand-blue transition-colors font-medium"
+                    href={link.href}
+                    className="text-sm text-slate-500 hover:text-slate-900 transition-colors"
                   >
-                    {item}
+                    {link.label}
                   </a>
                 </li>
               ))}
@@ -38,18 +40,18 @@ export function Footer() {
           </div>
 
           <div>
-            <h5 className="text-xs font-bold tracking-[0.1em] uppercase text-brand-text mb-6">
+            <h5 className="text-xs font-semibold tracking-widest uppercase text-slate-400 mb-4">
               Produtos
             </h5>
-            <ul className="flex flex-col gap-4">
+            <ul className="flex flex-col gap-2.5">
               <li>
                 <a
                   href="https://logos.dlsbox.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-sm text-brand-gray hover:text-brand-blue transition-colors font-medium"
+                  className="text-sm text-slate-500 hover:text-slate-900 transition-colors"
                 >
-                  DLS Logos
+                  DLSLogos
                 </a>
               </li>
               <li>
@@ -57,30 +59,24 @@ export function Footer() {
                   href="https://tracker.dlsbox.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-sm text-brand-gray hover:text-brand-blue transition-colors font-medium"
+                  className="text-sm text-slate-500 hover:text-slate-900 transition-colors"
                 >
-                  DLS Tracker
+                  DLSTracker
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-brand-gray font-medium">
-            © {new Date().getFullYear()} DLSBox. Todos os direitos reservados.
+        <div className="border-t border-slate-200/60 pt-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <p className="text-xs text-slate-400">
+            © {new Date().getFullYear()} DLSBox LTD. Todos os direitos reservados.
           </p>
           <div className="flex gap-6">
-            <a
-              href="#"
-              className="text-xs text-brand-gray hover:text-brand-text transition-colors font-medium"
-            >
+            <a href="#" className="text-xs text-slate-400 hover:text-slate-700 transition-colors">
               Privacidade
             </a>
-            <a
-              href="#"
-              className="text-xs text-brand-gray hover:text-brand-text transition-colors font-medium"
-            >
+            <a href="#" className="text-xs text-slate-400 hover:text-slate-700 transition-colors">
               Termos de uso
             </a>
           </div>

@@ -1,154 +1,235 @@
-import { ScrollReveal } from '@/components/ui/scroll-reveal'
-import { Button } from '@/components/ui/button'
-import { ArrowRight, BarChart3, Activity, Users } from 'lucide-react'
+import { useLayoutEffect, useRef, useState, useEffect } from 'react'
+import { ArrowRight } from 'lucide-react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const [startTyping, setStartTyping] = useState(false)
+  const [typedText, setTypedText] = useState('')
+
+  const fullText = 'Apps, SaaS e sistemas construídos com rigor técnico e visão de produto.'
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current
+    const video = videoRef.current
+    const content = contentRef.current
+
+    if (!section || !video || !content) {
+      return
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    const context = gsap.context(() => {
+      const badge = content.querySelector('.hero-badge')
+      const lines = gsap.utils.toArray<HTMLElement>('.hero-line')
+      const premium = content.querySelector('.hero-premium')
+      const description = content.querySelector('.hero-description')
+      const buttons = gsap.utils.toArray<HTMLElement>('.hero-actions .btn')
+
+      if (prefersReducedMotion) {
+        gsap.set([lines, description, buttons], {
+          autoAlpha: 1,
+          y: 0,
+          scale: 1,
+          filter: 'blur(0px)',
+        })
+        gsap.set(video, { scale: 1.02, y: 0 })
+        return
+      }
+
+      gsap.set(video, {
+        scale: 1.02,
+        y: 0,
+        transformOrigin: 'center center',
+      })
+      gsap.set(lines, { autoAlpha: 0, y: 42, filter: 'blur(12px)' })
+      gsap.set(premium, { scale: 0.96, transformOrigin: 'left center' })
+      gsap.set(description, { autoAlpha: 0, y: 22, filter: 'blur(8px)' })
+      gsap.set(buttons, { autoAlpha: 0, y: 18 })
+
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+        .to(
+          lines,
+          {
+            autoAlpha: 1,
+            y: 0,
+            filter: 'blur(0px)',
+            duration: 0.9,
+            stagger: 0.16,
+          },
+        )
+        .to(
+          premium,
+          {
+            scale: 1,
+            duration: 0.72,
+          },
+          '<',
+        )
+        .to(
+          description,
+          {
+            autoAlpha: 1,
+            y: 0,
+            filter: 'blur(0px)',
+            duration: 0.75,
+          },
+          '-=0.24',
+        )
+        .to(
+          buttons,
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.65,
+            stagger: 0.1,
+          },
+          '-=0.34',
+        )
+
+      ScrollTrigger.create({
+        animation: tl,
+        trigger: section,
+        start: 'top center',
+        toggleActions: 'play reverse play reverse',
+        onEnter: () => setStartTyping(true),
+        onLeaveBack: () => setStartTyping(false),
+      })
+
+      gsap.to(video, {
+        scale: 1.08,
+        y: 70,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      })
+
+      gsap.to(content, {
+        opacity: 0.25,
+        y: -60,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      })
+    }, section)
+
+    return () => context.revert()
+  }, [])
+
+  useEffect(() => {
+    if (startTyping) {
+      setTypedText('')
+      let i = 0
+      const timer = setInterval(() => {
+        if (i < fullText.length) {
+          setTypedText(fullText.slice(0, i + 1))
+          i++
+        } else {
+          clearInterval(timer)
+        }
+      }, 50)
+      return () => clearInterval(timer)
+    } else {
+      setTypedText('')
+    }
+  }, [startTyping, fullText])
+
   return (
     <section
-      id="hero"
-      className="relative min-h-[100svh] pt-32 pb-20 px-6 flex flex-col justify-center overflow-hidden bg-brand-bg"
+      ref={sectionRef}
+      className="hero-full-video relative flex min-h-screen items-center overflow-hidden bg-[#050b16] px-6 pb-16 pt-32 md:px-12 md:pb-20 md:pt-36"
     >
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-brand-blue/10 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-brand-copper/10 blur-[120px] pointer-events-none" />
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+        className="hero-bg-video absolute inset-0 z-0 h-full w-full object-cover"
+      >
+        <source src="/videos/DLSBoxHeroScene.mp4" type="video/mp4" />
+      </video>
 
-      <div className="container max-w-[1200px] mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-16">
-        <div className="flex-1 flex flex-col items-start gap-6">
-          <ScrollReveal>
-            <span className="text-xs font-bold tracking-[0.2em] text-brand-gray uppercase">
-              Desenvolvimento Digital de Alto Impacto
-            </span>
-          </ScrollReveal>
+      <div className="hero-overlay absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(5,11,22,0.72)_0%,rgba(5,11,22,0.55)_44%,rgba(5,11,22,0.38)_100%)] md:bg-[linear-gradient(90deg,rgba(5,11,22,0.76)_0%,rgba(5,11,22,0.54)_30%,rgba(5,11,22,0.22)_58%,rgba(5,11,22,0.06)_100%)]" />
+      <div className="hero-vignette pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_48%,rgba(0,0,0,0.22)_100%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-32 bg-gradient-to-t from-[#050b16]/36 to-transparent" />
 
-          <ScrollReveal delay={100}>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight font-extrabold text-brand-text">
-              Desenvolvimento{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-deepBlue">
-                premium
-              </span>{' '}
-              para o seu app.
-            </h1>
-          </ScrollReveal>
-
-          <ScrollReveal delay={200}>
-            <p className="max-w-xl text-lg md:text-xl text-brand-gray leading-relaxed">
-              Transformamos ideias em produtos digitais escaláveis, performáticos e prontos para
-              conquistar mercado.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal
-            delay={300}
-            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4"
+      <div
+        ref={contentRef}
+        className="hero-content relative z-[3] mx-auto w-full max-w-[1180px] text-white"
+      >
+        <div className="max-w-[760px]">
+          <h1
+            className="hero-title m-0 text-[clamp(42px,13vw,64px)] font-[750] leading-[0.94] tracking-[-0.055em] text-white md:text-[clamp(52px,7vw,96px)] md:leading-[0.92]"
+            style={{
+              fontFamily: '"Sora", "Manrope", "Plus Jakarta Sans", system-ui, sans-serif',
+              textShadow: '0 10px 30px rgba(0,0,0,0.35)',
+            }}
           >
-            <Button
-              size="lg"
-              className="rounded-full text-base h-14 px-8 gap-2 bg-brand-blue hover:bg-brand-deepBlue text-white shadow-lg shadow-brand-blue/25"
-              asChild
+            <span className="hero-line block opacity-0 will-change-[transform,opacity,filter]">
+              Desenvolvimento digital
+            </span>
+            <span
+              className="hero-line hero-premium block font-display font-semibold italic text-[#60a5fa] opacity-0 will-change-[transform,opacity,filter]"
+              style={{
+                fontFamily: '"Playfair Display", "Cormorant Garamond", serif',
+                textShadow: '0 0 26px rgba(96,165,250,0.22)',
+              }}
             >
-              <a href="#contato">
-                Iniciar meu projeto <ArrowRight className="w-5 h-5" />
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="rounded-full text-base h-14 px-8 border-brand-copper/30 text-brand-text hover:bg-brand-copper/5"
-              asChild
+              premium
+            </span>
+            <span className="hero-line block opacity-0 will-change-[transform,opacity,filter]">
+              para produtos reais.
+            </span>
+          </h1>
+
+          <p
+            className="hero-description mt-6 max-w-[560px] text-base leading-[1.75] text-amber-700 opacity-0 will-change-[transform,opacity,filter]"
+            style={{
+              fontFamily: '"Inter", "Plus Jakarta Sans", system-ui, sans-serif',
+              textShadow: '0 8px 24px rgba(0,0,0,0.28)',
+            }}
+          >
+            {typedText}
+            <span className="animate-pulse">|</span>
+          </p>
+
+          <div
+            className="hero-actions mt-8 flex flex-col gap-3 sm:flex-row"
+            style={{ fontFamily: '"Inter", "Plus Jakarta Sans", system-ui, sans-serif' }}
+          >
+            <a
+              href="https://wa.me/447858632888"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 font-semibold text-white opacity-0 shadow-[0_8px_28px_rgba(37,99,235,0.34)] transition-all duration-200 will-change-[transform,opacity] hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-[0_12px_34px_rgba(37,99,235,0.46)]"
             >
-              <a href="#solucoes">Ver soluções</a>
-            </Button>
-          </ScrollReveal>
-
-          <ScrollReveal delay={400}>
-            <div className="flex flex-wrap items-center gap-6 text-sm font-medium text-brand-gray mt-4">
-              <span className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-brand-blue" /> Entrega ágil
-              </span>
-              <span className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-brand-copper" /> Código limpo
-              </span>
-              <span className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-brand-deepBlue" /> Performance real
-              </span>
-            </div>
-          </ScrollReveal>
-        </div>
-
-        <div className="flex-1 w-full lg:w-[120%] relative">
-          <ScrollReveal delay={500} direction="left" className="relative lg:-mr-20">
-            <div className="glass-card rounded-[2rem] p-4 sm:p-6 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-white/10 z-0" />
-
-              <div className="relative z-10 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-[350px] sm:h-[400px]">
-                <div className="h-12 border-b border-gray-100 bg-gray-50/50 flex items-center px-4 gap-2 shrink-0">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-amber-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                  </div>
-                  <div className="ml-4 h-6 w-32 sm:w-48 bg-white rounded-md border border-gray-200" />
-                </div>
-
-                <div className="flex-1 p-4 sm:p-6 flex flex-col gap-4 sm:gap-6 bg-[#fafafa] overflow-hidden">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <h3 className="font-bold text-brand-text text-base sm:text-lg">
-                        Visão Geral
-                      </h3>
-                      <p className="text-[10px] sm:text-xs text-brand-gray">
-                        Performance da aplicação em tempo real
-                      </p>
-                    </div>
-                    <div className="px-3 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-[10px] sm:text-xs font-bold">
-                      Online
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-2 sm:gap-4">
-                    <div className="bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col gap-1 sm:gap-2">
-                      <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-brand-blue" />
-                      <span className="text-lg sm:text-2xl font-bold text-brand-text">98.5%</span>
-                      <span className="text-[8px] sm:text-[10px] text-brand-gray uppercase tracking-wider">
-                        Conversão
-                      </span>
-                    </div>
-                    <div className="bg-brand-deepBlue p-3 sm:p-4 rounded-xl shadow-lg shadow-brand-deepBlue/20 flex flex-col gap-1 sm:gap-2 text-white transform -translate-y-1 sm:-translate-y-2">
-                      <Activity className="w-4 h-4 sm:w-5 sm:h-5 text-brand-copper" />
-                      <span className="text-lg sm:text-2xl font-bold">12ms</span>
-                      <span className="text-[8px] sm:text-[10px] text-white/70 uppercase tracking-wider">
-                        Latência
-                      </span>
-                    </div>
-                    <div className="bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col gap-1 sm:gap-2">
-                      <Users className="w-4 h-4 sm:w-5 sm:h-5 text-brand-copper" />
-                      <span className="text-lg sm:text-2xl font-bold text-brand-text">+45k</span>
-                      <span className="text-[8px] sm:text-[10px] text-brand-gray uppercase tracking-wider">
-                        Usuários
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex-1 bg-white rounded-xl shadow-sm border border-gray-100 p-2 sm:p-4 relative min-h-[80px]">
-                    <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 bg-gradient-to-t from-white to-transparent z-10" />
-                    <div className="w-full h-full flex items-end gap-1 sm:gap-2 px-1 pb-1">
-                      {[40, 70, 45, 90, 65, 85, 100, 80].map((h, i) => (
-                        <div
-                          key={i}
-                          className="flex-1 bg-brand-blue/20 rounded-t-sm relative group-hover:bg-brand-blue/30 transition-colors"
-                          style={{ height: `${h}%` }}
-                        >
-                          <div
-                            className="absolute bottom-0 left-0 w-full bg-brand-blue rounded-t-sm transition-all duration-700"
-                            style={{ height: `${h * 0.7}%` }}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
+              Falar sobre meu projeto
+              <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href="mailto:contact@dlsbox.com"
+              className="btn inline-flex items-center justify-center rounded-full border border-white/22 bg-white/[0.08] px-7 py-3.5 font-semibold text-white opacity-0 shadow-[0_8px_28px_rgba(0,0,0,0.16)] backdrop-blur-md transition-all duration-200 will-change-[transform,opacity] hover:-translate-y-0.5 hover:bg-white/14"
+            >
+              Ver soluções agora
+            </a>
+          </div>
         </div>
       </div>
     </section>
