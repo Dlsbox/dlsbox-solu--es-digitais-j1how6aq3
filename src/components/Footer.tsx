@@ -8,11 +8,10 @@ export function Footer() {
               <div className="w-8 h-8 rounded-lg bg-[#07111F] flex items-center justify-center font-bold text-xs text-white tracking-tight">
                 DLS
               </div>
-              <span className="font-bold text-lg tracking-tight text-slate-900">DLSBox</span>
+              <span className="font-display font-bold text-lg tracking-tight text-slate-900">DLSBox</span>
             </a>
-            <p className="text-sm text-slate-500 leading-relaxed max-w-sm">
+            <p className="text-sm text-blue-600 leading-relaxed max-w-sm">
               Desenvolvimento de SaaS, apps e plataformas digitais com visão de produto.
-              Porto Alegre, Brasil.
             </p>
           </div>
 

@@ -1,7 +1,12 @@
 import { useState } from 'react'
 import { ArrowRight, Loader2 } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
-import { createLead } from '@/services/leads'
+
+function openMailFallback(name: string, email: string, scope: string) {
+  const subject = encodeURIComponent('Novo contato pelo site DLSBox')
+  const body = encodeURIComponent(`Nome: ${name}\nEmail: ${email}\n\nNecessidade:\n${scope}`)
+  window.open(`mailto:contact@dlsbox.com?subject=${subject}&body=${body}`, '_blank')
+}
 
 export function Contact() {
   const [name, setName] = useState('')
@@ -13,10 +18,10 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (!name || !email || !scope) {
+    if (!name.trim() || !email.trim() || !scope.trim()) {
       toast({
         title: 'Campos obrigatórios',
-        description: 'Por favor, preencha todos os campos antes de enviar.',
+        description: 'Preencha nome, e-mail e descreva sua necessidade antes de enviar.',
         variant: 'destructive',
       })
       return
@@ -25,20 +30,31 @@ export function Contact() {
     setIsSubmitting(true)
 
     try {
-      await createLead({ name, email, scope })
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, scope }),
+      })
+
+      if (!res.ok) throw new Error(`status ${res.status}`)
+
       toast({
-        title: 'Solicitação enviada',
-        description: 'Recebemos sua mensagem. Entraremos em contato em breve.',
+        title: 'Mensagem enviada',
+        description: 'Recebemos sua solicitação. Em breve entraremos em contato.',
       })
       setName('')
       setEmail('')
       setScope('')
-    } catch (error) {
+    } catch {
+      openMailFallback(name, email, scope)
       toast({
-        title: 'Erro ao enviar',
-        description: 'Ocorreu um problema ao enviar sua solicitação. Tente novamente.',
-        variant: 'destructive',
+        title: 'Mensagem preparada no seu e-mail',
+        description:
+          'Não conseguimos enviar automaticamente. Abrimos seu e-mail para finalizar o contato.',
       })
+      setName('')
+      setEmail('')
+      setScope('')
     } finally {
       setIsSubmitting(false)
     }
@@ -60,13 +76,13 @@ export function Contact() {
               </p>
               <ul className="text-background/50 text-sm space-y-2 font-medium tracking-wide">
                 <li className="flex items-center gap-2">
-                  <ArrowRight className="w-4 h-4" /> Sem formulário longo
+                  <ArrowRight className="w-4 h-4" /> Entendemos sua ideia
                 </li>
                 <li className="flex items-center gap-2">
-                  <ArrowRight className="w-4 h-4" /> Conversa direta
+                  <ArrowRight className="w-4 h-4" /> Indicamos o melhor caminho
                 </li>
                 <li className="flex items-center gap-2">
-                  <ArrowRight className="w-4 h-4" /> Sem compromisso
+                  <ArrowRight className="w-4 h-4" /> Conversa sem compromisso
                 </li>
               </ul>
             </div>
@@ -78,11 +94,15 @@ export function Contact() {
                 contact@dlsbox.com
               </a>
               <a
-                href="https://wa.me/447858632888"
+                href="https://wa.me/447858632888?text=Olá,%20tenho%20um%20projeto%20e%20quero%20conversar%20com%20a%20DLSBox."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg md:text-2xl font-medium hover:text-background/70 transition-colors block"
+                className="inline-flex items-center gap-3 h-12 px-6 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-sm font-semibold rounded-full transition-colors shadow-lg shadow-[#25D366]/20"
               >
+                <svg className="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.122 1.527 5.855L.057 23.882a.5.5 0 0 0 .61.61l6.087-1.456A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.021-1.38l-.36-.214-3.733.894.908-3.648-.234-.374A9.818 9.818 0 1 1 12 21.818z"/>
+                </svg>
                 Falar no WhatsApp
               </a>
             </div>
@@ -130,18 +150,16 @@ export function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="group flex items-center gap-4 text-sm font-medium tracking-widest uppercase hover:text-background/70 transition-colors disabled:opacity-50"
+              className="inline-flex items-center gap-2 h-11 px-6 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-full transition-colors disabled:opacity-50"
             >
               {isSubmitting ? (
                 <>
-                  Enviando <Loader2 className="w-5 h-5 animate-spin" />
+                  Enviando <Loader2 className="w-4 h-4 animate-spin" />
                 </>
               ) : (
                 <>
                   Enviar Mensagem
-                  <div className="w-10 h-10 rounded-full border border-background/20 flex items-center justify-center group-hover:border-background transition-colors">
-                    <ArrowRight className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
-                  </div>
+                  <ArrowRight className="w-4 h-4" />
                 </>
               )}
             </button>

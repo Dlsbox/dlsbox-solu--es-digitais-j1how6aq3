@@ -194,21 +194,16 @@ export function Header() {
 
         {/* CTA Button */}
         <motion.a
-          href="#contato"
-          onClick={(e) => handleNavClickWithTransition(e, '#contato')}
-          className={cn(
-            'relative overflow-hidden hidden md:flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300',
-            isScrolled ? 'px-4 py-2 text-sm' : 'px-6 py-3 text-base',
-          )}
-          whileHover={{
-            scale: 1.05,
-            boxShadow: '0 20px 40px rgba(37, 99, 235, 0.3)',
-          }}
-          whileTap={{ scale: 0.95 }}
+          href="https://wa.me/447858632888?text=Olá,%20vim%20pelo%20site%20da%20DLSBox%20e%20quero%20falar%20com%20um%20especialista."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-blue-600 px-5 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-blue-500/30 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
-          <MessageCircle className="w-4 h-4 relative z-10" />
-          <span className="hidden xl:inline relative z-10">Falar com especialista</span>
-          <span className="xl:hidden relative z-10">Contato</span>
+          <MessageCircle className="h-4 w-4" />
+          <span className="hidden xl:inline">Falar com especialista</span>
+          <span className="xl:hidden">Contato</span>
         </motion.a>
 
         {/* Mobile Menu Button */}

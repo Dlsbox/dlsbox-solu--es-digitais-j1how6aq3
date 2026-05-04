@@ -41,11 +41,11 @@ export function Testimonials() {
   )
 
   return (
-    <section id="prova-social" className="py-24 bg-brand-bg relative">
+    <section id="prova-social" className="py-24 bg-slate-50 relative">
       <div className="container max-w-[1200px] mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-brand-text mb-16">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl mb-16">
               Quem confia no nosso código
             </h2>
 
@@ -53,7 +53,7 @@ export function Testimonials() {
               {logos.map((logo, i) => (
                 <div
                   key={i}
-                  className="text-xl md:text-2xl font-bold font-display tracking-tight text-brand-deepBlue select-none"
+                  className="text-xl md:text-2xl font-bold font-display tracking-tight text-slate-900 select-none"
                 >
                   {logo}
                 </div>
@@ -68,14 +68,14 @@ export function Testimonials() {
               {testimonials.map((test, i) => (
                 <div key={i} className="flex-[0_0_90%] md:flex-[0_0_60%] min-w-0 pl-4 lg:pl-0">
                   <div className="glass-card bg-white p-8 md:p-10 rounded-[2rem] h-full flex flex-col gap-6">
-                    <div className="flex gap-1 text-brand-copper">
+                    <div className="flex gap-1 text-amber-500">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <svg key={star} className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                           <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
                         </svg>
                       ))}
                     </div>
-                    <p className="text-lg text-brand-text font-medium flex-1 leading-relaxed italic">
+                    <p className="text-lg text-slate-900 font-medium flex-1 leading-relaxed italic">
                       "{test.content}"
                     </p>
                     <div className="flex items-center gap-4 pt-4 border-t border-gray-100">
@@ -85,8 +85,8 @@ export function Testimonials() {
                         className="w-12 h-12 rounded-full border border-gray-200"
                       />
                       <div>
-                        <h4 className="font-bold text-sm text-brand-text">{test.name}</h4>
-                        <p className="text-xs text-brand-gray">{test.role}</p>
+                        <h4 className="font-bold text-sm text-slate-900">{test.name}</h4>
+                        <p className="text-xs text-slate-500">{test.role}</p>
                       </div>
                     </div>
                   </div>

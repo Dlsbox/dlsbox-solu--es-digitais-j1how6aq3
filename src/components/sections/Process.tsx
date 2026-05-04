@@ -39,10 +39,10 @@ export function Process() {
       <div className="container max-w-[1200px] mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-20 max-w-3xl mx-auto">
-            <span className="text-xs font-bold tracking-[0.2em] text-brand-gray uppercase block mb-4">
+            <span className="text-xs font-bold uppercase tracking-[0.22em] text-blue-600 block mb-4">
               Metodologia
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-brand-text mb-6">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl mb-4">
               Do conceito ao produto pronto para crescer.
             </h2>
           </div>
@@ -62,14 +62,14 @@ export function Process() {
                 <div className="lg:hidden absolute left-6 top-16 bottom-[-2rem] w-px bg-gray-100" />
 
                 <div className="flex items-center lg:justify-center mb-6 relative">
-                  <div className="w-12 h-12 rounded-full bg-white border-2 border-gray-200 group-hover:border-brand-blue text-brand-text group-hover:text-brand-blue flex items-center justify-center font-bold text-sm shadow-sm z-10 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-white border-2 border-gray-200 group-hover:border-blue-600 text-slate-900 group-hover:text-blue-600 flex items-center justify-center font-bold text-sm shadow-sm z-10 transition-colors">
                     {step.num}
                   </div>
                 </div>
 
-                <div className="p-4 rounded-2xl lg:text-center ml-16 lg:ml-0 bg-gray-50 border border-gray-100 group-hover:bg-white group-hover:shadow-lg group-hover:border-brand-blue/20 transition-all duration-300">
-                  <h3 className="font-bold text-brand-text mb-2 text-sm">{step.title}</h3>
-                  <p className="text-[13px] text-brand-gray leading-relaxed">{step.desc}</p>
+                <div className="p-4 rounded-2xl lg:text-center ml-16 lg:ml-0 bg-gray-50 border border-gray-100 group-hover:bg-white group-hover:shadow-lg group-hover:border-blue-600/20 transition-all duration-300">
+                  <h3 className="font-display font-semibold text-slate-900 mb-2 text-sm">{step.title}</h3>
+                  <p className="text-[13px] text-blue-600 leading-relaxed">{step.desc}</p>
                 </div>
               </ScrollReveal>
             ))}

@@ -1,5 +1,4 @@
 import { ScrollReveal } from '@/components/ui/scroll-reveal'
-import { Button } from '@/components/ui/button'
 import { Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -54,10 +53,10 @@ export function Pricing() {
       <div className="container max-w-[1200px] mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-brand-text mb-6">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl mb-6">
               Planos & Investimento
             </h2>
-            <p className="text-lg text-brand-gray">
+            <p className="text-sm leading-7 text-blue-600 sm:text-base">
               Transparência desde o primeiro contato. Escolha o plano ideal para o momento do seu
               projeto.
             </p>
@@ -76,20 +75,20 @@ export function Pricing() {
                 className={cn(
                   'glass-card rounded-[2.5rem] p-8 md:p-10 relative flex flex-col h-full transition-transform hover:-translate-y-2 duration-300',
                   plan.popular
-                    ? 'border-brand-blue bg-white shadow-[0_20px_60px_-15px_rgba(37,99,235,0.15)] ring-1 ring-brand-blue'
+                    ? 'border-blue-600 bg-white shadow-[0_20px_60px_-15px_rgba(37,99,235,0.15)] ring-1 ring-blue-600'
                     : 'bg-white border-gray-100',
                 )}
               >
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-blue text-white text-[11px] font-bold uppercase tracking-[0.2em] py-2 px-6 rounded-full shadow-md">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[11px] font-bold uppercase tracking-[0.2em] py-2 px-6 rounded-full shadow-md">
                     Mais Escolhido
                   </div>
                 )}
 
-                <h3 className="text-2xl font-bold text-brand-text mb-2">{plan.name}</h3>
-                <p className="text-sm text-brand-gray mb-6 min-h-[40px]">{plan.desc}</p>
+                <h3 className="font-display text-2xl font-bold text-slate-950 mb-2">{plan.name}</h3>
+                <p className="text-sm text-blue-600 mb-6 min-h-[40px]">{plan.desc}</p>
 
-                <div className="text-3xl md:text-4xl font-extrabold text-brand-text mb-8 pb-8 border-b border-gray-100">
+                <div className="font-display text-3xl md:text-4xl font-extrabold text-slate-950 mb-8 pb-8 border-b border-gray-100">
                   {plan.price}
                 </div>
 
@@ -100,29 +99,28 @@ export function Pricing() {
                         className={cn(
                           'p-1 rounded-full shrink-0',
                           plan.popular
-                            ? 'bg-brand-blue/10 text-brand-blue'
-                            : 'bg-gray-100 text-brand-gray',
+                            ? 'bg-blue-600/10 text-blue-600'
+                            : 'bg-gray-100 text-slate-500',
                         )}
                       >
                         <Check className="w-3.5 h-3.5" strokeWidth={3} />
                       </div>
-                      <span className="text-brand-text font-medium">{feat}</span>
+                      <span className="text-slate-700 font-medium">{feat}</span>
                     </li>
                   ))}
                 </ul>
 
-                <Button
-                  variant={plan.popular ? 'default' : 'outline'}
+                <a
+                  href="#contato"
                   className={cn(
-                    'w-full rounded-full h-14 text-base font-semibold',
+                    'w-full inline-flex justify-center items-center h-11 px-6 text-sm font-semibold rounded-full transition-colors',
                     plan.popular
-                      ? 'bg-brand-blue hover:bg-brand-deepBlue text-white shadow-lg shadow-brand-blue/20'
-                      : 'border-brand-copper/30 text-brand-text hover:bg-brand-copper/5',
+                      ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg'
+                      : 'border border-slate-200 bg-white text-slate-900 hover:bg-slate-50',
                   )}
-                  asChild
                 >
-                  <a href="#contato">{plan.button}</a>
-                </Button>
+                  {plan.button}
+                </a>
               </div>
             </ScrollReveal>
           ))}

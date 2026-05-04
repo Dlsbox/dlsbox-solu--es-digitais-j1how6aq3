@@ -53,10 +53,10 @@ export function ProductCarousel() {
       <div className="container max-w-[1400px] mx-auto px-6 mb-12">
         <ScrollReveal>
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-brand-text mb-4">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl mb-4">
               Explore a experiência antes mesmo de construir.
             </h2>
-            <p className="text-brand-gray text-lg">
+            <p className="text-sm leading-7 text-blue-600 sm:text-base">
               Use o carrossel para apresentar telas, funcionalidades, módulos ou cases de sucesso.
             </p>
           </div>
@@ -78,7 +78,7 @@ export function ProductCarousel() {
                 <div
                   className={cn(
                     'glass-card rounded-[2rem] overflow-hidden p-2 bg-white transition-shadow duration-500',
-                    selectedIndex === i ? 'shadow-xl shadow-brand-blue/5 border-brand-blue/20' : '',
+                    selectedIndex === i ? 'shadow-xl shadow-blue-600/5 border-blue-600/20' : '',
                   )}
                 >
                   <div className="relative rounded-[1.5rem] overflow-hidden aspect-[4/3] md:aspect-[16/10]">
@@ -87,8 +87,8 @@ export function ProductCarousel() {
                       alt={screen.title}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-text/90 via-brand-text/20 to-transparent flex items-end p-6 md:p-10">
-                      <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-6 md:p-10">
+                      <h3 className="font-display text-2xl md:text-3xl font-bold text-white tracking-tight">
                         {screen.title}
                       </h3>
                     </div>
@@ -102,7 +102,7 @@ export function ProductCarousel() {
         <div className="flex justify-center items-center gap-6 mt-8">
           <button
             onClick={scrollPrev}
-            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 text-brand-text transition-colors"
+            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 text-slate-900 transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -113,7 +113,7 @@ export function ProductCarousel() {
                 onClick={() => emblaApi?.scrollTo(i)}
                 className={cn(
                   'h-2.5 rounded-full transition-all duration-300',
-                  selectedIndex === i ? 'w-8 bg-brand-blue' : 'w-2.5 bg-gray-200',
+                  selectedIndex === i ? 'w-8 bg-blue-600' : 'w-2.5 bg-gray-200',
                 )}
                 aria-label={`Ir para o slide ${i + 1}`}
               />
@@ -121,7 +121,7 @@ export function ProductCarousel() {
           </div>
           <button
             onClick={scrollNext}
-            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 text-brand-text transition-colors"
+            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 text-slate-900 transition-colors"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

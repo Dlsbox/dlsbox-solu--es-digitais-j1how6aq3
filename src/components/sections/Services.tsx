@@ -1,5 +1,6 @@
 import { ArrowRight, Layers, Sparkles, Workflow } from 'lucide-react'
 import { motion, type Variants } from 'framer-motion'
+import { PrimaryButton, SecondaryButtonLight } from '@/components/ui/cta-button'
 
 const solutions = [
   {
@@ -24,54 +25,28 @@ const sectionVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.7,
-      ease: 'easeOut',
-
-    },
+    transition: { duration: 0.7, ease: 'easeOut' },
   },
 }
 
 const headingVariants: Variants = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
+  visible: { transition: { staggerChildren: 0.1 } },
 }
 
 const headingItemVariants: Variants = {
   hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: 'easeOut' },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 }
 
 const cardsVariants: Variants = {
   hidden: {},
-  visible: {
-    transition: {
-      delayChildren: 0.16,
-      staggerChildren: 0.12,
-    },
-  },
+  visible: { transition: { delayChildren: 0.16, staggerChildren: 0.12 } },
 }
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20, scale: 0.98 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.55, ease: 'easeOut' },
-  },
-}
-
-const scrollToSection = (href: string) => {
-  document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.55, ease: 'easeOut' } },
 }
 
 export function Services() {
@@ -84,7 +59,6 @@ export function Services() {
       whileInView="visible"
       viewport={{ once: true, amount: 0.25 }}
     >
-
       <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
         <motion.div
           className="mx-auto max-w-3xl text-center"
@@ -95,14 +69,14 @@ export function Services() {
         >
           <motion.span
             variants={headingItemVariants}
-            className="inline-flex items-center rounded-full border border-sky-400/40 bg-sky-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-sky-600"
+            className="inline-flex items-center rounded-full border border-blue-500/30 bg-blue-50 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-blue-600"
           >
             O que construímos
           </motion.span>
 
           <motion.h2
             variants={headingItemVariants}
-            className="mt-6 font-display text-4xl font-extrabold tracking-tight text-[#07111f] sm:text-5xl lg:text-6xl"
+            className="mt-5 font-display text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl"
           >
             Produtos digitais prontos para operar e{' '}
             <span className="bg-gradient-to-r from-sky-500 via-blue-600 to-amber-500 bg-clip-text text-transparent">
@@ -112,7 +86,7 @@ export function Services() {
 
           <motion.p
             variants={headingItemVariants}
-            className="mx-auto mt-5 max-w-2xl text-base font-semibold leading-7 text-slate-600 sm:text-lg"
+            className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-blue-600 sm:text-base"
           >
             Apps, SaaS e plataformas com design, automação e visão de negócio.
           </motion.p>
@@ -127,7 +101,6 @@ export function Services() {
         >
           {solutions.map((solution) => {
             const Icon = solution.icon
-
             return (
               <motion.article
                 key={solution.title}
@@ -145,10 +118,10 @@ export function Services() {
                   <Icon className="h-6 w-6" />
                 </div>
 
-                <h3 className="relative mt-7 text-2xl font-bold tracking-tight text-white">
+                <h3 className="relative mt-6 font-display text-lg font-semibold tracking-tight text-white">
                   {solution.title}
                 </h3>
-                <p className="relative mt-3 text-[15px] font-semibold leading-7 text-slate-100">
+                <p className="relative mt-2 text-sm leading-6 text-blue-300">
                   {solution.description}
                 </p>
               </motion.article>
@@ -157,29 +130,20 @@ export function Services() {
         </motion.div>
 
         <motion.div
-          className="mt-10 flex flex-col justify-center gap-3 sm:flex-row"
+          className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
           variants={headingItemVariants}
         >
-          <motion.button
-            type="button"
-            onClick={() => scrollToSection('#projetos')}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-sky-200/40 bg-sky-500 px-5 py-2.5 text-sm font-bold text-white shadow-[0_16px_42px_rgba(14,165,233,0.28)] backdrop-blur-md transition-colors duration-200 hover:border-sky-100/70 hover:bg-sky-400"
-          >
+          <PrimaryButton href="#projetos">
             Conhecer soluções
             <ArrowRight className="h-4 w-4" />
-          </motion.button>
+          </PrimaryButton>
 
-          <motion.button
-            type="button"
-            onClick={() => scrollToSection('#contato')}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center justify-center rounded-full border border-slate-700/20 bg-slate-900/[0.06] px-5 py-2.5 text-sm font-bold text-slate-800 shadow-sm transition-colors duration-200 hover:border-blue-400/30 hover:bg-slate-900/[0.10]"
+          <SecondaryButtonLight
+            href="https://wa.me/447858632888?text=Olá,%20vim%20pelo%20site%20da%20DLSBox.%20Quero%20falar%20sobre%20um%20projeto%20digital."
+            external
           >
             Falar com a DLSBox
-          </motion.button>
+          </SecondaryButtonLight>
         </motion.div>
       </div>
     </motion.section>

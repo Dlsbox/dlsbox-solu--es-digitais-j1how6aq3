@@ -350,21 +350,15 @@ export function Hero() {
       >
         <div className="max-w-[760px]">
           <h1
-            className="hero-title m-0 text-[clamp(42px,13vw,64px)] font-[750] leading-[0.94] tracking-[-0.055em] text-white md:text-[clamp(52px,7vw,96px)] md:leading-[0.92]"
-            style={{
-              fontFamily: '"Sora", "Manrope", "Plus Jakarta Sans", system-ui, sans-serif',
-              textShadow: '0 10px 30px rgba(0,0,0,0.35)',
-            }}
+            className="hero-title m-0 font-display text-[clamp(28px,9.5vw,64px)] font-extrabold leading-[0.94] tracking-tight text-white md:text-[clamp(52px,7vw,96px)] md:leading-[0.92]"
+            style={{ textShadow: '0 10px 30px rgba(0,0,0,0.35)' }}
           >
             <span className="hero-line block opacity-0 will-change-[transform,opacity,filter]">
               Desenvolvimento digital
             </span>
             <span
               className="hero-line hero-premium block font-display font-semibold italic text-[#60a5fa] opacity-0 will-change-[transform,opacity,filter]"
-              style={{
-                fontFamily: '"Playfair Display", "Cormorant Garamond", serif',
-                textShadow: '0 0 26px rgba(96,165,250,0.22)',
-              }}
+              style={{ textShadow: '0 0 26px rgba(96,165,250,0.22)' }}
             >
               premium
             </span>
@@ -374,32 +368,25 @@ export function Hero() {
           </h1>
 
           <p
-            className="hero-description mt-6 max-w-[560px] text-base font-semibold leading-[1.75] text-[#60a5fa] opacity-0 will-change-[transform,opacity,filter]"
-            style={{
-              fontFamily: '"Inter", "Plus Jakarta Sans", system-ui, sans-serif',
-              textShadow: '0 8px 24px rgba(0,0,0,0.28)',
-            }}
+            className="hero-description mt-6 max-w-[560px] text-base font-medium leading-7 text-blue-300 opacity-0 will-change-[transform,opacity,filter]"
           >
             {typedText}
             <span className="animate-pulse">|</span>
           </p>
 
-          <div
-            className="hero-actions mt-8 flex flex-col gap-3 sm:flex-row"
-            style={{ fontFamily: '"Inter", "Plus Jakarta Sans", system-ui, sans-serif' }}
-          >
+          <div className="hero-actions mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="https://wa.me/447858632888"
+              href="https://wa.me/447858632888?text=Olá,%20vim%20pelo%20site%20da%20DLSBox.%20Quero%20falar%20sobre%20um%20projeto%20digital."
               target="_blank"
               rel="noopener noreferrer"
-              className="btn inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 font-semibold text-white opacity-0 shadow-[0_8px_28px_rgba(37,99,235,0.34)] transition-all duration-200 will-change-[transform,opacity] hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-[0_12px_34px_rgba(37,99,235,0.46)]"
+              className="btn inline-flex h-11 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-blue-600 px-6 text-sm font-semibold text-white opacity-0 shadow-lg shadow-blue-600/20 transition-all duration-300 will-change-[transform,opacity] hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-blue-500/30 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
             >
               Falar sobre meu projeto
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
-              href="mailto:contact@dlsbox.com"
-              className="btn inline-flex items-center justify-center rounded-full border border-white/22 bg-white/[0.08] px-7 py-3.5 font-semibold text-white opacity-0 shadow-[0_8px_28px_rgba(0,0,0,0.16)] backdrop-blur-md transition-all duration-200 will-change-[transform,opacity] hover:-translate-y-0.5 hover:bg-white/14"
+              href="#servicos"
+              className="btn inline-flex h-11 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/15 bg-white/10 px-6 text-sm font-semibold text-white opacity-0 backdrop-blur-md transition-all duration-300 will-change-[transform,opacity] hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/15 active:translate-y-0"
             >
               Ver soluções agora
             </a>
