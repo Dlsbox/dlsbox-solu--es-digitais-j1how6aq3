@@ -1,6 +1,6 @@
-# Projeto Criado com o Skip
+# DLS Box Solucoes Digitais
 
-Este projeto foi criado de ponta a ponta com o [Skip](https://goskip.dev).
+Landing page da DLS Box, criada com React, Vite, TypeScript, Tailwind CSS e Supabase.
 
 ## 🚀 Stack Tecnológica
 
@@ -17,12 +17,12 @@ Este projeto foi criado de ponta a ponta com o [Skip](https://goskip.dev).
 ## 📋 Pré-requisitos
 
 - Node.js 18+
-- npm
+- pnpm
 
 ## 🔧 Instalação
 
 ```bash
-npm install
+pnpm install
 ```
 
 ## 💻 Scripts Disponíveis
@@ -31,9 +31,9 @@ npm install
 
 ```bash
 # Iniciar servidor de desenvolvimento
-npm start
+pnpm start
 # ou
-npm run dev
+pnpm run dev
 ```
 
 Abre a aplicação em modo de desenvolvimento em [http://localhost:5173](http://localhost:5173).
@@ -42,10 +42,10 @@ Abre a aplicação em modo de desenvolvimento em [http://localhost:5173](http://
 
 ```bash
 # Build para produção
-npm run build
+pnpm run build
 
 # Build para desenvolvimento
-npm run build:dev
+pnpm run build:dev
 ```
 
 Gera os arquivos otimizados para produção na pasta `dist/`.
@@ -54,7 +54,7 @@ Gera os arquivos otimizados para produção na pasta `dist/`.
 
 ```bash
 # Visualizar build de produção localmente
-npm run preview
+pnpm run preview
 ```
 
 Permite visualizar a build de produção localmente antes do deploy.
@@ -63,13 +63,13 @@ Permite visualizar a build de produção localmente antes do deploy.
 
 ```bash
 # Executar linter
-npm run lint
+pnpm run lint
 
 # Executar linter e corrigir problemas automaticamente
-npm run lint:fix
+pnpm run lint:fix
 
 # Formatar código com Oxfmt
-npm run format
+pnpm run format
 ```
 
 ## 📁 Estrutura do Projeto
@@ -112,20 +112,20 @@ Este template inclui uma biblioteca completa de componentes Shadcn UI baseados e
 
 ## 🔄 Workflow de Desenvolvimento
 
-1. Instale as dependências: `npm install`
-2. Inicie o servidor de desenvolvimento: `npm start`
+1. Instale as dependências: `pnpm install`
+2. Inicie o servidor de desenvolvimento: `pnpm start`
 3. Faça suas alterações
-4. Verifique o código: `npm run lint`
-5. Formate o código: `npm run format`
-6. Crie a build: `npm run build`
-7. Visualize a build: `npm run preview`
+4. Verifique o código: `pnpm run lint`
+5. Formate o código: `pnpm run format`
+6. Crie a build: `pnpm run build`
+7. Visualize a build: `pnpm run preview`
 
 ## 📦 Build e Deploy
 
 Para criar uma build otimizada para produção:
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 Os arquivos otimizados serão gerados na pasta `dist/` e estarão prontos para deploy.

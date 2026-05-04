@@ -12,6 +12,7 @@ dist
 dist-ssr
 dev-dist
 dev-dist-ssr
+package-lock.json
 *.local
 .pnpm-store
 .pnpm

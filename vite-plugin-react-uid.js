@@ -22,7 +22,7 @@ function getLineColumn(offsets, index) {
   return { line: lo + 1, column: index - offsets[lo] + 1 }
 }
 
-// Skip metadata/position keys that are never AST children — everything else is traversed.
+// Ignore metadata/position keys that are never AST children — everything else is traversed.
 const SKIP_KEYS = new Set([
   'type',
   'start',
