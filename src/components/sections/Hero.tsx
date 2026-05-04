@@ -200,7 +200,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="hero-description mt-6 max-w-[560px] text-base leading-[1.75] text-amber-700 opacity-0 will-change-[transform,opacity,filter]"
+            className="hero-description mt-6 max-w-[560px] text-base font-semibold leading-[1.75] text-[#60a5fa] opacity-0 will-change-[transform,opacity,filter]"
             style={{
               fontFamily: '"Inter", "Plus Jakarta Sans", system-ui, sans-serif',
               textShadow: '0 8px 24px rgba(0,0,0,0.28)',
