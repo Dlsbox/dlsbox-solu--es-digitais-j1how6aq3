@@ -27,7 +27,7 @@ const sectionVariants: Variants = {
     transition: {
       duration: 0.7,
       ease: 'easeOut',
-      when: 'beforeChildren',
+
     },
   },
 }
@@ -78,39 +78,41 @@ export function Services() {
   return (
     <motion.section
       id="servicos"
-      className="relative isolate overflow-hidden bg-[#07111f] py-24 text-white shadow-[0_34px_90px_rgba(7,17,31,0.24)]"
+      className="relative isolate overflow-hidden py-24"
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.25 }}
     >
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_16%_18%,rgba(37,99,235,0.34),transparent_30%),radial-gradient(circle_at_82%_12%,rgba(217,119,6,0.22),transparent_26%),linear-gradient(180deg,#07111f_0%,#0b1727_54%,#07111f_100%)]" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:42px_42px] opacity-35" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-sky-300/70 to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-px bg-gradient-to-r from-transparent via-amber-500/55 to-transparent" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
-        <motion.div className="mx-auto max-w-3xl text-center" variants={headingVariants}>
+        <motion.div
+          className="mx-auto max-w-3xl text-center"
+          variants={headingVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <motion.span
             variants={headingItemVariants}
-            className="inline-flex items-center rounded-full border border-sky-300/50 bg-sky-400/12 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-sky-100 shadow-[0_0_32px_rgba(56,189,248,0.22)] backdrop-blur-md"
+            className="inline-flex items-center rounded-full border border-sky-400/40 bg-sky-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.24em] text-sky-600"
           >
             O que construímos
           </motion.span>
 
           <motion.h2
             variants={headingItemVariants}
-            className="mt-6 font-display text-4xl font-extrabold tracking-tight text-white drop-shadow-[0_16px_40px_rgba(0,0,0,0.42)] sm:text-5xl lg:text-6xl"
+            className="mt-6 font-display text-4xl font-extrabold tracking-tight text-[#07111f] sm:text-5xl lg:text-6xl"
           >
             Produtos digitais prontos para operar e{' '}
-            <span className="bg-gradient-to-r from-sky-300 via-white to-amber-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-sky-500 via-blue-600 to-amber-500 bg-clip-text text-transparent">
               crescer.
             </span>
           </motion.h2>
 
           <motion.p
             variants={headingItemVariants}
-            className="mx-auto mt-5 max-w-2xl text-base font-semibold leading-7 text-slate-100 drop-shadow-[0_8px_24px_rgba(0,0,0,0.4)] sm:text-lg"
+            className="mx-auto mt-5 max-w-2xl text-base font-semibold leading-7 text-slate-600 sm:text-lg"
           >
             Apps, SaaS e plataformas com design, automação e visão de negócio.
           </motion.p>
@@ -119,6 +121,9 @@ export function Services() {
         <motion.div
           className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3"
           variants={cardsVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
         >
           {solutions.map((solution) => {
             const Icon = solution.icon
@@ -129,7 +134,7 @@ export function Services() {
                 variants={cardVariants}
                 whileHover={{ y: -5, scale: 1.01 }}
                 transition={{ duration: 0.22, ease: 'easeOut' }}
-                className="group relative min-h-[240px] overflow-hidden rounded-2xl border border-white/18 bg-white/[0.075] p-6 shadow-[0_22px_70px_rgba(0,0,0,0.34)] backdrop-blur-xl transition-all duration-300 hover:border-sky-300/65 hover:bg-white/[0.105] hover:shadow-[0_28px_80px_rgba(14,165,233,0.22)]"
+                className="group relative min-h-[240px] overflow-hidden rounded-2xl border border-white/10 bg-[#07111f] p-6 shadow-[0_20px_60px_rgba(7,17,31,0.22),0_4px_16px_rgba(7,17,31,0.12)] transition-all duration-300 hover:border-sky-300/50 hover:shadow-[0_32px_80px_rgba(7,17,31,0.28),0_0_40px_rgba(14,165,233,0.16)]"
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-200/80 to-transparent opacity-90" />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.16] via-white/[0.03] to-amber-500/[0.08] opacity-90" />
@@ -171,7 +176,7 @@ export function Services() {
             onClick={() => scrollToSection('#contato')}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center justify-center rounded-full border border-white/22 bg-white/[0.08] px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-black/10 backdrop-blur-md transition-colors duration-200 hover:border-amber-200/45 hover:bg-white/[0.13]"
+            className="inline-flex items-center justify-center rounded-full border border-slate-700/20 bg-slate-900/[0.06] px-5 py-2.5 text-sm font-bold text-slate-800 shadow-sm transition-colors duration-200 hover:border-blue-400/30 hover:bg-slate-900/[0.10]"
           >
             Falar com a DLSBox
           </motion.button>

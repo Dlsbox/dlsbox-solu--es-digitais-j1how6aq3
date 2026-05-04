@@ -142,7 +142,7 @@ export function Header() {
                 fontSize: isScrolled ? '1.125rem' : '1.25rem',
               }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="font-bold tracking-tight"
+              className="font-display font-bold tracking-tight"
             >
               DLSBox
             </motion.span>
@@ -153,7 +153,7 @@ export function Header() {
               }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
               className={cn(
-                'mt-1 font-semibold uppercase tracking-[0.22em]',
+                'mt-1 font-display font-semibold uppercase tracking-[0.22em]',
                 isScrolled ? 'text-slate-500' : 'text-white/72',
               )}
             >
