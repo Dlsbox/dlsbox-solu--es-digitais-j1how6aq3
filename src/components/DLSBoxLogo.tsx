@@ -5,16 +5,17 @@ type DLSBoxLogoProps = {
   width?: number | string
   showSubtitle?: boolean
   className?: string
+  cubeSize?: number
 }
 
-export default function DLSBoxLogo({ width, showSubtitle = true, className }: DLSBoxLogoProps) {
+export default function DLSBoxLogo({ width, showSubtitle = true, className, cubeSize = 400 }: DLSBoxLogoProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [scale, setScale] = useState(1)
 
   useEffect(() => {
     const observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
-        setScale(entry.contentRect.width / 520)
+        setScale(entry.contentRect.width / canvasWidth)
       }
     })
 
@@ -26,14 +27,18 @@ export default function DLSBoxLogo({ width, showSubtitle = true, className }: DL
   }, [])
 
   const isDefault = width === undefined
+  const cs = cubeSize
+  const r = cs / 240
+  const containerSize = Math.round(280 * r)
+  const canvasWidth = containerSize + 240
 
   return (
     <div
       ref={containerRef}
       style={{
         width: width || '100%',
-        maxWidth: isDefault ? '520px' : 'none',
-        aspectRatio: showSubtitle ? '520/180' : '520/140',
+        maxWidth: isDefault ? `${canvasWidth}px` : 'none',
+        aspectRatio: showSubtitle ? `${canvasWidth}/180` : `${canvasWidth}/140`,
       }}
       className={cn(
         'relative overflow-visible',
@@ -47,24 +52,65 @@ export default function DLSBoxLogo({ width, showSubtitle = true, className }: DL
         style={{
           transform: `scale(${scale})`,
           transformOrigin: 'top left',
-          width: 520,
+          width: canvasWidth,
           height: showSubtitle ? 180 : 140,
         }}
         className="absolute inset-0 flex items-center select-none pointer-events-none"
       >
         {/* Glows Ambientais */}
-        <div className="absolute left-[30px] w-[200px] h-[200px] rounded-full bg-[radial-gradient(circle,rgba(29,117,203,0.18)_0%,rgba(29,117,203,0.05)_42%,rgba(0,0,0,0)_75%)] blur-[20px] z-0 animate-ambient-glow" />
-        <div className="absolute left-[20px] bottom-[-10px] w-[180px] h-[36px] rounded-full bg-[radial-gradient(circle,rgba(0,0,0,0.18)_0%,rgba(0,0,0,0.06)_55%,rgba(0,0,0,0)_100%)] blur-[10px] z-0" />
-        <div className="absolute left-[30px] bottom-[5px] w-[160px] h-[65px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.82)_0%,rgba(37,99,235,0.26)_38%,rgba(37,99,235,0.05)_72%,rgba(0,0,0,0)_100%)] blur-[18px] z-0 animate-floor-glow" />
+        <div
+          className="absolute rounded-full blur-[20px] z-0 animate-ambient-glow"
+          style={{
+            left: Math.round(30 * r),
+            width: Math.round(200 * r),
+            height: Math.round(200 * r),
+            background:
+              'radial-gradient(circle,rgba(29,117,203,0.18) 0%,rgba(29,117,203,0.05) 42%,rgba(0,0,0,0) 75%)',
+          }}
+        />
+        <div
+          className="absolute rounded-full blur-[10px] z-0"
+          style={{
+            left: Math.round(20 * r),
+            bottom: Math.round(-10 * r),
+            width: Math.round(180 * r),
+            height: Math.round(36 * r),
+            background:
+              'radial-gradient(circle,rgba(0,0,0,0.18) 0%,rgba(0,0,0,0.06) 55%,rgba(0,0,0,0) 100%)',
+          }}
+        />
+        <div
+          className="absolute rounded-full blur-[18px] z-0 animate-floor-glow"
+          style={{
+            left: Math.round(30 * r),
+            bottom: Math.round(5 * r),
+            width: Math.round(160 * r),
+            height: Math.round(65 * r),
+            background:
+              'radial-gradient(circle,rgba(37,99,235,0.82) 0%,rgba(37,99,235,0.26) 38%,rgba(37,99,235,0.05) 72%,rgba(0,0,0,0) 100%)',
+          }}
+        />
 
         {/* Palco do Cubo 3D */}
-        <div className="relative w-[280px] h-[280px] flex items-center justify-center [perspective:1200px] z-10 -ml-3">
-          <div className="relative w-[240px] h-[240px] [transform-style:preserve-3d] animate-cube-wrap">
+        <div
+          className="relative flex items-center justify-center z-10 -ml-3"
+          style={{
+            width: containerSize,
+            height: containerSize,
+            perspective: `${Math.round(1200 * r)}px`,
+          }}
+        >
+          <div
+            className="relative [transform-style:preserve-3d] animate-cube-wrap"
+            style={{ width: cs, height: cs }}
+          >
             <div className="relative w-full h-full [transform-style:preserve-3d] animate-cube-spin">
               {/* Face Traseira Interna */}
               <div
-                className="absolute w-[240px] h-[240px] rounded-[4px] overflow-hidden [backface-visibility:hidden]"
+                className="absolute rounded-[4px] overflow-hidden [backface-visibility:hidden]"
                 style={{
+                  width: cs,
+                  height: cs,
                   transform: 'translateZ(0px) scale(0.96)',
                   background: 'linear-gradient(145deg, rgba(20,20,24,0.95), rgba(8,8,10,0.92))',
                   boxShadow:
@@ -76,8 +122,10 @@ export default function DLSBoxLogo({ width, showSubtitle = true, className }: DL
 
               {/* Face do Topo */}
               <div
-                className="absolute w-[240px] h-[240px] rounded-[4px] overflow-hidden [backface-visibility:hidden] animate-face-top z-[3]"
+                className="absolute rounded-[4px] overflow-hidden [backface-visibility:hidden] animate-face-top z-[3]"
                 style={{
+                  width: cs,
+                  height: cs,
                   background: 'linear-gradient(145deg, #ffffff 0%, #ededed 58%, #d2d2d2 100%)',
                   boxShadow:
                     'inset 0 0 0 1px rgba(255,255,255,0.18), inset 0 1px 10px rgba(255,255,255,0.10), 0 12px 25px rgba(0,0,0,0.22)',
@@ -88,8 +136,10 @@ export default function DLSBoxLogo({ width, showSubtitle = true, className }: DL
 
               {/* Face Azul */}
               <div
-                className="absolute w-[240px] h-[240px] rounded-[4px] overflow-hidden [backface-visibility:hidden] animate-face-blue z-[2]"
+                className="absolute rounded-[4px] overflow-hidden [backface-visibility:hidden] animate-face-blue z-[2]"
                 style={{
+                  width: cs,
+                  height: cs,
                   background: 'linear-gradient(145deg, #1d75cb 0%, #0c5aa6 55%, #083a71 100%)',
                   boxShadow:
                     'inset 0 0 0 1px rgba(255,255,255,0.18), inset 0 1px 10px rgba(255,255,255,0.10), 0 12px 25px rgba(0,0,0,0.22)',
@@ -100,8 +150,10 @@ export default function DLSBoxLogo({ width, showSubtitle = true, className }: DL
 
               {/* Face Marrom */}
               <div
-                className="absolute w-[240px] h-[240px] rounded-[4px] overflow-hidden [backface-visibility:hidden] animate-face-brown z-[1]"
+                className="absolute rounded-[4px] overflow-hidden [backface-visibility:hidden] animate-face-brown z-[1]"
                 style={{
+                  width: cs,
+                  height: cs,
                   background: 'linear-gradient(145deg, #b77f4d 0%, #8a5428 55%, #4f2f19 100%)',
                   boxShadow:
                     'inset 0 0 0 1px rgba(255,255,255,0.18), inset 0 1px 10px rgba(255,255,255,0.10), 0 12px 25px rgba(0,0,0,0.22)',
@@ -111,9 +163,30 @@ export default function DLSBoxLogo({ width, showSubtitle = true, className }: DL
               </div>
 
               {/* Arestas Iluminadas */}
-              <div className="absolute w-[225px] h-[1.5px] top-[54px] left-[18px] -rotate-[27deg] bg-[linear-gradient(90deg,rgba(255,255,255,0.38),rgba(255,255,255,0.06))] blur-[0.3px] z-[5] animate-edge-in" />
-              <div className="absolute w-[207px] h-[1.5px] top-[55.5px] left-[60px] rotate-[27deg] bg-[linear-gradient(90deg,rgba(255,255,255,0.28),rgba(255,255,255,0.04))] blur-[0.3px] z-[5] animate-edge-in" />
-              <div className="absolute w-[1.5px] h-[189px] top-[63px] left-[189px] bg-[linear-gradient(180deg,rgba(255,255,255,0.22),rgba(0,0,0,0.16))] blur-[0.3px] z-[5] animate-edge-in" />
+              <div
+                className="absolute h-[1.5px] -rotate-[27deg] bg-[linear-gradient(90deg,rgba(255,255,255,0.38),rgba(255,255,255,0.06))] blur-[0.3px] z-[5] animate-edge-in"
+                style={{
+                  width: Math.round(225 * r),
+                  top: Math.round(54 * r),
+                  left: Math.round(18 * r),
+                }}
+              />
+              <div
+                className="absolute h-[1.5px] rotate-[27deg] bg-[linear-gradient(90deg,rgba(255,255,255,0.28),rgba(255,255,255,0.04))] blur-[0.3px] z-[5] animate-edge-in"
+                style={{
+                  width: Math.round(207 * r),
+                  top: Math.round(55.5 * r),
+                  left: Math.round(60 * r),
+                }}
+              />
+              <div
+                className="absolute w-[1.5px] bg-[linear-gradient(180deg,rgba(255,255,255,0.22),rgba(0,0,0,0.16))] blur-[0.3px] z-[5] animate-edge-in"
+                style={{
+                  height: Math.round(189 * r),
+                  top: Math.round(63 * r),
+                  left: Math.round(189 * r),
+                }}
+              />
             </div>
           </div>
         </div>

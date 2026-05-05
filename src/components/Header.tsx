@@ -1,21 +1,8 @@
-import { useState, useEffect, MouseEvent } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X, MessageCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
-
-type ViewTransitionDocument = Document & {
-  startViewTransition?: (
-    options:
-      | (() => void)
-      | {
-          update: () => void
-          types?: string[]
-        },
-  ) => {
-    ready: Promise<void>
-    finished: Promise<void>
-  }
-}
+import { useViewTransitionNav } from '@/hooks/useViewTransitionNav'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -52,50 +39,11 @@ export function Header() {
     { href: '#contato', label: 'Contato', id: 'contato' },
   ]
 
-  const scrollToSection = (href: string) => {
+  const { handleSectionClick } = useViewTransitionNav()
+
+  const handleMobileNavClick = (event: React.MouseEvent<HTMLElement>, href: string) => {
     setMobileMenuOpen(false)
-
-    const element = document.querySelector(href)
-
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }
-
-  const handleNavClick = (href: string) => {
-    const supportsViewTransition =
-      typeof document !== 'undefined' &&
-      'startViewTransition' in document &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const transitionDocument = document as ViewTransitionDocument
-
-    if (supportsViewTransition && transitionDocument.startViewTransition) {
-      document.documentElement.style.viewTransitionName = 'root'
-
-      const transition = transitionDocument.startViewTransition({
-        update: () => {
-          scrollToSection(href)
-        },
-        types: ['circular-wipe'],
-      })
-
-      transition.finished.finally(() => {
-        document.documentElement.style.viewTransitionName = ''
-      })
-
-      return
-    }
-
-    scrollToSection(href)
-  }
-
-  const handleNavClickWithTransition = (event: MouseEvent<HTMLElement>, href: string) => {
-    event.preventDefault()
-
-    document.documentElement.style.setProperty('--view-transition-x', `${event.clientX}px`)
-    document.documentElement.style.setProperty('--view-transition-y', `${event.clientY}px`)
-
-    handleNavClick(href)
+    handleSectionClick(event, href)
   }
 
   return (
@@ -125,8 +73,8 @@ export function Header() {
             src="/logo.png"
             alt="DLSBox"
             animate={{
-              width: isScrolled ? 52 : 70,
-              height: isScrolled ? 52 : 70,
+              width: isScrolled ? 150 : 200,
+              height: isScrolled ? 150 : 200,
             }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
             className={cn(
@@ -168,7 +116,7 @@ export function Header() {
             <motion.a
               key={link.href}
               href={link.href}
-              onClick={(e) => handleNavClickWithTransition(e, link.href)}
+              onClick={(e) => handleSectionClick(e, link.href)}
               className={cn(
                 'relative overflow-hidden px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300',
                 activeSection === link.id
@@ -185,7 +133,7 @@ export function Header() {
                 <motion.div
                   layoutId="activeTab"
                   className="absolute inset-0 bg-blue-50 dark:bg-blue-950/50 rounded-lg -z-10"
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                  transition={{ type: 'spring', bounce: 0.1, duration: 1.0 }}
                 />
               )}
             </motion.a>
@@ -253,7 +201,7 @@ export function Header() {
                   <img
                     src="/logo.png"
                     alt="DLSBox"
-                    className="h-12 w-auto object-contain [filter:drop-shadow(0_5px_14px_rgba(15,20,27,0.24))]"
+                    className="h-40 w-auto object-contain [filter:drop-shadow(0_5px_14px_rgba(15,20,27,0.24))]"
                   />
                   <button
                     onClick={() => setMobileMenuOpen(false)}
@@ -270,7 +218,7 @@ export function Header() {
                       <motion.a
                         key={link.href}
                         href={link.href}
-                        onClick={(e) => handleNavClickWithTransition(e, link.href)}
+                        onClick={(e) => handleMobileNavClick(e, link.href)}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1, duration: 0.3 }}
@@ -291,7 +239,7 @@ export function Header() {
                 <div className="p-6 border-t border-border">
                   <motion.a
                     href="#contato"
-                    onClick={(e) => handleNavClickWithTransition(e, '#contato')}
+                    onClick={(e) => handleMobileNavClick(e, '#contato')}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.3 }}

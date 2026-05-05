@@ -124,7 +124,7 @@
   html:active-view-transition-type(circular-wipe)::view-transition-new(root),
   ::view-transition-old(root),
   ::view-transition-new(root) {
-    animation-duration: 0.9s;
+    animation-duration: 1.5s;
     animation-timing-function: ease;
     animation-fill-mode: forwards;
     mix-blend-mode: normal;
